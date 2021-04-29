@@ -1,0 +1,25 @@
+title: Identifier
+type: object
+x-tags:
+  - Identifiers
+properties:
+  id:
+    type: string
+    example: 507f191e810c19729de860ea
+    minLength: 1
+    description: Unique identifier
+    readOnly: true
+  type:
+    type: string
+    minLength: 1
+    description: Identifier type.
+  identifier:
+    type: string
+    minLength: 1
+    description: Identifier value.
+  identifierOf:
+    type: string
+    minLength: 1
+    description: Paysage object that owns the identifier.
+    example: 507f191e810c19729de860ea
+    readOnly: true

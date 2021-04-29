@@ -1,0 +1,37 @@
+title: ContactOf
+type: object
+x-tags:
+  - Common
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+    readOnly: true
+  contactType:
+    type: string
+    minLength: 1
+  contact:
+    $ref: ./Person.yaml
+  contactOf:
+    type: string
+    description: Paysage object that owns the contact.
+    readOnly: true
+  contactId:
+    type: string
+    writeOnly: true
+required:
+  - contactType
+  - contact
+  - contactId
+x-examples:
+  example-1:
+    id: string
+    contactType: string
+    contact:
+      id: string
+      firstName: string
+      lastName: string
+      email: string
+      gender: F
+      activity: string
+    contactOf: string

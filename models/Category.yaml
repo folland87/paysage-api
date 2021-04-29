@@ -1,0 +1,16 @@
+title: Category
+type: object
+x-tags:
+  - Categories
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+    minLength: 1
+    readOnly: true
+  name:
+    type: string
+    description: Name of the category
+    minLength: 1
+required:
+  - name

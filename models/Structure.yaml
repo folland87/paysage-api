@@ -1,0 +1,49 @@
+description: ''
+type: object
+title: Structure
+properties:
+  id:
+    type: string
+    minLength: 1
+    readOnly: true
+  name:
+    type: string
+    minLength: 1
+  acronym:
+    type: string
+    minLength: 1
+  lastUpdate:
+    type: string
+    minLength: 1
+  creationDate:
+    type: string
+    minLength: 1
+  legalCategory:
+    type: string
+    minLength: 1
+  isPublicResearch:
+    type: boolean
+  isActive:
+    type: boolean
+  originatedFrom:
+    type: string
+    minLength: 1
+  nameEn:
+    type: string
+    minLength: 1
+  nameAlternatives:
+    type: array
+    uniqueItems: true
+    items:
+      type: string
+      minLength: 1
+required:
+  - id
+  - name
+  - acronym
+  - lastUpdate
+  - creationDate
+  - legalCategory
+  - isPublicResearch
+  - isActive
+  - originatedFrom

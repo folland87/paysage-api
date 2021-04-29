@@ -1,0 +1,21 @@
+title: LogoOf
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+    readOnly: true
+  logoOf:
+    type: string
+    description: PaysageObject that owns the logo.
+    readOnly: true
+  isActive:
+    type: string
+    description: True for the current logo.
+    default: 'False'
+  url:
+    type: string
+    description: URL of the logo.
+required:
+  - isActive
+  - url

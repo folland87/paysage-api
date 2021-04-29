@@ -1,0 +1,33 @@
+description: ''
+type: object
+properties:
+  id:
+    type: string
+    minLength: 1
+    readOnly: true
+  firstName:
+    type: string
+    minLength: 1
+  lastName:
+    type: string
+    minLength: 1
+  email:
+    type: string
+    minLength: 1
+  gender:
+    type: string
+    minLength: 1
+    enum:
+      - F
+      - M
+      - U
+  activity:
+    type: string
+    minLength: 1
+required:
+  - id
+  - firstName
+  - lastName
+  - email
+  - gender
+  - activity

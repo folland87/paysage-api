@@ -1,0 +1,5 @@
+title: ContactOf
+type: object
+properties:
+  id:
+    type: string

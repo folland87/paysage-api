@@ -1,0 +1,64 @@
+description: ''
+type: object
+properties:
+  id:
+    type: string
+    minLength: 1
+    readOnly: true
+  main:
+    type: boolean
+  address:
+    type: string
+    minLength: 1
+  gps:
+    type: object
+    required:
+      - lat
+      - lon
+    properties:
+      lat:
+        type: number
+        format: float
+      lon:
+        type: number
+        format: float
+  postcode:
+    type: string
+    minLength: 1
+  city:
+    type: string
+    minLength: 1
+  citycode:
+    type: string
+    minLength: 1
+  urbanUnitCode:
+    type: string
+    minLength: 1
+  urbanUnitLabel:
+    type: string
+    minLength: 1
+  country:
+    type: string
+    minLength: 1
+  provider:
+    type: string
+    minLength: 1
+  score:
+    type: number
+  addressOf:
+    type: string
+    minLength: 1
+    readOnly: true
+required:
+  - id
+  - main
+  - address
+  - gps
+  - postcode
+  - city
+  - citycode
+  - urbanUnitCode
+  - urbanUnitLabel
+  - country
+  - provider
+  - score
