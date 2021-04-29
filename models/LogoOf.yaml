@@ -5,17 +5,25 @@ properties:
     type: string
     description: Unique identifier.
     readOnly: true
-  logoOf:
-    type: string
-    description: PaysageObject that owns the logo.
-    readOnly: true
-  isActive:
+  main:
     type: string
     description: True for the current logo.
     default: 'False'
-  url:
+  fileUrl:
     type: string
     description: URL of the logo.
+  startDate:
+    type: string
+  endDate:
+    type: string
+  startDateApprox:
+    type: string
+  endDateApprox:
+    type: string
+  logoOf:
+    type: string
+  comment:
+    type: string
 required:
-  - isActive
-  - url
+  - main
+  - fileUrl

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: paysage API
+  title: api
   version: '1.0'
   license:
     name: Licence MIT
@@ -14,7 +14,7 @@ servers:
     description: development
   - url: 'https://api.paysage.staging.dataesr.ovh'
     description: staging
-  - url: 'https://api;paysage.dataesr.ovh'
+  - url: 'https://api.paysage.dataesr.ovh'
     description: production
 paths:
   /structures:

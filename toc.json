@@ -1,0 +1,72 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "paysage API",
+      "uri": "api.yaml"
+    },
+    {
+      "type": "divider",
+      "title": "Schemas"
+    },
+    {
+      "type": "item",
+      "title": "AddressOf.yaml",
+      "uri": "models/AddressOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Category",
+      "uri": "models/Category.yaml"
+    },
+    {
+      "type": "item",
+      "title": "ContactOf",
+      "uri": "models/CategoryOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "ContactOf",
+      "uri": "models/ContactOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Error.yaml",
+      "uri": "models/Error.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Identifier",
+      "uri": "models/IdentifierOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "LogoOf",
+      "uri": "models/LogoOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Person.yaml",
+      "uri": "models/Person.yaml"
+    },
+    {
+      "type": "item",
+      "title": "SocialMedia",
+      "uri": "models/SocialMediaOf.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Structure",
+      "uri": "models/Structure.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Weblink",
+      "uri": "models/WeblinkOf.yaml"
+    }
+  ]
+}

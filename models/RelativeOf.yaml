@@ -1,0 +1,38 @@
+title: RelativeOf
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+    readOnly: true
+  relationType:
+    type: string
+    minLength: 1
+    enum:
+      - Child
+      - Predecessor
+      - Participates
+    description: Relation type.
+  relativeOf:
+    type: string
+    description: Id of the structure.
+    readOnly: true
+  relativeId:
+    type: string
+    description: Id of the relative structure
+  relative:
+    $ref: ./Structure.yaml
+  startDate:
+    type: string
+    format: date-time
+  endDate:
+    type: string
+    format: date-time
+  officialDocumentId:
+    type: string
+    writeOnly: true
+  officialDocument:
+    type: object
+required:
+  - relationType
+  - relativeId

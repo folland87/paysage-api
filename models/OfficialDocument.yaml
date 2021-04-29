@@ -1,0 +1,12 @@
+title: OfficialDucument
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+  name:
+    type: string
+  linkUrl:
+    type: string
+  fileUrl:
+    type: string

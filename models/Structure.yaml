@@ -6,44 +6,117 @@ properties:
     type: string
     minLength: 1
     readOnly: true
+  description:
+    type: string
+  creation:
+    type: object
+    properties:
+      creationDate:
+        type: string
+        format: date-time
+      creationDateApprox:
+        type: string
+        pattern: '^[0-9]'
+        minLength: 4
+        maxLength: 4
+      officialDocument:
+        type: string
+        description: Id of the official document.
+      historicalCreationYear:
+        type: string
+      comment:
+        type: string
+      originatedFrom:
+        type: string
+  closure:
+    type: object
+    properties:
+      closureDate:
+        type: string
+      closureDateApprox:
+        type: string
+      officialDocument:
+        type: string
+        description: Id of the official document.
+      comment:
+        type: string
   name:
-    type: string
-    minLength: 1
-  acronym:
-    type: string
-    minLength: 1
-  lastUpdate:
-    type: string
-    minLength: 1
-  creationDate:
-    type: string
-    minLength: 1
-  legalCategory:
-    type: string
-    minLength: 1
-  isPublicResearch:
-    type: boolean
-  isActive:
-    type: boolean
-  originatedFrom:
-    type: string
-    minLength: 1
-  nameEn:
-    type: string
-    minLength: 1
-  nameAlternatives:
     type: array
-    uniqueItems: true
     items:
-      type: string
-      minLength: 1
-required:
-  - id
-  - name
-  - acronym
-  - lastUpdate
-  - creationDate
-  - legalCategory
-  - isPublicResearch
-  - isActive
-  - originatedFrom
+      type: object
+      properties:
+        officialName:
+          type: string
+        usualName:
+          type: string
+        shortName:
+          type: string
+        brandName:
+          type: string
+        englishName:
+          type: string
+        acronymFr:
+          type: string
+        acronymEn:
+          type: string
+        otherNames:
+          type: array
+          items:
+            type: string
+        main:
+          type: boolean
+        startDate:
+          type: string
+        startDateApprox:
+          type: string
+        endDate:
+          type: string
+        endDateApprox:
+          type: string
+        id:
+          type: string
+          readOnly: true
+        comment:
+          type: string
+  logos:
+    type: array
+    items:
+      $ref: ./LogoOf.yaml
+  pressReleases:
+    type: array
+    items:
+      $ref: ./PressReleaseOf.yaml
+  contacts:
+    type: array
+    items:
+      $ref: ./ContactOf.yaml
+  categories:
+    type: array
+    items:
+      $ref: ./CategoryOf.yaml
+  supervisors:
+    type:
+      - string
+      - array
+    items:
+      $ref: ./RelativeOf.yaml
+  predecessors:
+    type: array
+    items:
+      $ref: ./RelativeOf.yaml
+  successors:
+    type: array
+    items:
+      $ref: ./RelativeOf.yaml
+  childs:
+    type: array
+    items:
+      $ref: ./RelativeOf.yaml
+  parents:
+    type: array
+    items:
+      $ref: ./RelativeOf.yaml
+  participates:
+    type: array
+    items:
+      $ref: ./RelativeOf.yaml

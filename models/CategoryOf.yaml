@@ -1,7 +1,19 @@
-title: ContactOf
+title: CategoryOf
 type: object
 x-tags:
   - Common
+x-examples:
+  example-1:
+    id: string
+    contactType: string
+    contact:
+      id: string
+      firstName: string
+      lastName: string
+      email: string
+      gender: F
+      activity: string
+    contactOf: string
 properties:
   id:
     type: string
@@ -19,19 +31,11 @@ properties:
   contactId:
     type: string
     writeOnly: true
+  officialDocumentId:
+    type: string
+  officialDocument:
+    type: object
 required:
   - contactType
   - contact
   - contactId
-x-examples:
-  example-1:
-    id: string
-    contactType: string
-    contact:
-      id: string
-      firstName: string
-      lastName: string
-      email: string
-      gender: F
-      activity: string
-    contactOf: string

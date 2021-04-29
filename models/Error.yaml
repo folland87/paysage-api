@@ -24,3 +24,4 @@ properties:
         - message
 required:
   - error
+title: Error

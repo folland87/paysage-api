@@ -31,3 +31,4 @@ required:
   - email
   - gender
   - activity
+title: Person

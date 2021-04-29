@@ -1,4 +1,4 @@
-title: Identifier
+title: IdentifierOf
 type: object
 x-tags:
   - Identifiers
@@ -23,3 +23,9 @@ properties:
     description: Paysage object that owns the identifier.
     example: 507f191e810c19729de860ea
     readOnly: true
+  startDate:
+    type: string
+  endDate:
+    type: string
+  meta:
+    $ref: ./Meta.yaml
