@@ -764,6 +764,14 @@ components:
         application/json:
           schema:
             $ref: ./models/Error.yaml
+          examples:
+            validation-failed:
+              value:
+                error: Bad request -- Validation failed
+                details:
+                  - message: name must be a string
+                    location: body.name
+                    errorType: TypeError
 tags:
   - name: Addresses
   - name: Categories
