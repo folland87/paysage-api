@@ -731,6 +731,8 @@ components:
             $ref: ./models/CategoryOf.yaml
       readOnly: true
       title: ''
+      x-tags:
+        - Models
   securitySchemes:
     Bearer JWT:
       type: http
@@ -788,6 +790,7 @@ tags:
   - name: Addresses
   - name: Categories
   - name: Identifiers
+  - name: Models
   - name: SocialMedias
   - name: Structures
   - name: Weblinks
