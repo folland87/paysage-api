@@ -30,7 +30,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./models/Structure.yaml
+                  $ref: ../../models/Structure.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
