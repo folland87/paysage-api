@@ -16,6 +16,8 @@ servers:
     description: staging
   - url: 'https://api.paysage.dataesr.ovh'
     description: production
+  - description: mock
+    url: 'https://docs.paysage.dataesr.ovh/mocks/dataesr/paysage-api/75539'
 paths:
   /structures:
     get:
@@ -149,7 +151,6 @@ paths:
     get:
       summary: Get all structure's identifiers
       tags:
-        - Structures
         - Identifiers
       responses:
         '200':
@@ -231,7 +232,6 @@ paths:
           $ref: '#/components/responses/Error'
       description: Modify a structures identifier
       tags:
-        - Structures
         - Identifiers
       requestBody:
         content:
@@ -269,8 +269,6 @@ paths:
         required: true
     get:
       summary: Get all links related to a structure.
-      tags:
-        - Structures
       responses:
         '200':
           description: OK
@@ -288,6 +286,8 @@ paths:
           description: Internal Server Error
       operationId: getStructureWeblinks
       description: Get all weblinks related to a structure.
+      tags:
+        - Weblinks
     post:
       summary: Add a weblink to a structure.
       operationId: createStructureWeblink
@@ -322,7 +322,6 @@ paths:
     get:
       summary: Get all addresses related to a structure.
       tags:
-        - Structures
         - Addresses
       responses:
         '200':
@@ -379,7 +378,6 @@ paths:
     get:
       summary: Get all socialMedias related to a structure.
       tags:
-        - Structures
         - SocialMedias
       responses:
         '200':
@@ -435,7 +433,6 @@ paths:
     get:
       summary: Get all categories related to a structure.
       tags:
-        - Structures
         - Categories
       responses:
         '200':
@@ -520,7 +517,6 @@ paths:
               $ref: ./models/WeblinkOf.yaml
       description: Modify a weblink of a structure.
       tags:
-        - Structures
         - Weblinks
     delete:
       summary: Delete structure's weblink
@@ -560,7 +556,6 @@ paths:
     patch:
       summary: Modify structure's categorie
       tags:
-        - Structures
         - Categories
       responses:
         '200':
@@ -723,7 +718,7 @@ components:
     Bearer JWT:
       type: http
       scheme: bearer
-      description: ''
+      description: User may send an Authorization header with a Bearer JWT. Token are provided by the auth API.
   parameters:
     query:
       name: query
