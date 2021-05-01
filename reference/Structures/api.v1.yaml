@@ -730,8 +730,6 @@ components:
           items:
             $ref: ./models/CategoryOf.yaml
       readOnly: true
-      x-tags:
-        - Structures
       title: ''
   securitySchemes:
     Bearer JWT:
