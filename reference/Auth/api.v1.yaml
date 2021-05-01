@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Authentication API.
+  title: Authentication.
   description: Authentication API.
   termsOfService: ''
   contact:
@@ -12,16 +12,11 @@ info:
 servers:
   - url: 'https://paysage.staging.dataesr.ovh/api'
   - url: 'http://paysage.staging.dataesr.ovh/api'
-tags:
-  - name: auth
-    description: Authentication service
 paths:
   /auth/signin:
     post:
-      tags:
-        - auth
       summary: Sign a user in
-      description: A signin route that returns a token.
+      description: A signin route that returns a token that represent user info.
       requestBody:
         description: User credentials
         content:
@@ -35,25 +30,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/userToken'
+                type: object
+                properties:
+                  token:
+                    type: string
         '400':
           description: BadRequest
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
         '500':
           description: ServerError
-          content: {}
-  /auth/recover-password:
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      operationId: signIn
+  /auth/recover:
     post:
-      tags:
-        - auth
-      summary: Ask for password recovery email
+      summary: Send password recovery code
       description: Sends an email with a token to recover user's password
       requestBody:
         description: Required user email for sending the recover-password link
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/userEmail'
+              type: object
+              properties:
+                email:
+                  type: string
         required: true
       responses:
         '202':
@@ -61,43 +67,60 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/message'
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: BadRequest
-          content: {}
-  '/auth/reset-password/{token}':
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '500':
+          description: ServerError
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      operationId: sendPassordRecoveryCode
+    parameters: []
     get:
-      tags:
-        - auth
       summary: Reset password
-      description: Validate new password for user providing valid token
+      operationId: recoverPassword
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      description: ''
       parameters:
-        - name: token
-          in: path
-          description: A token sent by email
-          required: true
-          schema:
+        - schema:
             type: string
+          in: query
+          name: code
+          description: User's secret code
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/userEmail'
-        required: true
-      responses:
-        '202':
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/message'
-        '400':
-          description: BadRequest
-          content: {}
-  /auth/resend-confirm-account-email:
+  /auth/:
     post:
-      tags:
-        - auth
       summary: Ask for resending an account confirmation email
       description: Send an email with a token to confirm user's account
       requestBody:
@@ -116,11 +139,26 @@ paths:
                 $ref: '#/components/schemas/message'
         '400':
           description: BadRequest
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '500':
+          description: ServerError
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: code
+          description: User's secret code
+      operationId: resendConfirmCode
+    parameters: []
   /auth/signup:
     post:
-      tags:
-        - auth
       summary: Sign a user up
       description: Create a user account
       requestBody:
@@ -139,11 +177,19 @@ paths:
                 $ref: '#/components/schemas/message'
         '400':
           description: BadRequest
-          content: {}
-  '/auth/activate-account/{token}':
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '500':
+          description: ServerError
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      operationId: signUp
+  /auth/activate:
     get:
-      tags:
-        - auth
       summary: Reads a token to confirm user's account
       parameters:
         - name: token
@@ -152,6 +198,11 @@ paths:
           required: true
           schema:
             type: string
+        - schema:
+            type: string
+          in: query
+          name: code
+          description: User's secret code
       responses:
         '200':
           description: User account activated
@@ -160,28 +211,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/message'
         '400':
-          description: Invalid token
-          content: {}
-        '404':
-          description: User not found
-          content: {}
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '500':
+          description: ServerError
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+      operationId: activateAccount
+      description: Activate user account
+    parameters: []
 components:
   schemas:
-    userEmail:
-      type: object
-      properties:
-        email:
-          type: string
-    userToken:
-      type: object
-      properties:
-        token:
-          type: string
-    message:
-      type: object
-      properties:
-        message:
-          type: string
     user:
       type: object
       properties:
@@ -205,16 +250,18 @@ components:
       xml:
         name: User
     userSignIn:
-      required:
-        - password
       type: object
       properties:
         account:
           type: string
           example: folland87 or folland@dataesr.ovh
+          description: Username or email address
         password:
           type: string
           example: password
+      required:
+        - account
+        - password
     userSignUp:
       required:
         - email
