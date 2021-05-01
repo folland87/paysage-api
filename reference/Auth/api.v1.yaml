@@ -1,187 +1,233 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
-  title: auth
-  version: '1.0'
+  title: Authentication API.
+  description: Authentication API.
+  termsOfService: ''
+  contact:
+    email: frederic.olland@enseignementsup.gouv.fr
+  license:
+    name: MIT
+    url: 'https://github.com/dataesr/paysage/LICENCE.md'
+  version: 1.0.0
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://paysage.staging.dataesr.ovh/api'
+  - url: 'http://paysage.staging.dataesr.ovh/api'
+tags:
+  - name: auth
+    description: Authentication service
 paths:
-  '/users/{userId}':
-    parameters:
-      - schema:
-          type: integer
-        name: userId
-        in: path
-        required: true
-        description: Id of an existing user.
-    get:
-      summary: Get User Info by User ID
-      tags: []
-      responses:
-        '200':
-          description: User Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
-        '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
-    patch:
-      summary: Update User Information
-      operationId: patch-users-userId
-      responses:
-        '200':
-          description: User Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the information of an existing user.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
-  /user:
+  /auth/signin:
     post:
-      summary: Create New User
-      operationId: post-user
+      tags:
+        - auth
+      summary: Sign a user in
+      description: A signin route that returns a token.
+      requestBody:
+        description: User credentials
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userSignIn'
+        required: true
       responses:
         '200':
-          description: User Created
+          description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                New User Bob Fellow:
-                  value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
+                $ref: '#/components/schemas/userToken'
         '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
+          description: BadRequest
+          content: {}
+        '500':
+          description: ServerError
+          content: {}
+  /auth/recover-password:
+    post:
+      tags:
+        - auth
+      summary: Ask for password recovery email
+      description: Sends an email with a token to recover user's password
+      requestBody:
+        description: Required user email for sending the recover-password link
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userEmail'
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: BadRequest
+          content: {}
+  '/auth/reset-password/{token}':
+    get:
+      tags:
+        - auth
+      summary: Reset password
+      description: Validate new password for user providing valid token
+      parameters:
+        - name: token
+          in: path
+          description: A token sent by email
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
+              $ref: '#/components/schemas/userEmail'
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: BadRequest
+          content: {}
+  /auth/resend-confirm-account-email:
+    post:
+      tags:
+        - auth
+      summary: Ask for resending an account confirmation email
+      description: Send an email with a token to confirm user's account
+      requestBody:
+        description: Required user email for sending the activate-account link
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userEmail'
+        required: true
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: BadRequest
+          content: {}
+  /auth/signup:
+    post:
+      tags:
+        - auth
+      summary: Sign a user up
+      description: Create a user account
+      requestBody:
+        description: Required user info for account creation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userSignUp'
+        required: true
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: BadRequest
+          content: {}
+  '/auth/activate-account/{token}':
+    get:
+      tags:
+        - auth
+      summary: Reads a token to confirm user's account
+      parameters:
+        - name: token
+          in: path
+          description: A token sent by email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User account activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/message'
+        '400':
+          description: Invalid token
+          content: {}
+        '404':
+          description: User not found
+          content: {}
 components:
   schemas:
-    User:
-      title: User
+    userEmail:
       type: object
-      description: ''
-      examples:
-        - id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
+      properties:
+        email:
+          type: string
+    userToken:
+      type: object
+      properties:
+        token:
+          type: string
+    message:
+      type: object
+      properties:
+        message:
+          type: string
+    user:
+      type: object
       properties:
         id:
           type: integer
-          description: Unique identifier for the given user.
+          format: int64
+        username:
+          type: string
         firstName:
           type: string
         lastName:
           type: string
         email:
           type: string
-          format: email
-        dateOfBirth:
+        password:
           type: string
-          format: date
-          example: '1997-10-31'
-        emailVerified:
-          type: boolean
-          description: Set to true if the user's email has been verified.
-        createDate:
-          type: string
-          format: date
-          description: The date that the user was created.
+        roles:
+          type: integer
+          description: User Status
+          format: int32
+      xml:
+        name: User
+    userSignIn:
       required:
-        - id
-        - firstName
-        - lastName
+        - password
+      type: object
+      properties:
+        account:
+          type: string
+          example: folland87 or folland@dataesr.ovh
+        password:
+          type: string
+          example: password
+    userSignUp:
+      required:
         - email
-        - emailVerified
+        - password
+        - username
+      type: object
+      properties:
+        username:
+          type: string
+          example: folland87
+        password:
+          type: string
+          example: password
+        email:
+          type: string
+          example: folland@dataesr.ovh
