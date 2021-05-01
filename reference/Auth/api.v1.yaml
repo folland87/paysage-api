@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
-  title: Authentication.
-  description: Authentication API.
+  title: Authentication
+  description: Authentication.
   termsOfService: ''
   contact:
     email: frederic.olland@enseignementsup.gouv.fr
@@ -10,8 +10,14 @@ info:
     url: 'https://github.com/dataesr/paysage/LICENCE.md'
   version: 1.0.0
 servers:
-  - url: 'https://paysage.staging.dataesr.ovh/api'
-  - url: 'http://paysage.staging.dataesr.ovh/api'
+  - url: 'http://localhost:3000'
+    description: development
+  - url: 'https://api.paysage.staging.dataesr.ovh'
+    description: staging
+  - url: 'https://api.paysage.dataesr.ovh'
+    description: production
+  - description: mock
+    url: 'https://docs.paysage.dataesr.ovh/mocks/dataesr/paysage-api/75539'
 paths:
   /auth/signin:
     post:
@@ -26,20 +32,9 @@ paths:
         required: true
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  token:
-                    type: string
-        '400':
-          description: BadRequest
-          content:
-            application/json:
-              schema:
-                $ref: ../Structures/models/Error.yaml
+          $ref: '#/components/responses/signInResponse'
+        '401':
+          description: Unauthorized
         '500':
           description: ServerError
           content:
@@ -49,16 +44,16 @@ paths:
       operationId: signIn
   /auth/recover:
     post:
-      summary: Send password recovery code
+      summary: Recover password
       description: Sends an email with a token to recover user's password
       requestBody:
-        description: Required user email for sending the recover-password link
+        description: ''
         content:
           application/json:
             schema:
               type: object
               properties:
-                email:
+                password:
                   type: string
         required: true
       responses:
@@ -84,78 +79,12 @@ paths:
               schema:
                 $ref: ../Structures/models/Error.yaml
       operationId: sendPassordRecoveryCode
-    parameters: []
-    get:
-      summary: Reset password
-      operationId: recoverPassword
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/message'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: ../Structures/models/Error.yaml
-        '500':
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: ../Structures/models/Error.yaml
-      description: ''
       parameters:
         - schema:
             type: string
           in: query
           name: code
           description: User's secret code
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/userEmail'
-  /auth/:
-    post:
-      summary: Ask for resending an account confirmation email
-      description: Send an email with a token to confirm user's account
-      requestBody:
-        description: Required user email for sending the activate-account link
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/userEmail'
-        required: true
-      responses:
-        '202':
-          description: Accepted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/message'
-        '400':
-          description: BadRequest
-          content:
-            application/json:
-              schema:
-                $ref: ../Structures/models/Error.yaml
-        '500':
-          description: ServerError
-          content:
-            application/json:
-              schema:
-                $ref: ../Structures/models/Error.yaml
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: code
-          description: User's secret code
-      operationId: resendConfirmCode
     parameters: []
   /auth/signup:
     post:
@@ -174,7 +103,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/message'
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: BadRequest
           content:
@@ -189,66 +121,75 @@ paths:
                 $ref: ../Structures/models/Error.yaml
       operationId: signUp
   /auth/activate:
+    parameters: []
     get:
-      summary: Reads a token to confirm user's account
+      summary: ''
+      operationId: sendActivationCode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      description: Sends an account activation code.
       parameters:
-        - name: token
-          in: path
-          description: A token sent by email
-          required: true
-          schema:
-            type: string
         - schema:
             type: string
           in: query
           name: code
           description: User's secret code
+  /auth/mail:
+    post:
+      summary: ''
+      operationId: mailUser
       responses:
-        '200':
-          description: User account activated
+        '202':
+          description: Accepted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/message'
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
-          description: BadRequest
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../Structures/models/Error.yaml
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
                 $ref: ../Structures/models/Error.yaml
         '500':
-          description: ServerError
+          description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: ../Structures/models/Error.yaml
-      operationId: activateAccount
-      description: Activate user account
-    parameters: []
+      description: sendMailToUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                action:
+                  type: string
+                  enum:
+                    - activate
+                    - recover
 components:
   schemas:
-    user:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        username:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
-        roles:
-          type: integer
-          description: User Status
-          format: int32
-      xml:
-        name: User
     userSignIn:
       type: object
       properties:
@@ -278,3 +219,33 @@ components:
         email:
           type: string
           example: folland@dataesr.ovh
+  securitySchemes:
+    Bearer JWT:
+      type: http
+      scheme: bearer
+  responses:
+    signInResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+          examples:
+            example-1:
+              $ref: '#/components/examples/token-1'
+  examples:
+    user-1:
+      value:
+        description: Example shared example
+        type: object
+        properties:
+          id:
+            type: string
+        required:
+          - id
+    token-1:
+      value:
+        token: hufiphupHDUZPQhfe65876NUINLCJL.cenuivvnjm846dzqedddeedscDFE
