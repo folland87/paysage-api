@@ -604,6 +604,30 @@ paths:
           $ref: '#/components/responses/Error'
       operationId: deleteStructureCategory
       description: Delete a weblink from a structure.
+  '/structures/{structureId}/socialMedias/{socialMediaId}':
+    parameters:
+      - schema:
+          type: string
+        name: structureId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: socialMediaId
+        in: path
+        required: true
+    patch:
+      summary: Modify structure's social media
+      tags:
+        - SocialMedias
+      responses: {}
+      operationId: patch-structures-structureId-socialMedias-socialMediaId
+    delete:
+      summary: Delete structure's social media
+      tags:
+        - SocialMedias
+      responses: {}
+      operationId: delete-structures-structureId-socialMedias-socialMediaId
 components:
   schemas:
     StructureFull:
