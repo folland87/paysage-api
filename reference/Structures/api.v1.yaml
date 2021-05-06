@@ -5,7 +5,7 @@ info:
   license:
     name: Licence MIT
     url: 'https://github.com/dataesr/paysage/LICENCE.md'
-  description: All endpoints for the paysage app.
+  description: All endpoints for the paysage ap.
   contact:
     name: '#dataesr'
     email: contact@dataesr.ovh
