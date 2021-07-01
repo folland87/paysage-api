@@ -5,7 +5,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{userId}':
+  '/person/{personID}':
     parameters:
       - schema:
           type: integer
@@ -89,99 +89,258 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
-  /user:
-    post:
-      summary: Create New User
-      operationId: post-user
-      responses:
-        '200':
-          description: User Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                New User Bob Fellow:
-                  value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
 components:
   schemas:
-    User:
-      title: User
+    Person:
+      title: Person
       type: object
-      description: ''
-      examples:
-        - id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
       properties:
         id:
-          type: integer
-          description: Unique identifier for the given user.
+          type: string
         firstName:
           type: string
         lastName:
           type: string
+        alias:
+          type: array
+          items:
+            type: string
+        gender:
+          type: string
+          enum:
+            - F
+            - M
         email:
           type: string
-          format: email
-        dateOfBirth:
-          type: string
-          format: date
-          example: '1997-10-31'
-        emailVerified:
+        publicResearch:
           type: boolean
-          description: Set to true if the user's email has been verified.
-        createDate:
+        birthDate:
           type: string
           format: date
-          description: The date that the user was created.
-      required:
-        - id
-        - firstName
-        - lastName
-        - email
-        - emailVerified
+        activities:
+          type: string
+        avatarUrl:
+          type: string
+        comment:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    Identifiers:
+      title: Identifiants
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        identifier:
+          type: string
+        active:
+          type: boolean
+        updatedBy:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+    Web:
+      title: Web
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+        account:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+    SocialNetworks:
+      title: WebExternal
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          type: string
+        url:
+          type: string
+        language:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+    Positions:
+      title: Positions
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        structureId:
+          type: string
+        positionId:
+          type: string
+        interim:
+          type: string
+        access:
+          type: string
+          enum:
+            - election
+            - nomination
+        mandateCount:
+          type: string
+          enum:
+            - '1'
+            - '2'
+            - 3+
+        duration:
+          type: string
+        email:
+          type: string
+        textId:
+          type: string
+        strartDate:
+          type: string
+        endDate:
+          type: string
+        previsionalEndDate:
+          type: string
+        startDateApprox:
+          type: boolean
+        endDateApprox:
+          type: boolean
+        previsionalEndDateApprox:
+          type: boolean
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    MesriPositions:
+      title: MesriPositions
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        structureId:
+          type: string
+        position:
+          type: string
+          enum:
+            - referent
+            - inCharge
+        strartDate:
+          type: string
+        endDate:
+          type: string
+        startDateApprox:
+          type: boolean
+        endDateApprox:
+          type: boolean
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    Prices:
+      title: Prices
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        priceId:
+          type: string
+        structureId:
+          type: string
+        date:
+          type: string
+          format: date
+        dateApprox:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
