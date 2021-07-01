@@ -1,5 +1,8 @@
 description: ''
 type: object
+title: AddressOf
+x-tags:
+  - Addresses
 properties:
   id:
     type: string
@@ -45,10 +48,6 @@ properties:
     minLength: 1
   score:
     type: number
-  addressOf:
-    type: string
-    minLength: 1
-    readOnly: true
 required:
   - id
   - main
@@ -62,6 +61,3 @@ required:
   - country
   - provider
   - score
-title: AddressOf
-x-tags:
-  - Addresses

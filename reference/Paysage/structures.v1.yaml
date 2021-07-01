@@ -2,22 +2,8 @@ openapi: 3.1.0
 info:
   title: Structures
   version: '1.0'
-  license:
-    name: Licence MIT
-    url: 'https://github.com/dataesr/paysage/LICENCE.md'
-  description: All endpoints for the paysage ap.
-  contact:
-    name: '#dataesr'
-    email: contact@dataesr.ovh
 servers:
   - url: 'http://localhost:3000'
-    description: development
-  - url: 'https://api.paysage.staging.dataesr.ovh'
-    description: staging
-  - url: 'https://api.paysage.dataesr.ovh'
-    description: production
-  - description: mock
-    url: 'https://docs.paysage.dataesr.ovh/mocks/dataesr/paysage-api/75539'
 paths:
   /structures:
     get:
@@ -625,65 +611,9 @@ paths:
       operationId: delete-structures-structureId-socialMedias-socialMediaId
 components:
   schemas:
-    StructureFull:
+    Structure:
       type: object
       description: ''
-      x-examples:
-        unistra:
-          id: 4k25D
-          name: Université de Strasbourg
-          acronym: Unistra
-          logo: 'https://unistra.logo'
-          lastUpdate: string
-          creationDate: string
-          legalCategory: 'Établissement public à caractère scientifique, culturel et professionnel'
-          isPublicResearch: true
-          isActive: true
-          originatedFrom: Fusion
-          socialMedias:
-            - type: string
-              url: string
-              id: string
-          identifiers:
-            - identifier: string
-              type: string
-              id: string
-          addresses:
-            - main: true
-              address: ''
-              gps:
-                lat: 0
-                lon: 0
-              postcode: '67000'
-              city: Strasbourg
-              citycode: '67000'
-              urbanUnitCode: string
-              urbanUnitLabel: string
-              country: string
-              provider: string
-              score: 0
-          links:
-            - link: string
-              language: string
-              type: string
-              id: string
-          contacts:
-            - email: string
-              type: string
-              person:
-                id: string
-                firstName: string
-                lastName: string
-                email: user@example.com
-                identifiers:
-                  - null
-                gender: F
-                activity: string
-          categories:
-            - id: string
-              name: string
-              since: string
-              url: string
       properties:
         id:
           type: string
@@ -705,40 +635,11 @@ components:
           type: boolean
         originatedFrom:
           type: string
-        socialMedias:
-          type: array
-          items:
-            $ref: ./models/SocialMediaOf.yaml
-        identifiers:
-          type: array
-          items:
-            $ref: ./models/AddressOf.yaml
-        addresses:
-          type: array
-          items:
-            $ref: ./models/AddressOf.yaml
-        links:
-          type: array
-          items:
-            $ref: ./models/WeblinkOf.yaml
-        contacts:
-          type: array
-          items:
-            $ref: ./models/ContactOf.yaml
-        categories:
-          type: array
-          items:
-            $ref: ./models/CategoryOf.yaml
       readOnly: true
       title: ''
       x-tags:
         - Models
       x-internal: false
-  securitySchemes:
-    Bearer JWT:
-      type: http
-      scheme: bearer
-      description: User may send an Authorization header with a Bearer JWT. Token are provided by the auth API.
   parameters:
     query:
       name: query
@@ -779,14 +680,6 @@ components:
         application/json:
           schema:
             $ref: ./models/Error.yaml
-          examples:
-            validation-failed:
-              value:
-                error: Bad request -- Validation failed
-                details:
-                  - message: name must be a string
-                    location: body.name
-                    errorType: TypeError
 tags:
   - name: Addresses
   - name: Categories
