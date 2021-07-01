@@ -5,34 +5,60 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/person/{personID}':
-    parameters:
-      - schema:
-          type: integer
-        name: userId
-        in: path
-        required: true
-        description: Id of an existing user.
+  /persons:
     get:
       summary: Get a person
       tags: []
       responses:
         '200':
-          description: User Found
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+      operationId: get-persons
+    post:
+      summary: Create a person
+      operationId: post-persons
+      responses:
+        '201':
+          description: Created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Person'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+  '/person/{personID}':
+    parameters:
+      - schema:
+          type: string
+        name: personID
+        in: path
+        required: true
+    get:
+      summary: Get a person
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
         '404':
           description: User Not Found
       operationId: get-person-by-id
@@ -47,16 +73,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Person'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
         '400':
           description: Bad Request
         '401':
