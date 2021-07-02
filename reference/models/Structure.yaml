@@ -1,4 +1,3 @@
-description: ''
 type: object
 title: Structure
 properties:
@@ -6,38 +5,34 @@ properties:
     type: string
     minLength: 1
     readOnly: true
-  creation:
-    type: object
-    properties:
-      creationDate:
-        type: string
-        format: date-time
-      creationDateApprox:
-        type: string
-        pattern: '^[0-9]'
-        minLength: 4
-        maxLength: 4
-      officialDocument:
-        type: string
-        description: Id of the official document.
-      historicalCreationYear:
-        type: string
-      comment:
-        type: string
-      originatedFrom:
-        type: string
-  closure:
-    type: object
-    properties:
-      closureDate:
-        type: string
-      closureDateApprox:
-        type: string
-      officialDocument:
-        type: string
-        description: Id of the official document.
-      comment:
-        type: string
+  state:
+    type: string
+    minLength: 1
+    enum:
+      - active
+      - inactive
+      - potential
+  creationDate:
+    type: string
+    format: date-time
+  creationDateApprox:
+    type: boolean
+  creationOfficialDocument:
+    type: string
+    description: Id of the official document.
+  historicalCreationYear:
+    type: string
+  originatedFrom:
+    type: string
+  closureDate:
+    type: string
+  closureDateApprox:
+    type: boolean
+  closureOfficialDocument:
+    type: string
+    description: Id of the official document.
+  comment:
+    type: string
   createdBy:
     type: string
     readOnly: true

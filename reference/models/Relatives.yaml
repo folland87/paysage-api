@@ -20,8 +20,6 @@ properties:
   relativeId:
     type: string
     description: Id of the relative structure
-  relative:
-    $ref: ./Structure.yaml
   startDate:
     type: string
     format: date-time
@@ -49,5 +47,5 @@ properties:
     readOnly: true
 required:
   - relationType
-  - relativeId
   - relativeOf
+  - relativeId

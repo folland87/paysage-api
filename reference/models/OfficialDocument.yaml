@@ -1,14 +1,18 @@
-title: OfficialDucument
+title: OfficialDocument
 type: object
 properties:
   id:
     type: string
     readOnly: true
+  type:
+    type: string
   name:
     type: string
   linkUrl:
     type: string
   fileUrl:
+    type: string
+  comment:
     type: string
   createdBy:
     type: string
