@@ -192,7 +192,7 @@ paths:
           $ref: '#/components/responses/Error'
       operationId: get-structures-structureID-names-nameID
     patch:
-      summary: ''
+      summary: Update a structure's name
       operationId: patch-structures-structureID-names-nameID
       responses:
         '200':
@@ -335,7 +335,7 @@ paths:
       tags:
         - Logos
     delete:
-      summary: ''
+      summary: Delete a structure's logo
       operationId: delete-structures-structureID-logos-logoID
       responses:
         '204':
@@ -356,7 +356,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Get structure's addresses
       tags: []
       responses: {}
       operationId: get-structures-structureID-addresses
