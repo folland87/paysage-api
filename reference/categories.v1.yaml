@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: categories.v1
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /categories:
+    get:
+      summary: Get categories
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/Category.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      operationId: get-categories
+    post:
+      summary: Create a category
+      operationId: post-categories
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Category.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Categories
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Category.yaml
+  '/categories/{categoryID}':
+    parameters:
+      - schema:
+          type: string
+        name: categoryID
+        in: path
+        required: true
+    get:
+      summary: Get a category
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Category.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      operationId: get-categories-categoryID
+    patch:
+      summary: Update a category
+      operationId: patch-categories-categoryID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Category.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Categories
+    delete:
+      summary: Delete a category
+      operationId: delete-categories-categoryID
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Categories
+components:
+  responses:
+    Error:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: ./models/Error.yaml
+tags:
+  - name: Categories
