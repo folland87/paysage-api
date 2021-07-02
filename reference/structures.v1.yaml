@@ -357,9 +357,459 @@ paths:
         required: true
     get:
       summary: Get structure's addresses
-      tags: []
-      responses: {}
+      tags:
+        - Addresses
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/Address.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
       operationId: get-structures-structureID-addresses
+    post:
+      summary: Create a structure's addresse
+      operationId: post-structures-structureID-addresses
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Address.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Address.yaml
+      tags:
+        - Addresses
+  '/structures/{structuresID}/addresses/{addressID}':
+    parameters:
+      - schema:
+          type: string
+        name: structuresID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: addressID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's address
+      tags:
+        - Addresses
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Address.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      operationId: get-structures-structuresID-addresses-addressID
+    patch:
+      summary: Update a structure's address
+      operationId: patch-structures-structuresID-addresses-addressID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Address.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Addresses
+    delete:
+      summary: Delete a structure's address
+      operationId: delete-structures-structuresID-addresses-addressID
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Addresses
+  '/structures/{structureID}/identifiers':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's identifiers
+      tags:
+        - Identifiers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/Identifier.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    post:
+      summary: Create a structure's identifier
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Identifier.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Identifier.yaml
+      tags:
+        - Identifiers
+  '/structures/{structureID}/identifiers/{identifierID}':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: identifierID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's indifier
+      tags:
+        - Identifiers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Identifier.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    patch:
+      summary: Update a structure's identifier
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Identifier.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Identifier.yaml
+      tags:
+        - Identifiers
+    delete:
+      summary: Delete a structure's identifier
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Identifiers
+  '/structures/{structureID}/websites':
+    parameters:
+      - schema:
+          type: string
+        name: personID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's websites
+      tags:
+        - Websites
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/Websites.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    post:
+      summary: Create a structure's website
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Websites.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Websites.yaml
+      tags:
+        - Websites
+  '/structures/{structureID}/websites/{websiteID}':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: websiteID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's website
+      tags:
+        - Websites
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Websites.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    patch:
+      summary: Update a structure's website
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Websites.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Websites.yaml
+      tags:
+        - Websites
+    delete:
+      summary: Delete a structure's website
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Websites
+  '/structures/{structureID}/socials':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's social medias
+      tags:
+        - SocialMedias
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/SocialMedia.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    post:
+      summary: Create a structure's social media
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/SocialMedia.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/SocialMedia.yaml
+      tags:
+        - SocialMedias
+  '/structures/{structureID}/socials/{socialID}':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: socialID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's social media
+      tags:
+        - SocialMedias
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/SocialMedia.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    patch:
+      summary: Update a structure's social media
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/SocialMedia.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/SocialMedia.yaml
+      tags:
+        - SocialMedias
+    delete:
+      summary: Delete a structure's social media
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - SocialMedias
 components:
   schemas: {}
   parameters: {}
