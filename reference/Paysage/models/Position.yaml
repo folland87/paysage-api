@@ -1,41 +1,23 @@
-title: Person
+title: Position
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  firstName:
+  nameFr:
     type: string
-  lastName:
+  nameEn:
     type: string
-  alias:
-    type: array
-    items:
-      type: string
-  gender:
+  descriptionFr:
     type: string
-    enum:
-      - F
-      - M
-  email:
-    type: string
-  publicResearch:
-    type: boolean
-  birthDate:
-    type: string
-    format: date
-  activity:
-    type: string
-  avatarUrl:
-    type: string
-  comment:
+  decriptionEn:
     type: string
   createdBy:
     type: string
     readOnly: true
   createdAt:
     type: string
-    format: date-time
+    format: date
     readOnly: true
   updatedBy:
     type: string

@@ -1,8 +1,5 @@
-description: ''
 type: object
 title: Address
-x-tags:
-  - Addresses
 properties:
   id:
     type: string

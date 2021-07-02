@@ -1,35 +1,18 @@
-title: Person
+title: PriceRecipent
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  firstName:
+  personId:
     type: string
-  lastName:
+  structureId:
     type: string
-  alias:
-    type: array
-    items:
-      type: string
-  gender:
-    type: string
-    enum:
-      - F
-      - M
-  email:
-    type: string
-  publicResearch:
-    type: boolean
-  birthDate:
+  date:
     type: string
     format: date
-  activity:
-    type: string
-  avatarUrl:
-    type: string
-  comment:
-    type: string
+  dateApprox:
+    type: boolean
   createdBy:
     type: string
     readOnly: true

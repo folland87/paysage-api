@@ -8,10 +8,17 @@ paths:
   /persons:
     get:
       summary: Get a person
-      tags: []
+      tags:
+        - Persons
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/Person.yaml
         '401':
           $ref: '#/components/responses/Error'
         '404':
@@ -19,11 +26,7 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
       operationId: get-persons
-      parameters:
-        - $ref: ./commons.v1.yaml#/components/parameters/query
-        - $ref: ./commons.v1.yaml#/components/parameters/skip
-        - $ref: ./commons.v1.yaml#/components/parameters/limit
-        - $ref: ./commons.v1.yaml#/components/parameters/project
+      parameters: []
     post:
       summary: Create a person
       operationId: post-persons
@@ -33,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                $ref: ./models/Person.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
@@ -44,7 +47,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Person'
+              $ref: ./models/Person.yaml
+      tags:
+        - Persons
   '/person/{personID}':
     parameters:
       - schema:
@@ -54,14 +59,15 @@ paths:
         required: true
     get:
       summary: Get a person
-      tags: []
+      tags:
+        - Persons
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                $ref: ./models/Person.yaml
         '401':
           $ref: '#/components/responses/Error'
         '404':
@@ -79,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Person'
+                $ref: ./models/Person.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
@@ -93,7 +99,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Person'
+              $ref: ./models/Person.yaml
+      tags:
+        - Persons
     delete:
       summary: Delete a person
       operationId: delete-person-personID
@@ -106,6 +114,8 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      tags:
+        - Persons
   '/persons/{personID}/identifiers':
     parameters:
       - schema:
@@ -115,7 +125,8 @@ paths:
         required: true
     get:
       summary: Get a person's identifiers
-      tags: []
+      tags:
+        - Identifiers
       responses:
         '200':
           description: OK
@@ -124,15 +135,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Identifiers'
+                  $ref: ./models/Identifier.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       operationId: get-persons-personID-identifiers
     post:
       summary: Create a person's identifier
@@ -143,22 +152,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Identifiers'
+                $ref: ./models/Identifier.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Identifiers'
+              $ref: ./models/Identifier.yaml
+      tags:
+        - Identifiers
   '/persons/{personID}/identifiers/{identifierID}':
     parameters:
       - schema:
@@ -173,22 +182,21 @@ paths:
         required: true
     get:
       summary: Get a person's indifier
-      tags: []
+      tags:
+        - Identifiers
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Identifiers'
+                $ref: ./models/Identifier.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       operationId: get-persons-personID-identifiers-identifierID
     patch:
       summary: Update a person's identifier
@@ -199,28 +207,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Identifiers'
+                $ref: ./models/Identifier.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Identifiers'
+              $ref: ./models/Identifier.yaml
+      tags:
+        - Identifiers
     delete:
       summary: Delete a person's identifier
       operationId: delete-persons-personID-identifiers-identifierID
       responses:
         '204':
           description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Identifiers
   '/persons/{personID}/websites':
     parameters:
       - schema:
@@ -230,7 +246,8 @@ paths:
         required: true
     get:
       summary: Get a person's websites
-      tags: []
+      tags:
+        - Websites
       responses:
         '200':
           description: OK
@@ -239,15 +256,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Websites'
+                  $ref: ./models/Websites.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       operationId: get-persons-personID-websites
     post:
       summary: Create a person's website
@@ -258,22 +273,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Websites'
+                $ref: ./models/Websites.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Websites'
+              $ref: ./models/Websites.yaml
+      tags:
+        - Websites
   '/persons/{personID}/websites/{websiteID}':
     parameters:
       - schema:
@@ -288,22 +303,21 @@ paths:
         required: true
     get:
       summary: Get a person's website
-      tags: []
+      tags:
+        - Websites
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Websites'
+                $ref: ./models/Websites.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       operationId: get-persons-personID-websites-websiteID
     patch:
       summary: Update a person's website
@@ -314,28 +328,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Websites'
+                $ref: ./models/Websites.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Websites'
+              $ref: ./models/Websites.yaml
+      tags:
+        - Websites
     delete:
       summary: Delete a person's website
       operationId: delete-persons-personID-websites-websiteID
       responses:
         '204':
           description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Websites
   '/persons/{personID}/socials':
     parameters:
       - schema:
@@ -344,8 +366,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a person's social networks
-      tags: []
+      summary: Get a person's social medias
+      tags:
+        - SocialMedias
       responses:
         '200':
           description: OK
@@ -354,39 +377,37 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/SocialNetworks'
+                  $ref: ./models/SocialMedia.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     post:
-      summary: Create a person's website
+      summary: Create a person's social media
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SocialNetworks'
+                $ref: ./models/SocialMedia.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SocialNetworks'
+              $ref: ./models/SocialMedia.yaml
+      tags:
+        - SocialMedias
   '/persons/{personID}/socials/{socialID}':
     parameters:
       - schema:
@@ -400,25 +421,24 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a person's social network
-      tags: []
+      summary: Get a person's social media
+      tags:
+        - SocialMedias
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SocialNetworks'
+                $ref: ./models/SocialMedia.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     patch:
-      summary: Update a person's social network
+      summary: Update a person's social media
       operationId: patch-persons-personID-socials-socialID
       responses:
         '200':
@@ -426,27 +446,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SocialNetworks'
+                $ref: ./models/SocialMedia.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SocialNetworks'
+              $ref: ./models/SocialMedia.yaml
+      tags:
+        - SocialMedias
     delete:
-      summary: Delete a person's social network
+      summary: Delete a person's social media
       responses:
         '204':
           description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - SocialMedias
   '/persons/{personID}/positions':
     parameters:
       - schema:
@@ -456,7 +484,8 @@ paths:
         required: true
     get:
       summary: Get a person's positions
-      tags: []
+      tags:
+        - Positions
       responses:
         '200':
           description: OK
@@ -465,15 +494,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Positions'
+                  $ref: ./models/PositionEdge.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     post:
       summary: Create a person's position
       responses:
@@ -482,22 +509,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Positions'
+                $ref: ./models/PositionEdge.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Positions'
+              $ref: ./models/PositionEdge.yaml
+      tags:
+        - Positions
   '/persons/{personID}/positions/{positionID}':
     parameters:
       - schema:
@@ -512,22 +539,21 @@ paths:
         required: true
     get:
       summary: Get a person's position
-      tags: []
+      tags:
+        - Positions
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Positions'
+                $ref: ./models/PositionEdge.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     patch:
       summary: Update a person's position
       responses:
@@ -536,137 +562,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Positions'
+                $ref: ./models/PositionEdge.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Positions'
+              $ref: ./models/PositionEdge.yaml
+      tags:
+        - Positions
     delete:
       summary: Delete a person's position
       responses:
         '204':
           description: No Content
-  '/persons/{personID}/mesri-positions':
-    parameters:
-      - schema:
-          type: string
-        name: personID
-        in: path
-        required: true
-    get:
-      summary: Get a person's mesri positions
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MesriPositions'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
-    post:
-      summary: Create a person's mesri position
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MesriPositions'
-        '400':
-          description: Bad Request
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MesriPositions'
-  '/persons/{personID}/mesri-positions/{mesriPositionID}':
-    parameters:
-      - schema:
-          type: string
-        name: personID
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: socialID
-        in: path
-        required: true
-    get:
-      summary: Get a person's mesri position
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MesriPositions'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
-    patch:
-      summary: Update a person's mesri position
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MesriPositions'
-        '400':
-          description: Bad Request
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MesriPositions'
-    delete:
-      summary: Delete a person's mesri position
-      responses:
-        '204':
-          description: No Content
+          $ref: '#/components/responses/Error'
+      tags:
+        - Positions
   '/persons/{personID}/prices':
     parameters:
       - schema:
@@ -676,7 +600,8 @@ paths:
         required: true
     get:
       summary: Get a person's prices
-      tags: []
+      tags:
+        - Prices
       responses:
         '200':
           description: OK
@@ -685,15 +610,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Prices'
+                  $ref: ./models/PriceEdge.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     post:
       summary: Create a person's price
       responses:
@@ -702,22 +625,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Prices'
+                $ref: ./models/PriceEdge.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Prices'
+              $ref: ./models/PriceEdge.yaml
+      tags:
+        - Prices
   '/persons/{personID}/prices/{priceID}':
     parameters:
       - schema:
@@ -732,22 +655,21 @@ paths:
         required: true
     get:
       summary: Get a person's price
-      tags: []
+      tags:
+        - Prices
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Prices'
+                $ref: ./models/PriceEdge.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
     patch:
       summary: Update a person's price
       responses:
@@ -756,266 +678,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Prices'
+                $ref: ./models/PriceEdge.yaml
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/Error'
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
         '404':
-          description: Not Found
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
+          $ref: '#/components/responses/Error'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Prices'
+              $ref: ./models/PriceEdge.yaml
+      tags:
+        - Prices
     delete:
       summary: Delete a person's price
       responses:
         '204':
           description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Prices
 components:
-  schemas:
-    Person:
-      title: Person
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        firstName:
-          type: string
-        lastName:
-          type: string
-        alias:
-          type: array
-          items:
-            type: string
-        gender:
-          type: string
-          enum:
-            - F
-            - M
-        email:
-          type: string
-        publicResearch:
-          type: boolean
-        birthDate:
-          type: string
-          format: date
-        activities:
-          type: string
-        avatarUrl:
-          type: string
-        comment:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-    Identifiers:
-      title: Identifiers
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        identifier:
-          type: string
-        active:
-          type: boolean
-        updatedBy:
-          type: string
-          readOnly: true
-        createdBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-    Websites:
-      title: Web
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-        account:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-    SocialNetworks:
-      title: SocialNetworks
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        type:
-          type: string
-        url:
-          type: string
-        language:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-      description: ''
-    Positions:
-      title: Positions
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        structureId:
-          type: string
-        personId:
-          type: string
-        positionId:
-          type: string
-        type:
-          type: string
-          enum:
-            - mesri
-            - nomination
-            - mandat
-        interim:
-          type: string
-        access:
-          type: string
-          enum:
-            - election
-            - nomination
-        mandateCount:
-          type: string
-          enum:
-            - '1'
-            - '2'
-            - 3+
-        duration:
-          type: string
-        email:
-          type: string
-        textId:
-          type: string
-        strartDate:
-          type: string
-        endDate:
-          type: string
-        previsionalEndDate:
-          type: string
-        startDateApprox:
-          type: boolean
-        endDateApprox:
-          type: boolean
-        previsionalEndDateApprox:
-          type: boolean
-        createdBy:
-          type: string
-          readOnly: true
-        createdAt:
-          type: string
-          format: date
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-        - structureId
-        - personId
-        - positionId
-        - type
-    Prices:
-      title: Prices
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        priceId:
-          type: string
-        personId:
-          type: string
-        structureId:
-          type: string
-        date:
-          type: string
-          format: date
-        dateApprox:
-          type: string
-        createdBy:
-          type: string
-          readOnly: true
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-        - priceId
-        - personId
+  schemas: {}
   responses:
     Error:
       description: Example response
@@ -1023,3 +716,10 @@ components:
         application/json:
           schema:
             $ref: ./models/Error.yaml
+tags:
+  - name: Identifiers
+  - name: Persons
+  - name: Positions
+  - name: Prices
+  - name: SocialMedias
+  - name: Websites

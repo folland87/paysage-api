@@ -1,36 +1,26 @@
-title: PressRelease
+title: Websites
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  title:
+  type:
     type: string
-  authors:
-    type: array
-    items:
-      type: string
-  summary:
+  url:
     type: string
-  text:
+  language:
     type: string
-  date:
-    type: string
-  sourceUrl:
-    type: string
-  comment:
-    type: string
-  createdBy:
-    type: string
-    readOnly: true
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  updatedBy:
+  createdBy:
     type: string
     readOnly: true
   updatedAt:
     type: string
     format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
     readOnly: true

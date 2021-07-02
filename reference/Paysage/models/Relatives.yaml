@@ -1,4 +1,4 @@
-title: RelativeOf
+title: Relatives
 type: object
 properties:
   id:
@@ -9,9 +9,9 @@ properties:
     type: string
     minLength: 1
     enum:
-      - Child
-      - Predecessor
-      - Participates
+      - child
+      - predecessor
+      - participates
     description: Relation type.
   relativeOf:
     type: string
@@ -33,6 +33,21 @@ properties:
     writeOnly: true
   officialDocument:
     type: object
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
 required:
   - relationType
   - relativeId
+  - relativeOf

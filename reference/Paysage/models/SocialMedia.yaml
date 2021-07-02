@@ -1,36 +1,24 @@
-title: PressRelease
+title: SocialMedias
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  title:
+  type:
     type: string
-  authors:
-    type: array
-    items:
-      type: string
-  summary:
+  account:
     type: string
-  text:
-    type: string
-  date:
-    type: string
-  sourceUrl:
-    type: string
-  comment:
-    type: string
-  createdBy:
-    type: string
-    readOnly: true
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  updatedBy:
+  createdBy:
     type: string
     readOnly: true
   updatedAt:
     type: string
     format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
     readOnly: true

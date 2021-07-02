@@ -38,41 +38,17 @@ properties:
         description: Id of the official document.
       comment:
         type: string
-  names:
-    type: array
-    items:
-      type: object
-      properties:
-        officialName:
-          type: string
-        usualName:
-          type: string
-        shortName:
-          type: string
-        brandName:
-          type: string
-        englishName:
-          type: string
-        acronymFr:
-          type: string
-        acronymEn:
-          type: string
-        otherNames:
-          type: array
-          items:
-            type: string
-        main:
-          type: boolean
-        startDate:
-          type: string
-        startDateApprox:
-          type: string
-        endDate:
-          type: string
-        endDateApprox:
-          type: string
-        id:
-          type: string
-          readOnly: true
-        comment:
-          type: string
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true

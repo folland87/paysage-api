@@ -1,35 +1,21 @@
-title: Person
+title: Price
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  firstName:
+  nameFr:
     type: string
-  lastName:
+  nameEn:
     type: string
-  alias:
+  descriptionFr:
+    type: string
+  descriptionEn:
+    type: string
+  accociatedStructureIds:
     type: array
     items:
       type: string
-  gender:
-    type: string
-    enum:
-      - F
-      - M
-  email:
-    type: string
-  publicResearch:
-    type: boolean
-  birthDate:
-    type: string
-    format: date
-  activity:
-    type: string
-  avatarUrl:
-    type: string
-  comment:
-    type: string
   createdBy:
     type: string
     readOnly: true

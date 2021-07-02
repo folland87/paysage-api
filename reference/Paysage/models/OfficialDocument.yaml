@@ -10,3 +10,17 @@ properties:
     type: string
   fileUrl:
     type: string
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
