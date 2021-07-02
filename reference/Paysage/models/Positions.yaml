@@ -1,0 +1,68 @@
+tle: Positions
+pe: object
+operties:
+id:
+  type: string
+  readOnly: true
+structureId:
+  type: string
+personId:
+  type: string
+positionId:
+  type: string
+type:
+  type: string
+  enum:
+    - mesri
+    - nomination
+    - mandat
+interim:
+  type: string
+access:
+  type: string
+  enum:
+    - election
+    - nomination
+mandateCount:
+  type: string
+  enum:
+    - '1'
+    - '2'
+    - 3+
+duration:
+  type: string
+email:
+  type: string
+textId:
+  type: string
+strartDate:
+  type: string
+endDate:
+  type: string
+previsionalEndDate:
+  type: string
+startDateApprox:
+  type: boolean
+endDateApprox:
+  type: boolean
+previsionalEndDateApprox:
+  type: boolean
+createdBy:
+  type: string
+  readOnly: true
+createdAt:
+  type: string
+  format: date
+  readOnly: true
+updatedBy:
+  type: string
+  readOnly: true
+updatedAt:
+  type: string
+  format: date-time
+  readOnly: true
+quired:
+- structureId
+- personId
+- positionId
+- type

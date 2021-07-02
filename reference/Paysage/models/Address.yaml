@@ -1,6 +1,6 @@
 description: ''
 type: object
-title: AddressOf
+title: Address
 x-tags:
   - Addresses
 properties:
@@ -48,6 +48,20 @@ properties:
     minLength: 1
   score:
     type: number
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
 required:
   - id
   - main

@@ -885,7 +885,7 @@ components:
           type: string
           readOnly: true
     SocialNetworks:
-      title: WebExternal
+      title: SocialNetworks
       type: object
       properties:
         id:
@@ -911,6 +911,7 @@ components:
         updatedBy:
           type: string
           readOnly: true
+      description: ''
     Positions:
       title: Positions
       type: object
@@ -920,8 +921,16 @@ components:
           readOnly: true
         structureId:
           type: string
+        personId:
+          type: string
         positionId:
           type: string
+        type:
+          type: string
+          enum:
+            - mesri
+            - nomination
+            - mandat
         interim:
           type: string
         access:
@@ -967,42 +976,11 @@ components:
           type: string
           format: date-time
           readOnly: true
-    MesriPositions:
-      title: MesriPositions
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        structureId:
-          type: string
-        position:
-          type: string
-          enum:
-            - referent
-            - inCharge
-        strartDate:
-          type: string
-        endDate:
-          type: string
-        startDateApprox:
-          type: boolean
-        endDateApprox:
-          type: boolean
-        createdBy:
-          type: string
-          readOnly: true
-        createdAt:
-          type: string
-          format: date
-          readOnly: true
-        updatedBy:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          readOnly: true
+      required:
+        - structureId
+        - personId
+        - positionId
+        - type
     Prices:
       title: Prices
       type: object
@@ -1011,6 +989,8 @@ components:
           type: string
           readOnly: true
         priceId:
+          type: string
+        personId:
           type: string
         structureId:
           type: string
@@ -1033,6 +1013,9 @@ components:
           type: string
           format: date-time
           readOnly: true
+      required:
+        - priceId
+        - personId
   responses:
     Error:
       description: Example response

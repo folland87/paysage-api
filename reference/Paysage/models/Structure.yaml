@@ -6,8 +6,6 @@ properties:
     type: string
     minLength: 1
     readOnly: true
-  description:
-    type: string
   creation:
     type: object
     properties:
@@ -40,7 +38,7 @@ properties:
         description: Id of the official document.
       comment:
         type: string
-  name:
+  names:
     type: array
     items:
       type: object
@@ -78,45 +76,3 @@ properties:
           readOnly: true
         comment:
           type: string
-  logos:
-    type: array
-    items:
-      $ref: ./LogoOf.yaml
-  pressReleases:
-    type: array
-    items:
-      $ref: ./PressReleaseOf.yaml
-  contacts:
-    type: array
-    items:
-      $ref: ./ContactOf.yaml
-  categories:
-    type: array
-    items:
-      $ref: ./CategoryOf.yaml
-  supervisors:
-    type:
-      - string
-      - array
-    items:
-      $ref: ./RelativeOf.yaml
-  predecessors:
-    type: array
-    items:
-      $ref: ./RelativeOf.yaml
-  successors:
-    type: array
-    items:
-      $ref: ./RelativeOf.yaml
-  childs:
-    type: array
-    items:
-      $ref: ./RelativeOf.yaml
-  parents:
-    type: array
-    items:
-      $ref: ./RelativeOf.yaml
-  participates:
-    type: array
-    items:
-      $ref: ./RelativeOf.yaml

@@ -71,13 +71,13 @@ properties:
     type: string
     description: Dans la recherche publique ?
     minLength: 1
-  originTable:
+  codeISO3:
     type: string
-    description: Table d'origine
+    description: Code iso 3
     minLength: 1
-  originValue:
+  codeISO2:
     type: string
-    description: Valeur d'origine
+    description: Code iso 2
     minLength: 1
   createdBy:
     type: string

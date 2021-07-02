@@ -20,10 +20,22 @@ properties:
     type: string
   endDateApprox:
     type: string
-  logoOf:
-    type: string
   comment:
     type: string
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
 required:
   - main
   - fileUrl

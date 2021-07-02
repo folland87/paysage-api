@@ -1,0 +1,88 @@
+title: Prices
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        priceId:
+          type: string
+        personId:
+          type: string
+        structureId:
+          type: string
+        date:
+          type: string
+          format: date
+        dateApprox:
+          type: string
+        createdBy:
+          type: string
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+        - priceId
+        - personId    readOnly: true
+  priceId:
+    type: string
+  personId:
+    type: string
+  structureId:
+    type: string
+  date:
+    type: string
+    format: date
+  dateApprox:
+    type: string
+  createdBy:
+    type: string
+    readOnly: true
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    type: string
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
+required:
+  - priceId
+  - personId
+   personId:
+      type: string
+    structureId:
+      type: string
+    date:
+      type: string
+      format: date
+    dateApprox:
+      type: string
+    createdBy:
+      type: string
+      readOnly: true
+    createdAt:
+      type: string
+      format: date-time
+      readOnly: true
+    updatedBy:
+      type: string
+      readOnly: true
+    updatedAt:
+      type: string
+      format: date-time
+      readOnly: true
+required:
+  - priceId
+  - personId

@@ -1,0 +1,5 @@
+title: Identifiers
+type: object
+properties:
+  id:
+    type: string

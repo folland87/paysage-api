@@ -1,32 +1,36 @@
-title: Person
+title: StructureNames
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  firstName:
+  officialName:
     type: string
-  lastName:
+  usualName:
     type: string
-  alias:
+  shortName:
+    type: string
+  brandName:
+    type: string
+  englishName:
+    type: string
+  acronymFr:
+    type: string
+  acronymEn:
+    type: string
+  otherNames:
     type: array
     items:
       type: string
-  gender:
-    type: string
-    enum:
-      - F
-      - M
-  email:
-    type: string
-  publicResearch:
+  main:
     type: boolean
-  birthDate:
+  startDate:
     type: string
-    format: date
-  activities:
+  startDateApprox:
     type: string
-  avatarUrl:
+  endDate:
+    type: string
+  endDateApprox:
     type: string
   comment:
     type: string
@@ -43,4 +47,4 @@ properties:
   updatedAt:
     type: string
     format: date-time
-    readOnly: true
+    readOnly: truePerson
