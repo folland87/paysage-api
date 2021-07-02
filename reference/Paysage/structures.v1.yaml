@@ -614,17 +614,23 @@ components:
     Structure:
       type: object
       description: ''
+      title: ''
+      x-tags:
+        - Models
+      x-internal: false
       properties:
         id:
           type: string
+          readOnly: true
         name:
           type: string
+          readOnly: true
         acronym:
           type: string
+          readOnly: true
         logo:
           type: string
-        lastUpdate:
-          type: string
+          readOnly: true
         creationDate:
           type: string
         legalCategory:
@@ -633,13 +639,48 @@ components:
           type: boolean
         isActive:
           type: boolean
-        originatedFrom:
+    Descriptions:
+      title: Descriptions
+      type: object
+      properties:
+        id:
           type: string
-      readOnly: true
-      title: ''
-      x-tags:
-        - Models
-      x-internal: false
+    Names:
+      title: Names
+      type: object
+      properties:
+        id:
+          type: string
+    LegalCategories:
+      title: LegalCategories
+      type: object
+      properties:
+        id:
+          type: string
+    Logos:
+      title: Logos
+      type: object
+      properties:
+        id:
+          type: string
+    Supervisors:
+      title: Supervisors
+      type: object
+      properties:
+        id:
+          type: string
+    Categories:
+      title: Categories
+      type: object
+      properties:
+        id:
+          type: string
+    AssociatedStructures:
+      title: AssociatedStructures
+      type: object
+      properties:
+        id:
+          type: string
   parameters:
     query:
       name: query
