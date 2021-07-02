@@ -7,7 +7,7 @@ servers:
 paths:
   /structures:
     get:
-      summary: Get all structures
+      summary: Get structures
       responses:
         '200':
           description: OK
@@ -17,25 +17,17 @@ paths:
                 type: array
                 items:
                   $ref: ./models/Structure.yaml
-        '400':
-          $ref: '#/components/responses/Error'
         '401':
-          $ref: '#/components/responses/Error'
-        '403':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
       operationId: getStructuresList
       description: Get an array of structures.
-      parameters:
-        - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/projection'
+      parameters: []
       tags:
         - Structures
     post:
-      summary: Create structure
+      summary: Create a structure
       operationId: CreateStructure
       responses:
         '201':
@@ -48,23 +40,21 @@ paths:
           $ref: '#/components/responses/Error'
         '401':
           $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
       description: Create a new structure.
       tags:
         - Structures
     parameters: []
-  '/structures/{structureId}':
+  '/structures/{structureID}':
     parameters:
       - schema:
           type: string
-        name: structureId
+        name: structureID
         in: path
         required: true
     get:
-      summary: Get structure
+      summary: Get a structure
       tags:
         - Structures
       responses:
@@ -73,10 +63,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StructureFull'
+                $ref: ./models/Structure.yaml
         '401':
-          $ref: '#/components/responses/Error'
-        '403':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
@@ -86,7 +74,7 @@ paths:
       description: Get a structure by ID.
       parameters: []
     patch:
-      summary: Modify structure
+      summary: Update a structure
       operationId: modifyOneStructure
       responses:
         '200':
@@ -98,8 +86,6 @@ paths:
         '400':
           $ref: '#/components/responses/Error'
         '401':
-          $ref: '#/components/responses/Error'
-        '403':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
@@ -115,138 +101,15 @@ paths:
       responses:
         '204':
           description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples: {}
+        '401':
+          $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
       tags:
         - Structures
-  '/structures/{structureId}/identifiers':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-    get:
-      summary: Get all structure's identifiers
-      tags:
-        - Identifiers
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: ./models/IdentifierOf.yaml
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '404':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      operationId: getStructureIdentifiers
-      description: Get all identifiers related to a structure.
-      parameters: []
-    post:
-      summary: Create new structure identifier
-      operationId: createStructureIdentifier
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: ./models/IdentifierOf.yaml
-        '400':
-          $ref: '#/components/responses/Error'
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Add a new identifier to a structure.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/IdentifierOf.yaml
-      tags:
-        - Identifiers
-  '/structures/{structureId}/identifiers/{identifierId}':
-    parameters:
-      - schema:
-          type: string
-        name: identifierId
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-    patch:
-      summary: Modify structure's identifier
-      operationId: modifyStructureIdentifier
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: ./models/IdentifierOf.yaml
-        '400':
-          $ref: '#/components/responses/Error'
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '404':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Modify a structures identifier
-      tags:
-        - Identifiers
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/IdentifierOf.yaml
-    delete:
-      summary: ''
-      operationId: deleteStructureIdentifier
-      responses:
-        '204':
-          description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '404':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Delete an identifier from a structure.
-      tags:
-        - Identifiers
-  '/structures/{structureID}/weblinks':
+  '/structures/{structureID}/names':
     parameters:
       - schema:
           type: string
@@ -254,7 +117,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Get all links related to a structure.
+      summary: Get a structure's name
+      tags:
+        - Names
       responses:
         '200':
           description: OK
@@ -263,231 +128,27 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./models/WeblinkOf.yaml
+                  $ref: ./models/StructureNames.yaml
         '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
         '500':
-          description: Internal Server Error
-      operationId: getStructureWeblinks
-      description: Get all weblinks related to a structure.
-      tags:
-        - Weblinks
+          $ref: '#/components/responses/Error'
+      operationId: get-structures-structureID-names
     post:
-      summary: Add a weblink to a structure.
-      operationId: createStructureWeblink
+      summary: Create a structure's name
+      operationId: post-structures-structureID-names
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: ./models/WeblinkOf.yaml
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/WeblinkOf.yaml
-      description: Add a new weblink to a structure.
-      tags:
-        - Weblinks
-  '/structures/{structureId}/addresses':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-    get:
-      summary: Get all addresses related to a structure.
-      tags:
-        - Addresses
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: ./models/AddressOf.yaml
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      operationId: getStructureAddresses
-      description: Get all addresses related to a structure.
-    post:
-      summary: Add an address to a structure.
-      operationId: createStructureAddress
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: ./models/AddressOf.yaml
+                $ref: ./models/StructureNames.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Add a new address to a structure.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/AddressOf.yaml
-        description: ''
-      tags:
-        - Addresses
-  '/structures/{structureId}/socialmedias':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-    get:
-      summary: Get all socialMedias related to a structure.
-      tags:
-        - SocialMedias
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: ./models/SocialMediaOf.yaml
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      operationId: getStructureSocialMedia
-      description: Get all social medias related to a structure.
-    post:
-      summary: Add a socialMedia to a structure.
-      operationId: createStructureSocialMedia
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: ./models/SocialMediaOf.yaml
-        '400':
-          $ref: '#/components/responses/Error'
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Add a new weblink to a structure.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/SocialMediaOf.yaml
-      tags:
-        - SocialMedias
-  '/structures/{structureId}/categories':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-    get:
-      summary: Get all categories related to a structure.
-      tags:
-        - Categories
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: ./models/CategoryOf.yaml
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      operationId: getStructureCategories
-      description: Get all categories related to a structure.
-    post:
-      summary: Add a category to a structure.
-      operationId: AddStructureCategory
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: ./models/CategoryOf.yaml
-        '400':
-          $ref: '#/components/responses/Error'
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
-        '500':
-          $ref: '#/components/responses/Error'
-      description: Add a new category to a structure.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ./models/CategoryOf.yaml
-      tags:
-        - Categories
-  '/structures/{structureId}/weblinks/{weblinkId}':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: weblinkId
-        in: path
-        required: true
-    patch:
-      summary: Modify structure's weblink
-      operationId: modifyStructureWeblink
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: ./models/WeblinkOf.yaml
-        '400':
-          $ref: '#/components/responses/Error'
-        '401':
-          $ref: '#/components/responses/Error'
-        '403':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
@@ -497,21 +158,65 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./models/WeblinkOf.yaml
-      description: Modify a weblink of a structure.
+              $ref: ./models/StructureNames.yaml
       tags:
-        - Weblinks
+        - Names
+  '/structures/{structureID}/names/{nameID}':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: nameID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's name
+      tags:
+        - Names
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/StructureNames.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      operationId: get-structures-structureID-names-nameID
+    patch:
+      summary: ''
+      operationId: patch-structures-structureID-names-nameID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/StructureNames.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      tags:
+        - Names
     delete:
-      summary: Delete structure's weblink
-      operationId: deleteStructureWeblink
+      summary: Delete a structure's name
+      operationId: delete-structures-structureID-names-nameID
       responses:
         '204':
           description: No Content
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
         '401':
           $ref: '#/components/responses/Error'
         '403':
@@ -520,95 +225,129 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      description: Delete a weblink from a structure.
       tags:
-        - Weblinks
-  '/structures/{structureId}/categories/{categoryId}':
+        - Names
+  '/structures/{structureID}/logos':
     parameters:
       - schema:
           type: string
-        name: structureId
+        name: structureID
         in: path
         required: true
-      - schema:
-          type: string
-        name: categoryId
-        in: path
-        required: true
-    patch:
-      summary: Modify structure's categorie
+    get:
+      summary: Get structure's logos
       tags:
-        - Categories
+        - Logos
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: ./models/CategoryOf.yaml
+                type: array
+                items:
+                  $ref: ./models/Logo.yaml
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      operationId: get-structures-structureID-logos
+    post:
+      summary: Create a logo
+      operationId: post-structures-structureID-logos
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Logo.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
           $ref: '#/components/responses/Error'
-        '403':
-          $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: modifyStructureCategory
-      description: Modify a category of a structure.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: ./models/CategoryOf.yaml
-    delete:
-      summary: Remove categorie from structure
+              $ref: ./models/Logo.yaml
       tags:
-        - Categories
+        - Logos
+  '/structures/{structureID}/logos/{logoID}':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: logoID
+        in: path
+        required: true
+    get:
+      summary: Get a structure's logo
+      tags:
+        - Logos
       responses:
-        '204':
-          description: No Content
+        '200':
+          description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties: {}
+                $ref: ./models/Logo.yaml
         '401':
-          $ref: '#/components/responses/Error'
-        '403':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: deleteStructureCategory
-      description: Delete a weblink from a structure.
-  '/structures/{structureId}/socialMedias/{socialMediaId}':
-    parameters:
-      - schema:
-          type: string
-        name: structureId
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: socialMediaId
-        in: path
-        required: true
+      operationId: get-structures-structureID-logos-logoID
     patch:
-      summary: Modify structure's social media
+      summary: Update a structure's logo
+      operationId: patch-structures-structureID-logos-logoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Logo.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Logo.yaml
       tags:
-        - SocialMedias
-      responses: {}
-      operationId: patch-structures-structureId-socialMedias-socialMediaId
+        - Logos
     delete:
-      summary: Delete structure's social media
+      summary: ''
+      operationId: delete-structures-structureID-logos-logoID
+      responses:
+        '204':
+          description: No Content
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
       tags:
-        - SocialMedias
-      responses: {}
-      operationId: delete-structures-structureId-socialMedias-socialMediaId
+        - Logos
 components:
   schemas: {}
   parameters: {}
@@ -624,7 +363,8 @@ tags:
   - name: Addresses
   - name: Categories
   - name: Identifiers
-  - name: Models
+  - name: Logos
+  - name: Names
   - name: SocialMedias
   - name: Structures
   - name: Weblinks

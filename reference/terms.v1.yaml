@@ -1,15 +1,15 @@
 openapi: 3.0.0
 info:
-  title: Categories
+  title: Terms
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /categories:
+  /terms:
     get:
-      summary: Get categories
+      summary: Get terms
       tags:
-        - Categories
+        - Terms
       responses:
         '200':
           description: OK
@@ -18,24 +18,24 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./models/Category.yaml
+                  $ref: ./models/Term.yaml
         '401':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-categories
+      operationId: get-terms
     post:
-      summary: Create a category
-      operationId: post-categories
+      summary: Create a Term
+      operationId: post-terms
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: ./models/Category.yaml
+                $ref: ./models/Term.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
@@ -43,47 +43,47 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
       tags:
-        - Categories
+        - Terms
       requestBody:
         content:
           application/json:
             schema:
-              $ref: ./models/Category.yaml
-  '/categories/{categoryID}':
+              $ref: ./models/Term.yaml
+  '/terms/{termID}':
     parameters:
       - schema:
           type: string
-        name: categoryID
+        name: termID
         in: path
         required: true
     get:
-      summary: Get a category
+      summary: Get a term
       tags:
-        - Categories
+        - Terms
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: ./models/Category.yaml
+                $ref: ./models/Term.yaml
         '401':
           $ref: '#/components/responses/Error'
         '404':
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-categories-categoryID
+      operationId: get-terms-termID
     patch:
-      summary: Update a category
-      operationId: patch-categories-categoryID
+      summary: Update a term
+      operationId: patch-terms-termID
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: ./models/Category.yaml
+                $ref: ./models/Term.yaml
         '400':
           $ref: '#/components/responses/Error'
         '401':
@@ -93,10 +93,10 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
       tags:
-        - Categories
+        - Terms
     delete:
-      summary: Delete a category
-      operationId: delete-categories-categoryID
+      summary: Delete a term
+      operationId: delete-terms-termID
       responses:
         '204':
           description: No Content
@@ -107,7 +107,7 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
       tags:
-        - Categories
+        - Terms
 components:
   responses:
     Error:
@@ -117,4 +117,5 @@ components:
           schema:
             $ref: ./models/Error.yaml
 tags:
-  - name: Categories
+  - name: Terms
+
