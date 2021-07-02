@@ -348,6 +348,18 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - Logos
+  '/structures/{structureID}/addresses':
+    parameters:
+      - schema:
+          type: string
+        name: structureID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-structures-structureID-addresses
 components:
   schemas: {}
   parameters: {}
