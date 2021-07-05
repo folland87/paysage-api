@@ -1,5 +1,6 @@
-title: LogoOf
+title: Logo
 type: object
+description: ''
 properties:
   id:
     type: string
@@ -9,7 +10,7 @@ properties:
     type: string
     description: True for the current logo.
     default: 'False'
-  fileUrl:
+  logoUrl:
     type: string
     description: URL of the logo.
   startDate:
@@ -17,9 +18,11 @@ properties:
   endDate:
     type: string
   startDateApprox:
-    type: string
+    type: boolean
+    default: false
   endDateApprox:
-    type: string
+    type: boolean
+    default: false
   comment:
     type: string
   createdBy:
@@ -38,4 +41,4 @@ properties:
     readOnly: true
 required:
   - main
-  - fileUrl
+  - logoUrl
