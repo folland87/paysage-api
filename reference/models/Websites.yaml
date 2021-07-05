@@ -10,17 +10,15 @@ properties:
     type: string
   language:
     type: string
+  createdBy:
+    $ref: ./UserInfo.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  createdBy:
-    type: string
-    readOnly: true
+  updatedBy:
+    $ref: ./UserInfo.yaml
   updatedAt:
     type: string
     format: date-time
-    readOnly: true
-  updatedBy:
-    type: string
     readOnly: true

@@ -1,0 +1,15 @@
+title: UserInfo
+type: object
+readOnly: true
+required:
+  - id
+  - email
+  - username
+properties:
+  id:
+    type: string
+    format: objectID
+  username:
+    type: string
+  email:
+    type: string

@@ -1,21 +1,8 @@
-title: Identifiers
+title: StructureLegalCategory
 type: object
 properties:
   id:
     type: string
-    readOnly: true
-  type:
-    type: string
-  startDate:
-    type: string
-    format: date
-  endDate:
-    type: string
-    format: date
-  identifier:
-    type: string
-  active:
-    type: boolean
   createdBy:
     $ref: ./UserInfo.yaml
   createdAt:

@@ -1,0 +1,165 @@
+openapi: 3.0.1
+info:
+  title: User Management
+  license:
+    name: MIT
+    url: 'https://github.com/dataesr/paysage/LICENCE.md'
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:4000/api'
+paths:
+  /auth/signin:
+    post:
+      tags:
+        - Authentication
+      summary: Sign a user in
+      description: A signin route that returns a token.
+      requestBody:
+        description: User credentials
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signPayload'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signResponse'
+        '400':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+  /auth/signup:
+    post:
+      tags:
+        - Authentication
+      summary: Sign a user up
+      description: Create a user account
+      requestBody:
+        description: Required user info for account creation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signPayload'
+        required: true
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signResponse'
+        '400':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+  /auth/activate:
+    get:
+      tags:
+        - Authentication
+      summary: Reads a token to confirm user's account
+      parameters:
+        - name: token
+          in: query
+          description: A token sent by email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User account activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+  /me:
+    patch:
+      tags:
+        - Me
+      summary: Update user infos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/Me.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Me.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    delete:
+      tags:
+        - Me
+      summary: delete user account
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    get:
+      tags:
+        - Me
+      summary: Get current user
+      responses:
+        '200':
+          description: User infos
+          content:
+            application/json:
+              schema:
+                $ref: ./models/Me.yaml
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+components:
+  schemas:
+    signPayload:
+      type: object
+      properties:
+        password:
+          type: string
+          pattern: '^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&:_])[A-Za-z\d@$!%*#?&]{8,}$'
+          description: 'Minimum eight characters, at least one letter, one number and one special character'
+        account:
+          type: string
+          format: email
+          description: Email or username
+      required:
+        - password
+        - account
+    signResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: User token to use for subsequent requests
+  responses:
+    Error:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: ./models/Error.yaml

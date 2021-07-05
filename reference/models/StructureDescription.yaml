@@ -1,21 +1,22 @@
-title: Identifiers
+title: StructureDescription
 type: object
 properties:
   id:
     type: string
-    readOnly: true
-  type:
+  descriptionFr:
     type: string
+  descriptionEn:
+    type: string
+  main:
+    type: boolean
   startDate:
     type: string
-    format: date
+  startDateApprox:
+    type: string
   endDate:
     type: string
-    format: date
-  identifier:
+  endDateApprox:
     type: string
-  active:
-    type: boolean
   createdBy:
     $ref: ./UserInfo.yaml
   createdAt:

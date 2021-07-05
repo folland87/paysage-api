@@ -1,12 +1,10 @@
-title: Position
+title: PersonsPosition
 type: object
 properties:
   id:
     type: string
     readOnly: true
   structureId:
-    type: string
-  personId:
     type: string
   positionId:
     type: string
@@ -48,21 +46,18 @@ properties:
   previsionalEndDateApprox:
     type: boolean
   createdBy:
-    type: string
-    readOnly: true
+    $ref: ./UserInfo.yaml
   createdAt:
     type: string
-    format: date
+    format: date-time
     readOnly: true
   updatedBy:
-    type: string
-    readOnly: true
+    $ref: ./UserInfo.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
 required:
   - structureId
-  - personId
   - positionId
   - type

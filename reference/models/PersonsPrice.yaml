@@ -1,11 +1,9 @@
-title: PriceRecipent
+title: PersonsPrice
 type: object
 properties:
   id:
     type: string
     readOnly: true
-  personId:
-    type: string
   structureId:
     type: string
   date:
@@ -14,15 +12,13 @@ properties:
   dateApprox:
     type: boolean
   createdBy:
-    type: string
-    readOnly: true
+    $ref: ./UserInfo.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    type: string
-    readOnly: true
+    $ref: ./UserInfo.yaml
   updatedAt:
     type: string
     format: date-time

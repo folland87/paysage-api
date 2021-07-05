@@ -1,0 +1,40 @@
+title: User
+type: object
+properties:
+  id:
+    type: string
+    format: objectID
+    readOnly: true
+  username:
+    type: string
+    nullable: true
+  firstName:
+    type: string
+    nullable: true
+  lastName:
+    type: string
+    nullable: true
+  email:
+    type: string
+  isActive:
+    type: boolean
+    readOnly: true
+  role:
+    type: string
+    description: User role
+    enum:
+      - admin
+      - user
+    default: user
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  modifiedAt:
+    type: string
+    format: date-time
+    readOnly: true
+  lastConnection:
+    type: string
+    format: date-time
+    readOnly: true

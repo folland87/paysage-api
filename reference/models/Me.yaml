@@ -1,30 +1,27 @@
-title: Identifiers
+title: Me
 type: object
 properties:
   id:
     type: string
+    format: objectID
     readOnly: true
-  type:
+  username:
     type: string
-  startDate:
+  firstName:
     type: string
-    format: date
-  endDate:
+  lastName:
     type: string
-    format: date
-  identifier:
+  email:
     type: string
-  active:
-    type: boolean
-  createdBy:
-    $ref: ./UserInfo.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  updatedBy:
-    $ref: ./UserInfo.yaml
-  updatedAt:
+  modifiedAt:
+    type: string
+    format: date-time
+    readOnly: true
+  lastConnection:
     type: string
     format: date-time
     readOnly: true
