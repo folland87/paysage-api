@@ -25,9 +25,8 @@ properties:
   main:
     type: boolean
   startDay:
-    type: number
-    minimum: 1
-    maximum: 31
+    type: array
+    items: {}
   startMonth:
     type: number
     minimum: 1
