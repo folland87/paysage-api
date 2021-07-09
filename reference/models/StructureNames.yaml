@@ -24,14 +24,26 @@ properties:
       type: string
   main:
     type: boolean
-  startDate:
-    type: string
-  startDateApprox:
-    type: string
-  endDate:
-    type: string
-  endDateApprox:
-    type: string
+  startDay:
+    type: number
+    minimum: 1
+    maximum: 31
+  startMonth:
+    type: number
+    minimum: 1
+    maximum: 12
+  startYear:
+    type: number
+  endDay:
+    type: number
+    minimum: 1
+    maximum: 31
+  endMonth:
+    type: number
+    minimum: 1
+    maximum: 12
+  endYear:
+    type: number
   comment:
     type: string
   createdBy:
@@ -46,3 +58,13 @@ properties:
     type: string
     format: date-time
     readOnly: true
+  article:
+    type: string
+    enum:
+      - à l'
+      - à
+      - à la
+      - dans le
+      - dans les
+      - aux
+      - au

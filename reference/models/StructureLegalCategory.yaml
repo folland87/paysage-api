@@ -15,3 +15,15 @@ properties:
     type: string
     format: date-time
     readOnly: true
+examples:
+  - id: string
+    createdBy:
+      id: string
+      username: string
+      email: string
+    createdAt: '2019-08-24T14:15:22Z'
+    updatedBy:
+      id: string
+      username: string
+      email: string
+    updatedAt: '2019-08-24T14:15:22Z'
