@@ -17,6 +17,7 @@ properties:
     enum:
       - F
       - M
+      - Autre
   email:
     type: string
   publicResearch:

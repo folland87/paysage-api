@@ -1,0 +1,23 @@
+title: Projet
+type: object
+properties:
+  id:
+    type: string
+  nom:
+    type: array
+    items: {}
+  '':
+  createdBy:
+    type: string
+    createdBy:
+    $ref: ./UserInfo.yaml
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    $ref: ./UserInfo.yaml
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
