@@ -21,14 +21,14 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: getStructuresList
+      operationId: listStructures
       description: Get an array of structures.
       parameters: []
       tags:
         - Structures
     post:
       summary: Create a structure
-      operationId: CreateStructure
+      operationId: createStructure
       responses:
         '201':
           description: Created
@@ -70,12 +70,12 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: getOneStructure
+      operationId: getStructure
       description: Get a structure by ID.
       parameters: []
     patch:
       summary: Update a structure
-      operationId: modifyOneStructure
+      operationId: updateStructure
       responses:
         '200':
           description: OK
@@ -96,7 +96,7 @@ paths:
         - Structures
     delete:
       summary: Delete structure
-      operationId: deleteOneStructure
+      operationId: deleteStructure
       description: Delete a structure by ID.
       responses:
         '204':
@@ -135,10 +135,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structureID-names
+      operationId: listStructuresNames
     post:
       summary: Create a structure's name
-      operationId: post-structures-structureID-names
+      operationId: createStructuresName
       responses:
         '201':
           description: Created
@@ -190,10 +190,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structureID-names-nameID
+      operationId: getStructuresName
     patch:
       summary: Update a structure's name
-      operationId: patch-structures-structureID-names-nameID
+      operationId: updateStructuresName
       responses:
         '200':
           description: OK
@@ -213,7 +213,7 @@ paths:
         - Names
     delete:
       summary: Delete a structure's name
-      operationId: delete-structures-structureID-names-nameID
+      operationId: deleteStructuresName
       responses:
         '204':
           description: No Content
@@ -253,10 +253,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structureID-logos
+      operationId: listStructuresLogos
     post:
       summary: Create a logo
-      operationId: post-structures-structureID-logos
+      operationId: createStructuresLogo
       responses:
         '201':
           description: Created
@@ -308,10 +308,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structureID-logos-logoID
+      operationId: getStructuresLogo
     patch:
       summary: Update a structure's logo
-      operationId: patch-structures-structureID-logos-logoID
+      operationId: updateStructuresLogo
       responses:
         '200':
           description: OK
@@ -336,7 +336,7 @@ paths:
         - Logos
     delete:
       summary: Delete a structure's logo
-      operationId: delete-structures-structureID-logos-logoID
+      operationId: deleteStructuresLogo
       responses:
         '204':
           description: No Content
@@ -374,10 +374,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structureID-addresses
+      operationId: listStructuresAddresses
     post:
       summary: Create a structure's addresse
-      operationId: post-structures-structureID-addresses
+      operationId: createStructuresAddress
       responses:
         '201':
           description: Created
@@ -429,10 +429,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-structures-structuresID-addresses-addressID
+      operationId: getStructuresAddress
     patch:
       summary: Update a structure's address
-      operationId: patch-structures-structuresID-addresses-addressID
+      operationId: updateStructuresAddress
       responses:
         '200':
           description: OK
@@ -450,7 +450,7 @@ paths:
         - Addresses
     delete:
       summary: Delete a structure's address
-      operationId: delete-structures-structuresID-addresses-addressID
+      operationId: deleteStructuresAddress
       responses:
         '204':
           description: No Content
@@ -488,6 +488,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listStructuresIdentifiers
     post:
       summary: Create a structure's identifier
       responses:
@@ -512,6 +513,7 @@ paths:
               $ref: ./models/Identifier.yaml
       tags:
         - Identifiers
+      operationId: createStructuresIdentifier
   '/structures/{structureID}/identifiers/{identifierID}':
     parameters:
       - schema:
@@ -541,6 +543,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getStructuresIdentifier
     patch:
       summary: Update a structure's identifier
       responses:
@@ -565,6 +568,7 @@ paths:
               $ref: ./models/Identifier.yaml
       tags:
         - Identifiers
+      operationId: updateStructuresIdentifier
     delete:
       summary: Delete a structure's identifier
       responses:
@@ -578,6 +582,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - Identifiers
+      operationId: deleteStructuresIdentifier
   '/structures/{structureID}/websites':
     parameters:
       - schema:
@@ -604,6 +609,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listStructuresWebsites
     post:
       summary: Create a structure's website
       responses:
@@ -628,6 +634,7 @@ paths:
               $ref: ./models/Websites.yaml
       tags:
         - Websites
+      operationId: createStructuresWebsite
   '/structures/{structureID}/websites/{websiteID}':
     parameters:
       - schema:
@@ -657,6 +664,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getStructuresWebsite
     patch:
       summary: Update a structure's website
       responses:
@@ -681,6 +689,7 @@ paths:
               $ref: ./models/Websites.yaml
       tags:
         - Websites
+      operationId: updateStructuresWebsite
     delete:
       summary: Delete a structure's website
       responses:
@@ -694,6 +703,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - Websites
+      operationId: deleteStructuresWebsite
   '/structures/{structureID}/socials':
     parameters:
       - schema:
@@ -720,6 +730,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listStructuresSocialMedias
     post:
       summary: Create a structure's social media
       responses:
@@ -744,6 +755,7 @@ paths:
               $ref: ./models/SocialMedia.yaml
       tags:
         - SocialMedias
+      operationId: createStructuresSocialMedia
   '/structures/{structureID}/socials/{socialID}':
     parameters:
       - schema:
@@ -773,6 +785,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getStructuresSocialMedia
     patch:
       summary: Update a structure's social media
       responses:
@@ -797,6 +810,7 @@ paths:
               $ref: ./models/SocialMedia.yaml
       tags:
         - SocialMedias
+      operationId: updateStructuresSocialMedia
     delete:
       summary: Delete a structure's social media
       responses:
@@ -810,6 +824,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - SocialMedias
+      operationId: deleteStructuresSocialMedia
 components:
   schemas: {}
   parameters: {}

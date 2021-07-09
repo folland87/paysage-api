@@ -25,10 +25,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-categories
+      operationId: listCategories
     post:
       summary: Create a category
-      operationId: post-categories
+      operationId: createCategory
       responses:
         '201':
           description: Created
@@ -73,10 +73,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-categories-categoryID
+      operationId: getCategory
     patch:
       summary: Update a category
-      operationId: patch-categories-categoryID
+      operationId: updateCategory
       responses:
         '200':
           description: OK
@@ -96,7 +96,7 @@ paths:
         - Categories
     delete:
       summary: Delete a category
-      operationId: delete-categories-categoryID
+      operationId: deleteCategory
       responses:
         '204':
           description: No Content

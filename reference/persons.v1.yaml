@@ -7,7 +7,7 @@ servers:
 paths:
   /persons:
     get:
-      summary: Get a person
+      summary: Get an array of persons
       tags:
         - Persons
       responses:
@@ -25,11 +25,12 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-persons
+      operationId: listPersons
       parameters: []
+      description: ''
     post:
       summary: Create a person
-      operationId: post-persons
+      operationId: createPerson
       responses:
         '201':
           description: Created
@@ -50,7 +51,7 @@ paths:
               $ref: ./models/Person.yaml
       tags:
         - Persons
-  '/person/{personID}':
+  '/persons/{personID}':
     parameters:
       - schema:
           type: string
@@ -74,11 +75,11 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-person-by-id
+      operationId: getPerson
       description: Retrieve the information of the Person with the matching user ID.
     patch:
       summary: Update a person
-      operationId: patch-users-userId
+      operationId: updatePerson
       responses:
         '200':
           description: User Updated
@@ -104,7 +105,7 @@ paths:
         - Persons
     delete:
       summary: Delete a person
-      operationId: delete-person-personID
+      operationId: deletePerson
       responses:
         '204':
           description: No Content
@@ -142,10 +143,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-persons-personID-identifiers
+      operationId: listPersonsIdentifiers
     post:
       summary: Create a person's identifier
-      operationId: post-persons-personID-identifiers
+      operationId: createPersonsIdentifier
       responses:
         '201':
           description: Created
@@ -197,10 +198,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-persons-personID-identifiers-identifierID
+      operationId: getPersonsIdentifier
     patch:
       summary: Update a person's identifier
-      operationId: patch-persons-personID-identifiers-identifierID
+      operationId: updatePersonsIdentifier
       responses:
         '200':
           description: OK
@@ -225,7 +226,7 @@ paths:
         - Identifiers
     delete:
       summary: Delete a person's identifier
-      operationId: delete-persons-personID-identifiers-identifierID
+      operationId: deletegetPersonsIdentifier
       responses:
         '204':
           description: No Content
@@ -263,10 +264,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-persons-personID-websites
+      operationId: listPersonsWebsites
     post:
       summary: Create a person's website
-      operationId: post-persons-personID-websites
+      operationId: createPersonsWebsite
       responses:
         '201':
           description: Created
@@ -318,10 +319,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
-      operationId: get-persons-personID-websites-websiteID
+      operationId: getPersonsWebsite
     patch:
       summary: Update a person's website
-      operationId: patch-persons-personID-websites-websiteID
+      operationId: updatePersonsWebsite
       responses:
         '200':
           description: OK
@@ -346,7 +347,7 @@ paths:
         - Websites
     delete:
       summary: Delete a person's website
-      operationId: delete-persons-personID-websites-websiteID
+      operationId: deletePersonsWebsite
       responses:
         '204':
           description: No Content
@@ -384,6 +385,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listPersonsSocialMedias
     post:
       summary: Create a person's social media
       responses:
@@ -408,6 +410,7 @@ paths:
               $ref: ./models/SocialMedia.yaml
       tags:
         - SocialMedias
+      operationId: createPersonsSocialMedias
   '/persons/{personID}/socials/{socialID}':
     parameters:
       - schema:
@@ -437,9 +440,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getPersonsSocialMedia
     patch:
       summary: Update a person's social media
-      operationId: patch-persons-personID-socials-socialID
+      operationId: updatePersonsSocialMedia
       responses:
         '200':
           description: OK
@@ -475,6 +479,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - SocialMedias
+      operationId: deletePersonsSocialMedia
   '/persons/{personID}/positions':
     parameters:
       - schema:
@@ -501,6 +506,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listPersonsPositions
     post:
       summary: Create a person's position
       responses:
@@ -525,6 +531,7 @@ paths:
               $ref: ./models/PositionEdge.yaml
       tags:
         - Positions
+      operationId: createPersonsPosition
   '/persons/{personID}/positions/{positionID}':
     parameters:
       - schema:
@@ -554,6 +561,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getPersonsPosition
     patch:
       summary: Update a person's position
       responses:
@@ -578,6 +586,7 @@ paths:
               $ref: ./models/PositionEdge.yaml
       tags:
         - Positions
+      operationId: updatePersonsPosition
     delete:
       summary: Delete a person's position
       responses:
@@ -591,6 +600,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - Positions
+      operationId: deletePersonsPosition
   '/persons/{personID}/prices':
     parameters:
       - schema:
@@ -617,6 +627,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: listPersonsPrices
     post:
       summary: Create a person's price
       responses:
@@ -641,6 +652,7 @@ paths:
               $ref: ./models/PriceEdge.yaml
       tags:
         - Prices
+      operationId: createPersonsPrice
   '/persons/{personID}/prices/{priceID}':
     parameters:
       - schema:
@@ -670,6 +682,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getPersonsPrice
     patch:
       summary: Update a person's price
       responses:
@@ -694,6 +707,7 @@ paths:
               $ref: ./models/PriceEdge.yaml
       tags:
         - Prices
+      operationId: updatePersonsPrice
     delete:
       summary: Delete a person's price
       responses:
@@ -707,6 +721,7 @@ paths:
           $ref: '#/components/responses/Error'
       tags:
         - Prices
+      operationId: deletePersonsPrice
 components:
   schemas: {}
   responses:

@@ -19,7 +19,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/signPayload'
+              $ref: '#/components/schemas/signinPayload'
         required: true
       responses:
         '200':
@@ -32,6 +32,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: signin
   /auth/signup:
     post:
       tags:
@@ -43,7 +44,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/signPayload'
+              $ref: '#/components/schemas/signupPayload'
         required: true
       responses:
         '201':
@@ -56,15 +57,16 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: signup
   /auth/activate:
     get:
       tags:
         - Authentication
       summary: Reads a token to confirm user's account
       parameters:
-        - name: token
+        - name: email
           in: query
-          description: A token sent by email
+          description: User email
           required: true
           schema:
             type: string
@@ -81,6 +83,40 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: sendActivationCode
+    post:
+      summary: ''
+      operationId: activateAccount
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+  /auth/reset:
+    post:
+      summary: ''
+      operationId: resetPassord
+      responses:
+        '200':
+          description: OK
+    get:
+      summary: ''
+      operationId: sendResetPassordCode
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: email
+          description: User email
   /me:
     patch:
       tags:
@@ -104,6 +140,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: updateMe
     delete:
       tags:
         - Me
@@ -117,6 +154,7 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: deleteMe
     get:
       tags:
         - Me
@@ -134,9 +172,10 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+      operationId: getMe
 components:
   schemas:
-    signPayload:
+    signinPayload:
       type: object
       properties:
         password:
@@ -145,7 +184,6 @@ components:
           description: 'Minimum eight characters, at least one letter, one number and one special character'
         account:
           type: string
-          format: email
           description: Email or username
       required:
         - password
@@ -156,6 +194,24 @@ components:
         token:
           type: string
           description: User token to use for subsequent requests
+    signupPayload:
+      title: signupPayload
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+      required:
+        - username
+        - email
+        - password
   responses:
     Error:
       description: Example response
