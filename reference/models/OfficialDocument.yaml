@@ -27,14 +27,10 @@ properties:
     format: date
   comment:
     type: string
-  linkedPersons:
-    type:
-      - string
-      - object
-  linkedStructures:
-    type:
-      - string
-      - object
+  personId:
+    type: string
+  structureId:
+    type: string
   createdBy:
     $ref: ./UserInfo.yaml
   createdAt:
