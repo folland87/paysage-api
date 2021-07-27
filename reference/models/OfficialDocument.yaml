@@ -4,7 +4,11 @@ properties:
   id:
     type: string
     readOnly: true
+  function:
+    type: string
   type:
+    type: string
+  number:
     type: string
   name:
     type: string
@@ -23,6 +27,14 @@ properties:
     format: date
   comment:
     type: string
+  linkedPersons:
+    type:
+      - string
+      - object
+  linkedStructures:
+    type:
+      - string
+      - object
   createdBy:
     $ref: ./UserInfo.yaml
   createdAt:
