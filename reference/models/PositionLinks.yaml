@@ -17,7 +17,7 @@ properties:
       - nomination
       - mandat
   interim:
-    type: string
+    type: boolean
   access:
     type: string
     enum:
@@ -35,7 +35,7 @@ properties:
     type: string
   textId:
     type: string
-  strartDate:
+  startDate:
     type: string
   endDate:
     type: string
@@ -63,3 +63,4 @@ required:
   - structureId
   - positionId
   - type
+description: ''

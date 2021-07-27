@@ -4,7 +4,10 @@ properties:
   id:
     type: string
     readOnly: true
-  nameFr:
+  structureId:
+    type: string
+    readOnly: true
+  positionID:
     type: string
   nameEn:
     type: string

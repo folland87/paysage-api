@@ -6,6 +6,26 @@ properties:
     readOnly: true
   type:
     type: string
+    enum:
+      - Facebook
+      - Twitter
+      - Instagram
+      - LinkedIn
+      - Viadeo
+      - YouTube
+      - vimeo
+      - Dailymotion
+      - Github
+      - Gitlab
+      - pinterest
+      - flickR
+      - tumblR
+      - France Culture
+      - scribd
+      - scoopit
+      - TikTok
+      - Twitch
+      - Snapchat
   account:
     type: string
   createdBy:
