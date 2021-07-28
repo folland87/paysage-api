@@ -6,12 +6,12 @@ properties:
   description:
     type: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
   updateAt:
     type: string
-  upDateBy:
+  updateBy:
     $ref: ./User.yaml
 required:
   - createdBy
