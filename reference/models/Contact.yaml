@@ -1,0 +1,15 @@
+title: Contact
+type: object
+properties:
+  id:
+    type: string
+  email:
+    type: string
+  phone:
+    type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
+  position:
+    type: string

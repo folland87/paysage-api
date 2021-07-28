@@ -39,3 +39,15 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
+  grantPart:
+    type: string
+  grantStructure:
+    $ref: ./Structure.yaml
+  contact:
+    $ref: ./Contact.yaml
+  structures:
+    type: array
+    items:
+      $ref: ./Structure.yaml
+  documents:
+    type: string
