@@ -25,11 +25,11 @@ properties:
   endDate:
     type: string
     format: date
-  comment:
-    type: string
   personId:
     type: string
   structureId:
+    type: string
+  comment:
     type: string
   createdBy:
     $ref: ./UserInfo.yaml

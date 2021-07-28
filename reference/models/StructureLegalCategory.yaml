@@ -1,20 +1,5 @@
 title: StructureLegalCategory
 type: object
-properties:
-  id:
-    type: string
-  createdBy:
-    $ref: ./UserInfo.yaml
-  createdAt:
-    type: string
-    format: date-time
-    readOnly: true
-  updatedBy:
-    $ref: ./UserInfo.yaml
-  updatedAt:
-    type: string
-    format: date-time
-    readOnly: true
 examples:
   - id: string
     createdBy:
@@ -27,3 +12,72 @@ examples:
       username: string
       email: string
     updatedAt: '2019-08-24T14:15:22Z'
+properties:
+  id:
+    type: string
+  usualNameFr:
+    type: string
+  usualNameEng:
+    type: string
+  shortNameFr:
+    type: string
+  shortNameEng:
+    type: string
+  acronymFr:
+    type: string
+  acronymEng:
+    type: string
+  femNameFr:
+    type: string
+  femNameEng:
+    type: string
+  pluralNameFr:
+    type: string
+  pluralNameEng:
+    type: string
+  otherNamesFr:
+    type: array
+    uniqueItems: false
+    items: {}
+  descriptionFr:
+    type: array
+    uniqueItems: false
+    items: {}
+  descriptionEng:
+    type: array
+    uniqueItems: false
+    items: {}
+  inseeId:
+    type: string
+  websiteURLFr:
+    type: string
+  websiteURLEng:
+    type: string
+  officialDocumentID:
+    type: array
+    uniqueItems: false
+    items: {}
+  parentId:
+    type: array
+    uniqueItems: false
+    items: {}
+  otherObjectId:
+    type:
+      - array
+      - string
+    uniqueItems: false
+    items: {}
+  createdBy:
+    $ref: ./UserInfo.yaml
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    $ref: ./UserInfo.yaml
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
+  '':
+    type: string
