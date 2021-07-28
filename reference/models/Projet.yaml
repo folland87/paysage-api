@@ -8,18 +8,6 @@ properties:
     type: string
   fullName:
     type: string
-  createdBy:
-    $ref: ./User.yaml
-  createdAt:
-    type: string
-    format: date-time
-    readOnly: true
-  updatedBy:
-    $ref: ./User.yaml
-  updatedAt:
-    type: string
-    format: date-time
-    readOnly: true
   acronym:
     type: string
   description:
@@ -38,8 +26,6 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  grantPart:
-    type: string
   grantStructure:
     $ref: ./Structure.yaml
   contact:
@@ -48,6 +34,8 @@ properties:
     type: array
     items:
       $ref: ./Structure.yaml
+  grantPart:
+    type: string
   documents:
     type: array
     items:
@@ -58,3 +46,20 @@ properties:
     type: array
     items:
       $ref: ./News.yaml
+  createdBy:
+    $ref: ./User.yaml
+  createdAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+required:
+  - id
+  - name
+  - description
+  - beginDate
+  - endDate
+  - contact
+  - createdBy
+  - createdAt

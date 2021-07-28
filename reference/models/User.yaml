@@ -38,3 +38,6 @@ properties:
     type: string
     format: date-time
     readOnly: true
+required:
+  - id
+  - createdAt

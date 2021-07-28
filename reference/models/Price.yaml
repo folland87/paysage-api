@@ -17,14 +17,18 @@ properties:
     items:
       type: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
+required:
+  - id
+  - createdBy
+  - createdAt
