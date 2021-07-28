@@ -1,0 +1,11 @@
+title: Localisation
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  lat:
+    type: string
+  ln:
+    type: string
