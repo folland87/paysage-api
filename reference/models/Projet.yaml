@@ -53,4 +53,4 @@ properties:
     items:
       $ref: ./InternalDocument.yaml
   followUp:
-    type: string
+    $ref: ./FollowUp.yaml

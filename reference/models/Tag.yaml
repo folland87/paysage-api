@@ -1,0 +1,11 @@
+title: Tag
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  createdBy:
+    type: string
+  '':
+    type: string

@@ -9,10 +9,19 @@ properties:
     $ref: ./User.yaml
   createdAt:
     type: string
-  updateAt:
+  updatedAt:
     type: string
-  updateBy:
+  updatedBy:
     $ref: ./User.yaml
+  date:
+    type: string
+  contacts:
+    type: array
+    items:
+      $ref: ./Person.yaml
+  tags:
+    type: array
+    items: {}
 required:
   - createdBy
   - createdAt
