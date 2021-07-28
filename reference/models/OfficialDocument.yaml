@@ -4,7 +4,11 @@ properties:
   id:
     type: string
     readOnly: true
+  function:
+    type: string
   type:
+    type: string
+  number:
     type: string
   name:
     type: string
@@ -12,7 +16,20 @@ properties:
     type: string
   fileUrl:
     type: string
+  signatureDate:
+    type: string
+    format: date
+  startDate:
+    type: string
+    format: date
+  endDate:
+    type: string
+    format: date
   comment:
+    type: string
+  personId:
+    type: string
+  structureId:
     type: string
   createdBy:
     $ref: ./UserInfo.yaml

@@ -4,6 +4,12 @@ properties:
   id:
     type: string
     readOnly: true
+  idWikidata:
+    type: string
+    example: Q33112360
+  idRef:
+    type: string
+    example: Q33112360
   firstName:
     type: string
   lastName:
@@ -18,11 +24,12 @@ properties:
       - F
       - M
       - Autre
-  email:
-    type: string
-  publicResearch:
-    type: boolean
   birthDate:
+    type: string
+    format: date
+  dead:
+    type: boolean
+  deathDate:
     type: string
     format: date
   activity:
