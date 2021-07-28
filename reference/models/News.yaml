@@ -1,0 +1,21 @@
+title: News
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  source:
+    type: string
+  date:
+    type: string
+  createdAt:
+    type: string
+  updatedAt:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  updatedBy:
+    $ref: ./User.yaml
+  url:
+    type: string

@@ -21,7 +21,8 @@ properties:
       $ref: ./Person.yaml
   tags:
     type: array
-    items: {}
+    items:
+      $ref: ./Tag.yaml
 required:
   - createdBy
   - createdAt
