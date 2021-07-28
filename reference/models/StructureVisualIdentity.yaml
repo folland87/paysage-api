@@ -1,0 +1,68 @@
+title: Logo
+type: object
+description: ''
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+    readOnly: true
+  main:
+    type: string
+    description: True for the current logo.
+    default: 'False'
+  main - copy:
+    type: string
+    description: True for the current logo.
+    default: 'False'
+  startDate:
+    type: string
+  endDate:
+    type: string
+  startDateApprox:
+    type: boolean
+    default: false
+  endDateApprox:
+    type: boolean
+    default: false
+  motto:
+    type: string
+    description: ''
+  comment:
+    type: string
+  photoURL:
+    type: string
+  photoLegend:
+    type: string
+  photoCredits:
+    type: string
+  photoLicense:
+    type: string
+    enum:
+      - CC BY
+      - CC BY-SA
+      - CC BY-ND
+      - CC BY-NC
+      - CC BY-NC-SA
+      - CC BY NC-ND
+    description: |-
+      CC BY = Attribution
+      CC BY-SA = Attribution Partage dans les mêmes conditions
+      CC BY-ND = Attribution Pas de modification
+      CC BY-NC = Attribution Pas d'utilisation commerciale
+      CC BY-NC-SA = Attribution Pas d'utilisation commerciale Partage dans les mêmes conditions
+      CC BY-NC-ND = Attribution Pas d'utilisation commerciale Pas de modification
+  createdBy:
+    $ref: ./UserInfo.yaml
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    $ref: ./UserInfo.yaml
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
+required:
+  - main
+  - main - copy
