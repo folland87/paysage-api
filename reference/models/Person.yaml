@@ -4,10 +4,10 @@ properties:
   id:
     type: string
     readOnly: true
-  idWikidata:
+  wikidata:
     type: string
     example: Q33112360
-  idRef:
+  idref:
     type: string
     example: Q33112360
   firstName:
