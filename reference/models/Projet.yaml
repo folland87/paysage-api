@@ -50,4 +50,8 @@ properties:
     items:
       $ref: ./Structure.yaml
   documents:
+    type: array
+    items:
+      $ref: ./InternalDocument.yaml
+  followUp:
     type: string
