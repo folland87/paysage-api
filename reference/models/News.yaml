@@ -9,13 +9,20 @@ properties:
     type: string
   date:
     type: string
-  createdAt:
+  url:
     type: string
-  updatedAt:
+  createdAt:
     type: string
   createdBy:
     $ref: ./User.yaml
+  updatedAt:
+    type: string
   updatedBy:
     $ref: ./User.yaml
-  url:
-    type: string
+required:
+  - id
+  - title
+  - source
+  - date
+  - createdAt
+  - createdBy

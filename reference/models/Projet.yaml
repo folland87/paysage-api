@@ -54,7 +54,7 @@ properties:
       $ref: ./InternalDocument.yaml
   followUp:
     $ref: ./FollowUp.yaml
-  news:
+  newscast:
     type: array
     items:
       $ref: ./News.yaml

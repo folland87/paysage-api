@@ -9,3 +9,13 @@ properties:
     type: string
   ln:
     type: string
+  createdAt:
+    type: string
+  updatedAt:
+    type: string
+required:
+  - id
+  - name
+  - lat
+  - ln
+  - createdAt

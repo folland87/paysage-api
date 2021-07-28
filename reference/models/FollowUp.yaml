@@ -5,14 +5,6 @@ properties:
     type: string
   description:
     type: string
-  createdBy:
-    $ref: ./User.yaml
-  createdAt:
-    type: string
-  updatedAt:
-    type: string
-  updatedBy:
-    $ref: ./User.yaml
   date:
     type: string
   contacts:
@@ -23,6 +15,18 @@ properties:
     type: array
     items:
       $ref: ./Tag.yaml
+  createdAt:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
 required:
-  - createdBy
+  - id
+  - description
+  - date
+  - contacts
   - createdAt
+  - createdBy
