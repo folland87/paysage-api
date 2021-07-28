@@ -1,15 +1,15 @@
 title: Projet
 type: object
+description: ''
 properties:
   id:
     type: string
-  nom:
-    type: array
-    items: {}
-  '':
+  name:
+    type: string
+  fullName:
+    type: string
   createdBy:
     type: string
-    createdBy:
     $ref: ./UserInfo.yaml
   createdAt:
     type: string
@@ -21,3 +21,14 @@ properties:
     type: string
     format: date-time
     readOnly: true
+  acronym:
+    type: string
+  description:
+    type: string
+  beginDate:
+    type: string
+  endDate:
+    type: string
+  officialWebsite:
+    type: string
+  localisations: {}
