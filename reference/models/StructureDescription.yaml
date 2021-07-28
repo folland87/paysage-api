@@ -9,6 +9,8 @@ properties:
     type: string
   main:
     type: boolean
+  structureAssociatedToCreation:
+    type: string
   startDate:
     type: string
   startDateApprox:
@@ -16,6 +18,8 @@ properties:
   endDate:
     type: string
   endDateApprox:
+    type: string
+  structureAssociatedToSuccession:
     type: string
   createdBy:
     $ref: ./UserInfo.yaml

@@ -1,0 +1,11 @@
+title: StructureGenericContact
+type: object
+properties:
+  id:
+    type: string
+  phone:
+    type: string
+  email:
+    type: string
+  genericposition:
+    type: string

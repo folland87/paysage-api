@@ -3,9 +3,25 @@ type: object
 properties:
   id:
     type: string
-  name:
+  cityFrId:
+    type: string
+  cityForeignId:
+    type: string
+  distributionStatement:
+    type: string
+  adress:
+    type: string
+  postbox:
+    type: string
+  zipcode:
+    type: string
+  city:
     type: string
   lat:
     type: string
   ln:
+    type: string
+  startDate:
+    type: string
+  endDate:
     type: string

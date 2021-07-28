@@ -3,9 +3,11 @@ type: object
 properties:
   id:
     type: string
-  legalCategoryId:
+  categoryId:
     type: string
-  officialDocumentId:
+  startOfficialDocument:
+    type: string
+  endOfficialDocument:
     type: string
   startDate:
     type: string

@@ -3,7 +3,7 @@ type: object
 properties:
   id:
     type: string
-  legalCategoryId:
+  structureId:
     type: string
   officialDocumentId:
     type: string

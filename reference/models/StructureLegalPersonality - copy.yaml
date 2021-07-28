@@ -3,17 +3,10 @@ type: object
 properties:
   id:
     type: string
-  legalCategoryId:
-    type: string
-  officialDocumentId:
-    type: string
   startDate:
     type: string
     format: date-time
   endDate:
-    type: string
-    format: date-time
-  previsionalEndDate:
     type: string
     format: date-time
   startDateApprox:
