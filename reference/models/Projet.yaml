@@ -31,4 +31,11 @@ properties:
     type: string
   officialWebsite:
     type: string
-  localisations: {}
+  localisations:
+    type: array
+    items:
+      $ref: ./Localisation.yaml
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
