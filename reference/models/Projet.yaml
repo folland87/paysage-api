@@ -9,14 +9,13 @@ properties:
   fullName:
     type: string
   createdBy:
-    type: string
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
@@ -50,4 +49,8 @@ properties:
     items:
       $ref: ./Structure.yaml
   documents:
-    type: string
+    type: array
+    items:
+      $ref: ./InternalDocument.yaml
+  followUp:
+    $ref: ./FollowUp.yaml

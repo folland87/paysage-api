@@ -30,7 +30,7 @@ properties:
     type: string
     format: date-time
     readOnly: true
-  modifiedAt:
+  updateAt:
     type: string
     format: date-time
     readOnly: true

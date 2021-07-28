@@ -1,0 +1,27 @@
+title: FollowUp
+type: object
+properties:
+  id:
+    type: string
+  description:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  createdAt:
+    type: string
+  updatedAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
+  date:
+    type: string
+  contacts:
+    type: array
+    items:
+      $ref: ./Person.yaml
+  tags:
+    type: array
+    items: {}
+required:
+  - createdBy
+  - createdAt
