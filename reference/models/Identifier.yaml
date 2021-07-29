@@ -12,6 +12,12 @@ properties:
   endDate:
     type: string
     format: date
+  endDateApprox:
+    type: string
+    format: date
+  startDateApprox:
+    type: string
+    format: date
   identifier:
     type: string
   active:

@@ -1,0 +1,17 @@
+title: StructureCategory
+type: object
+description: ''
+properties:
+  id:
+    type: string
+  rankingId:
+    type: string
+  URL:
+    type: string
+  rank:
+    type: string
+  year:
+    type: string
+    format: date
+    minLength: 4
+    maxLength: 4
