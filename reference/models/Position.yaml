@@ -4,11 +4,6 @@ properties:
   id:
     type: string
     readOnly: true
-  structureId:
-    type: string
-    readOnly: true
-  positionID:
-    type: string
   nameEn:
     type: string
   descriptionFr:

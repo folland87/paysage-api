@@ -12,10 +12,6 @@ properties:
     type: string
   descriptionEn:
     type: string
-  accociatedStructureIds:
-    type: array
-    items:
-      type: string
   createdBy:
     $ref: ./UserInfo.yaml
   createdAt:

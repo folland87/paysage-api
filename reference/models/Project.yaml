@@ -1,5 +1,62 @@
-title: Project
+title: Projet
 type: object
+description: ''
 properties:
   id:
     type: string
+  nameFr:
+    type: string
+  nameEng:
+    type: string
+  fullNameFr:
+    type: string
+  fullNameEng:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
+  acronymFr:
+    type: string
+  acronymEng:
+    type: string
+  description:
+    type: string
+  beginDate:
+    type: string
+  endDate:
+    type: string
+  officialWebsite:
+    type: string
+  localisations:
+    type: array
+    items:
+      $ref: ./Localisation.yaml
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
+  grantPart:
+    type: string
+  grantStructure:
+    $ref: ./Structure.yaml
+  contact:
+    $ref: ./Contact.yaml
+  structures:
+    type: array
+    items:
+      $ref: ./Structure.yaml
+  documents:
+    type: array
+    items:
+      $ref: ./InternalDocument.yaml
+  followUp:
+    $ref: ./FollowUp.yaml
