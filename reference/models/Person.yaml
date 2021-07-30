@@ -4,38 +4,49 @@ properties:
   id:
     type: string
     readOnly: true
-  wikidata:
-    type: string
+  identifiers:
+    type: array
     example: Q33112360
-  idref:
-    type: string
-    example: Q33112360
+    items:
+      $ref: ./Identifier.yaml
   firstName:
     type: string
   lastName:
     type: string
-  alias:
+  otherNames:
     type: array
     items:
       type: string
   gender:
-    type: string
-    enum:
-      - F
-      - M
-      - Autre
+    $ref: ./Gender.yaml
   birthDate:
     type: string
     format: date
-  dead:
-    type: boolean
   deathDate:
     type: string
     format: date
   activity:
     type: string
-  avatarUrl:
-    type: string
+  positionId:
+    type: array
+    items:
+      $ref: ./PersonPosition.yaml
+  priceId:
+    type: array
+    items:
+      $ref: ./PersonsPrice.yaml
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
+  socialMedia:
+    type: array
+    items:
+      $ref: ./SocialMedia.yaml
+  newsCast:
+    type: array
+    items:
+      $ref: ./PressRelease.yaml
   comment:
     type: string
   createdBy:

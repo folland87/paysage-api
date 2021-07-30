@@ -6,16 +6,26 @@ properties:
     readOnly: true
   title:
     type: string
-  authors:
-    type: array
-    items:
-      type: string
+  articleNumber:
+    type: string
   summary:
     type: string
   text:
     type: string
   date:
     type: string
+  sourceType:
+    type: array
+    items:
+      type: string
+      enum:
+        - AEF
+        - Newstank
+        - ADGS
+        - Le Figaro Etudiant
+        - Bulletin Officiel de l'ESRI
+        - EducPros Biographie
+        - EducPros Actualités
   sourceUrl:
     type: string
   comment:

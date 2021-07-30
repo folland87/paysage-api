@@ -16,7 +16,7 @@ properties:
     nullable: true
   email:
     type: string
-  isActive:
+  active:
     type: boolean
     readOnly: true
   role:

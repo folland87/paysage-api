@@ -1,0 +1,11 @@
+title: Gender
+type: object
+properties:
+  id:
+    type: string
+  type:
+    type: string
+    enum:
+      - Homme
+      - Femme
+      - Autre

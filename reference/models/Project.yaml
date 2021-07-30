@@ -18,13 +18,13 @@ properties:
     type: string
   description:
     type: string
-  beginDate:
+  startDate:
     type: string
   endDate:
     type: string
   officialWebsite:
     type: string
-  localisations:
+  localisationId:
     type: array
     items:
       $ref: ./Localisation.yaml
@@ -32,23 +32,23 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  grantStructure:
+  grantStructureId:
     $ref: ./Structure.yaml
   contact:
     $ref: ./Contact.yaml
-  structures:
+  structureId:
     type: array
     items:
       $ref: ./Structure.yaml
   grantPart:
     type: string
-  documents:
+  documentId:
     type: array
     items:
       $ref: ./InternalDocument.yaml
   followUp:
     $ref: ./FollowUp.yaml
-  newscast:
+  newsCast:
     type: array
     items:
       $ref: ./PressRelease.yaml
@@ -63,7 +63,7 @@ properties:
 required:
   - id
   - description
-  - beginDate
+  - startDate
   - endDate
   - contact
   - createdBy

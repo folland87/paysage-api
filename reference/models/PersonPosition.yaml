@@ -9,21 +9,13 @@ properties:
     type: string
   positionId:
     type: string
-  personId:
-    type: string
-  type:
-    type: string
-    enum:
-      - mesri
-      - nomination
-      - mandat
   interim:
     type: boolean
   access:
     type: string
     enum:
-      - election
-      - nomination
+      - Election
+      - Nomination
   mandateCount:
     type: string
     enum:
@@ -32,10 +24,10 @@ properties:
       - 3+
   duration:
     type: string
-  email:
+  genericEmail:
     type: string
-  textId:
-    type: string
+  officielDocumentId:
+    $ref: ./OfficialDocument.yaml
   startDate:
     type: string
   endDate:
@@ -64,6 +56,5 @@ required:
   - id
   - structureId
   - positionId
-  - type
   - createdBy
   - createdAt
