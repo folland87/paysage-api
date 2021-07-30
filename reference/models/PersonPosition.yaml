@@ -7,8 +7,6 @@ properties:
     readOnly: true
   structureId:
     type: string
-  positionId:
-    type: string
   interim:
     type: boolean
   access:
@@ -52,6 +50,5 @@ properties:
 required:
   - id
   - structureId
-  - positionId
   - createdBy
   - createdAt

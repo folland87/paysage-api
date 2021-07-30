@@ -27,9 +27,9 @@ properties:
     type: string
   positionId:
     type: array
-    description: Position id
+    description: PersonPosition id
     items:
-      type: string
+      $ref: ./PersonPosition.yaml
   priceId:
     type: array
     items:
