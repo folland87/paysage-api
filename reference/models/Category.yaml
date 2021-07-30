@@ -46,14 +46,15 @@ properties:
       type: string
   officialDocumentId:
     type: string
-  wikidataId:
-    type: string
+  identifier:
+    type: array
     description: Identifiant wikidata
-    minLength: 1
-  websiteFr:
-    $ref: ./Link.yaml
-  websiteEn:
-    $ref: ./Link.yaml
+    items:
+      $ref: ./Identifier.yaml
+  websites:
+    type: array
+    items:
+      $ref: ./Link.yaml
   createdBy:
     description: User id
     type: string
