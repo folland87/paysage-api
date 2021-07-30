@@ -11,8 +11,8 @@ properties:
     type: string
   lastName:
     type: string
-  position:
-    type: string
+  positionId:
+    $ref: ./Position.yaml
   createdAt:
     type: string
   createdBy:

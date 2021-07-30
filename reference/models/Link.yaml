@@ -18,6 +18,5 @@ properties:
 required:
   - id
   - url
-  - name
   - createdAt
   - createdBy

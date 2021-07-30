@@ -17,23 +17,23 @@ properties:
     type: string
   usualNameFr:
     type: string
-  usualNameEng:
+  usualNameEn:
     type: string
   shortNameFr:
     type: string
-  shortNameEng:
+  shortNameEn:
     type: string
   acronymFr:
     type: string
-  acronymEng:
+  acronymEn:
     type: string
   femNameFr:
     type: string
-  femNameEng:
+  femNameEn:
     type: string
   pluralNameFr:
     type: string
-  pluralNameEng:
+  pluralNameEn:
     type: string
   otherNamesFr:
     type: array
@@ -43,22 +43,20 @@ properties:
     type: array
     uniqueItems: false
     items: {}
-  descriptionEng:
+  descriptionEn:
     type: array
     uniqueItems: false
     items: {}
   inseeId:
     type: string
-  websiteURLFr:
-    type: string
-  websiteURLEng:
-    type: string
-  officialDocumentID:
-    type: string
+  websiteFr:
+    $ref: ./Link.yaml
+  websiteEn:
+    $ref: ./Link.yaml
+  officialDocumentId:
+    $ref: ./OfficialDocument.yaml
   parentId:
-    type: array
-    uniqueItems: false
-    items: {}
+    $ref: ./Structure.yaml
   otherObjectId:
     type:
       - array
