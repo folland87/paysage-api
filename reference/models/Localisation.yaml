@@ -9,7 +9,7 @@ properties:
     type: string
   distributionStatement:
     type: string
-  adress:
+  address:
     type: string
   postbox:
     type: string
@@ -29,4 +29,3 @@ required:
   - id
   - lat
   - ln
-  - createdAt
