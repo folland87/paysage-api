@@ -12,23 +12,25 @@ properties:
     type: string
   descriptionEn:
     type: string
-  accociatedStructureIds:
+  structures:
     type: array
     items:
-      type: string
-  createdBy:
-    $ref: ./User.yaml
+      $ref: ./Structure.yaml
+  date:
+    type: string
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  updatedBy:
+  createdBy:
     $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
+  updatedBy:
+    $ref: ./User.yaml
 required:
   - id
-  - createdBy
   - createdAt
+  - createdBy

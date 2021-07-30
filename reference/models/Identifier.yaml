@@ -2,7 +2,7 @@ title: Identifiers
 type: object
 properties:
   id:
-    type: string
+    $ref: ''
     readOnly: true
   type:
     type: string
