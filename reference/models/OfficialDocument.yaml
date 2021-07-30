@@ -22,7 +22,7 @@ properties:
     $ref: ./Identifier.yaml
   title:
     type: string
-  otherOfficialDocumentRelated:
+  otherOfficialDocumentRelatedId:
     type: array
     description: OfficialDocument id
     items:

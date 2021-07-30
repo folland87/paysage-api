@@ -4,9 +4,11 @@ properties:
   id:
     type: string
     readOnly: true
-  nameEn:
+  nameFr:
     type: string
   descriptionFr:
+    type: string
+  nameEn:
     type: string
   decriptionEn:
     type: string
