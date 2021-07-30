@@ -10,18 +10,8 @@ properties:
   address:
     type: string
     minLength: 1
-  gps:
-    type: object
-    required:
-      - lat
-      - lon
-    properties:
-      lat:
-        type: number
-        format: float
-      lon:
-        type: number
-        format: float
+  localisation:
+    $ref: ./Localisation.yaml
   postcode:
     type: string
     minLength: 1
@@ -46,13 +36,13 @@ properties:
   score:
     type: number
   createdBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
@@ -61,7 +51,7 @@ required:
   - id
   - main
   - address
-  - gps
+  - localisation
   - postcode
   - city
   - citycode
@@ -70,3 +60,5 @@ required:
   - country
   - provider
   - score
+  - createdBy
+  - createdAt

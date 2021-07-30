@@ -1,20 +1,16 @@
-title: FollowUp
+title: News
 type: object
 properties:
   id:
     type: string
-  description:
+  title:
+    type: string
+  source:
     type: string
   date:
     type: string
-  contacts:
-    type: array
-    items:
-      $ref: ./Person.yaml
-  tags:
-    type: array
-    items:
-      $ref: ./Tag.yaml
+  url:
+    type: string
   createdAt:
     type: string
   createdBy:
@@ -25,8 +21,8 @@ properties:
     $ref: ./User.yaml
 required:
   - id
-  - description
+  - title
+  - source
   - date
-  - contacts
   - createdAt
   - createdBy

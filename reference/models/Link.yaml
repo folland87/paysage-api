@@ -7,3 +7,17 @@ properties:
     type: string
   name:
     type: string
+  createdAt:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
+required:
+  - id
+  - url
+  - name
+  - createdAt
+  - createdBy

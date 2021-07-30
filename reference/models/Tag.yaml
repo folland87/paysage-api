@@ -5,7 +5,11 @@ properties:
     type: string
   title:
     type: string
-  createdBy:
+  createdAt:
     type: string
-  '':
+  updatedAt:
     type: string
+required:
+  - id
+  - title
+  - createdAt

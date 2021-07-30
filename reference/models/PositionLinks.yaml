@@ -1,5 +1,6 @@
 title: PersonsPosition
 type: object
+description: ''
 properties:
   id:
     type: string
@@ -48,19 +49,21 @@ properties:
   previsionalEndDateApprox:
     type: boolean
   createdBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
 required:
+  - id
   - structureId
   - positionId
   - type
-description: ''
+  - createdBy
+  - createdAt

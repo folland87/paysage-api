@@ -13,3 +13,17 @@ properties:
     type: string
   position:
     type: string
+  createdAt:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
+required:
+  - id
+  - firstName
+  - lastName
+  - createdAt
+  - createdBy

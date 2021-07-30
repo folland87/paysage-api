@@ -32,7 +32,7 @@ properties:
     minLength: 1
   shrotNameEn:
     type: string
-    description: "Nom court en anglais"
+    description: Nom court en anglais
     minLength: 1
   otherNames:
     type: array
@@ -45,7 +45,7 @@ properties:
     minLength: 1
   printOrder:
     type: string
-    description: Ordre d''affichage [chiffre(s), 1 est le premier affiché]
+    description: 'Ordre d''''affichage [chiffre(s), 1 est le premier affiché]'
     minLength: 1
   referenceText:
     type: string
@@ -80,16 +80,19 @@ properties:
     description: Code iso 2
     minLength: 1
   createdBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
 required:
+  - id
   - usualNameFr
+  - createdBy
+  - createdAt

@@ -12,15 +12,19 @@ properties:
     type: string
   descriptionEn:
     type: string
-  createdBy:
-    $ref: ./UserInfo.yaml
   createdAt:
     type: string
     format: date-time
     readOnly: true
-  updatedBy:
-    $ref: ./UserInfo.yaml
+  createdBy:
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: date-time
     readOnly: true
+  updatedBy:
+    $ref: ./User.yaml
+required:
+  - id
+  - createdAt
+  - createdBy

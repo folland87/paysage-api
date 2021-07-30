@@ -9,3 +9,14 @@ properties:
     type: string
   description:
     type: string
+  createdAt:
+    type: string
+  updatedAt:
+    type: string
+  createdBy:
+    $ref: ./User.yaml
+  updatedBy:
+    $ref: ./User.yaml
+required:
+  - createdBy
+  - createdAt

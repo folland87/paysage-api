@@ -12,18 +12,6 @@ properties:
     type: string
   fullNameEng:
     type: string
-  createdBy:
-    $ref: ./User.yaml
-  createdAt:
-    type: string
-    format: date-time
-    readOnly: true
-  updatedBy:
-    $ref: ./User.yaml
-  updatedAt:
-    type: string
-    format: date-time
-    readOnly: true
   acronymFr:
     type: string
   acronymEng:
@@ -44,8 +32,6 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  grantPart:
-    type: string
   grantStructure:
     $ref: ./Structure.yaml
   contact:
@@ -54,9 +40,32 @@ properties:
     type: array
     items:
       $ref: ./Structure.yaml
+  grantPart:
+    type: string
   documents:
     type: array
     items:
       $ref: ./InternalDocument.yaml
   followUp:
     $ref: ./FollowUp.yaml
+  newscast:
+    type: array
+    items:
+      $ref: ./News.yaml
+  createdBy:
+    $ref: ./User.yaml
+  createdAt:
+    type: string
+  updatedBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+required:
+  - id
+  - name
+  - description
+  - beginDate
+  - endDate
+  - contact
+  - createdBy
+  - createdAt
