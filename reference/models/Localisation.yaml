@@ -5,6 +5,8 @@ properties:
     type: string
   cityFrId:
     type: string
+  cityFrId - copy:
+    type: string
   cityForeignId:
     type: string
   distributionStatement:
@@ -25,8 +27,18 @@ properties:
     type: string
   endDate:
     type: string
+  createdBy:
+    $ref: ./User.yaml
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedBy:
+    $ref: ./User.yaml
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true
 required:
-  - id
   - lat
   - ln
-  - createdAt
