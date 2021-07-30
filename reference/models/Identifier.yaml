@@ -6,6 +6,10 @@ properties:
     readOnly: true
   type:
     type: string
+  value:
+    type: string
+  active:
+    type: boolean
   startDate:
     type: string
     format: date
@@ -18,10 +22,6 @@ properties:
   startDateApprox:
     type: string
     format: date
-  identifier:
-    type: string
-  active:
-    type: boolean
   createdBy:
     $ref: ./User.yaml
   createdAt:

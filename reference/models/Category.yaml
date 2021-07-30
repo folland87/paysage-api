@@ -30,7 +30,7 @@ properties:
     type: string
     description: Nom long en anglais
     minLength: 1
-  shrotNameEn:
+  shortNameEn:
     type: string
     description: Nom court en anglais
     minLength: 1
@@ -43,42 +43,16 @@ properties:
     type: string
     description: Termes de recherche complémentaires
     minLength: 1
-  printOrder:
-    type: string
-    description: 'Ordre d''''affichage [chiffre(s), 1 est le premier affiché]'
-    minLength: 1
-  referenceText:
-    type: string
-    description: Textes de référence (sous forme littéraire)
-    minLength: 1
-  refetenceTextId:
-    type: string
-    description: Id du texte de référence
-    minLength: 1
+  officialDocumentId:
+    $ref: ./OfficialDocument.yaml
   wikidataId:
     type: string
     description: Identifiant wikidata
     minLength: 1
   websiteFr:
-    type: string
-    description: Site internet en français
-    minLength: 1
+    $ref: ./Link.yaml
   websiteEn:
-    type: string
-    description: Site internet en anglais
-    minLength: 1
-  publicResearch:
-    type: string
-    description: Dans la recherche publique ?
-    minLength: 1
-  originTable:
-    type: string
-    description: Table d'origine
-    minLength: 1
-  originValue:
-    type: string
-    description: Valeur d'origine
-    minLength: 1
+    $ref: ./Link.yaml
   createdBy:
     $ref: ./User.yaml
   createdAt:
