@@ -12,7 +12,7 @@ properties:
   contacts:
     type: array
     items:
-      $ref: ./Person.yaml
+      $ref: ./Contact.yaml
   tags:
     type: array
     items:
@@ -21,14 +21,12 @@ properties:
     type: string
     format: time
   createdBy:
-    type: string
-    description: User id
+    $ref: ./User.yaml
   updatedAt:
     type: string
     format: time
   updatedBy:
-    type: string
-    description: User id
+    $ref: ./User.yaml
 required:
   - id
   - description
