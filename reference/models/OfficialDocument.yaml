@@ -19,7 +19,7 @@ properties:
       - Arrêté
       - Circulaire
   identifier:
-    type: string
+    $ref: ./Identifier.yaml
   title:
     type: string
   otherOfficialDocumentRelated:

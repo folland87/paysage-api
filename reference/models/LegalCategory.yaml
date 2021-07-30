@@ -49,21 +49,19 @@ properties:
     items: {}
   inseeId:
     type: string
-  websiteFr:
-    $ref: ./Link.yaml
-  websiteEn:
-    $ref: ./Link.yaml
+  website:
+    type: array
+    items:
+      $ref: ./Link.yaml
   officialDocumentId:
     type: string
   parentId:
     type: string
     description: Structure id
   otherObjectId:
-    type:
-      - array
-      - string
-    uniqueItems: false
-    items: {}
+    type: array
+    items:
+      type: string
   createdBy:
     type: string
     description: User id

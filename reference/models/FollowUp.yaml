@@ -9,12 +9,12 @@ properties:
   eventDate:
     type: string
     format: date
-  contacts:
+  contactId:
     type: array
     description: Contact id
     items:
       type: string
-  tags:
+  tagId:
     type: array
     description: Tag id
     items:
@@ -33,6 +33,6 @@ required:
   - id
   - description
   - eventDate
-  - contacts
+  - contactId
   - createdAt
   - createdBy
