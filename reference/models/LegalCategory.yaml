@@ -54,9 +54,10 @@ properties:
   websiteEn:
     $ref: ./Link.yaml
   officialDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
   parentId:
-    $ref: ./Structure.yaml
+    type: string
+    description: Structure id
   otherObjectId:
     type:
       - array

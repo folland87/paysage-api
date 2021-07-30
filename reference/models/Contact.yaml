@@ -12,17 +12,20 @@ properties:
   lastName:
     type: string
   positionId:
-    $ref: ./Position.yaml
+    description: Position id
+    type: string
   createdAt:
     type: string
     format: time
   createdBy:
-    $ref: ./User.yaml
+    description: User id
+    type: string
   updatedAt:
     type: string
     format: time
   updatedBy:
-    $ref: ./User.yaml
+    description: User id
+    type: string
 required:
   - id
   - email

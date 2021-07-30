@@ -45,7 +45,7 @@ properties:
     items:
       type: string
   officialDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
   wikidataId:
     type: string
     description: Identifiant wikidata
@@ -55,13 +55,15 @@ properties:
   websiteEn:
     $ref: ./Link.yaml
   createdBy:
-    $ref: ./User.yaml
+    description: User id
+    type: string
   createdAt:
     type: string
     format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    description: User id
+    type: string
   updatedAt:
     type: string
     format: time

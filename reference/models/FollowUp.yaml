@@ -11,22 +11,24 @@ properties:
     format: date
   contacts:
     type: array
+    description: Contact id
     items:
-      $ref: ./Contact.yaml
+      type: string
   tags:
     type: array
+    description: Tag id
     items:
-      $ref: ./Tag.yaml
+      type: string
   createdAt:
     type: string
     format: time
   createdBy:
-    $ref: ./User.yaml
+    type: string
   updatedAt:
     type: string
     format: time
   updatedBy:
-    $ref: ./User.yaml
+    type: string
 required:
   - id
   - description
