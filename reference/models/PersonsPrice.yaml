@@ -7,22 +7,22 @@ properties:
   structureId:
     type: string
   date:
-    type: string
-    format: date
-  dateApprox:
-    type: boolean
+    $ref: ./Date.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
     format: date-time
     readOnly: true
 required:
+  - id
   - createdBy
   - createdAt
