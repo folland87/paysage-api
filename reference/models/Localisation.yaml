@@ -3,8 +3,6 @@ type: object
 properties:
   id:
     type: string
-  name:
-    type: string
   lat:
     type: string
   ln:
@@ -13,9 +11,10 @@ properties:
     type: string
   updatedAt:
     type: string
+  name:
+    type: string
 required:
   - id
-  - name
   - lat
   - ln
   - createdAt
