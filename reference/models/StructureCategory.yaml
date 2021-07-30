@@ -4,11 +4,13 @@ properties:
   id:
     type: string
   categoryId:
-    type: string
+    type: array
+    items:
+      $ref: ./Category&LegalCategory.yaml
   startOfficialDocument:
-    type: string
+    $ref: ./OfficialDocument.yaml
   endOfficialDocument:
-    type: string
+    $ref: ./OfficialDocument.yaml
   startDate:
     type: string
     format: date-time

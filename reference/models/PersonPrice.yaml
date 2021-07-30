@@ -4,8 +4,10 @@ properties:
   id:
     type: string
     readOnly: true
-  structureId:
-    type: string
+  priceId:
+    type: array
+    items:
+      $ref: ./Price.yaml
   date:
     type: string
     format: date

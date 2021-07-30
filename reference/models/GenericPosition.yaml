@@ -6,7 +6,7 @@ properties:
     description: Unique identifier.
     minLength: 1
     readOnly: true
-  usualNameFr:
+  longNameFr:
     type: string
     description: Nom usuel en francais
     minLength: 1
@@ -18,15 +18,24 @@ properties:
     type: string
     description: Sigle en français
     minLength: 1
-  usualNameFrPlural:
+  namePluralFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  descriptionFr:
+  nameFemFr - copy:
+    type: string
+    description: Forme du nom usuel français au pluriel
+    minLength: 1
+  otherNamesFr:
+    type: array
+    description: Forme du nom usuel français au pluriel
+    items:
+      type: string
+  descriptionFr - copy:
     type: string
     description: Description en français
     minLength: 1
-  nameEn:
+  longNameEn:
     type: string
     description: Nom long en anglais
     minLength: 1
@@ -34,25 +43,34 @@ properties:
     type: string
     description: Nom court en anglais
     minLength: 1
-  otherNames:
+  otherNamesEn:
     type: array
     description: Autres intitulés
     items:
       type: string
-  searchTerms:
+  descriptionEn:
     type: string
-    description: Termes de recherche complémentaires
+    description: Description en français
     minLength: 1
   officialDocumentId:
     $ref: ./OfficialDocument.yaml
-  wikidataId:
-    type: string
+  identifier:
+    type: array
     description: Identifiant wikidata
-    minLength: 1
-  websiteFr:
-    $ref: ./Link.yaml
-  websiteEn:
-    $ref: ./Link.yaml
+    items:
+      $ref: ./Identifier.yaml
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
+  parentGenericPosition:
+    type: array
+    items:
+      $ref: ./GenericPosition.yaml
+  otherGenericPositionRelated:
+    type: array
+    items:
+      $ref: ./GenericPosition.yaml
   createdBy:
     $ref: ./User.yaml
   createdAt:
@@ -66,6 +84,6 @@ properties:
     format: date-time
     readOnly: true
 required:
-  - usualNameFr
+  - longNameFr
   - createdBy
   - createdAt

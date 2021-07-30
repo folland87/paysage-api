@@ -8,4 +8,4 @@ properties:
   email:
     type: string
   genericposition:
-    type: string
+    $ref: ./GenericPosition.yaml

@@ -63,14 +63,14 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentPrice:
+  parentCategory:
     type: array
     items:
-      $ref: ./Price.yaml
-  otherPriceRelated:
+      $ref: ./Category.yaml
+  otherCategoryRelated:
     type: array
     items:
-      $ref: ./Price.yaml
+      $ref: ./Category.yaml
   createdBy:
     $ref: ./User.yaml
   createdAt:

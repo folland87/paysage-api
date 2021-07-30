@@ -4,9 +4,9 @@ properties:
   id:
     type: string
   structureId:
-    type: string
+    $ref: ./Structure.yaml
   officialDocumentId:
-    type: string
+    $ref: ./OfficialDocument.yaml
   startDate:
     type: string
     format: date-time

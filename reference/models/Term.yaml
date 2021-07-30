@@ -39,14 +39,11 @@ properties:
     description: Autres intitulés
     items:
       type: string
-  referenceText:
-    type: string
-    description: Textes de référence (sous forme littéraire)
-    minLength: 1
-  refetenceTextId:
-    type: string
+  officialDocumentId:
+    type: array
     description: Id du texte de référence
-    minLength: 1
+    items:
+      $ref: ./OfficialDocument.yaml
   identifier:
     type: array
     description: Identifiant wikidata
@@ -56,6 +53,14 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
+  parentTerm:
+    type: array
+    items:
+      $ref: ./Term.yaml
+  otherTermRelated:
+    type: array
+    items:
+      $ref: ./Term.yaml
   createdBy:
     $ref: ./User.yaml
   createdAt:
