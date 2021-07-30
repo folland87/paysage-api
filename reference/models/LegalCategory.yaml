@@ -54,9 +54,7 @@ properties:
   websiteURLEng:
     type: string
   officialDocumentID:
-    type: array
-    uniqueItems: false
-    items: {}
+    type: string
   parentId:
     type: array
     uniqueItems: false
