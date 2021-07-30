@@ -51,7 +51,7 @@ properties:
   newscast:
     type: array
     items:
-      $ref: ./News.yaml
+      $ref: ./PressRelease.yaml
   createdBy:
     $ref: ./User.yaml
   createdAt:
@@ -62,7 +62,6 @@ properties:
     type: string
 required:
   - id
-  - name
   - description
   - beginDate
   - endDate
