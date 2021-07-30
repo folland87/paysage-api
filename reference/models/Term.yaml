@@ -43,7 +43,7 @@ properties:
     type: string
     description: Textes de référence (sous forme littéraire)
     minLength: 1
-  refetenceTextId:
+  referenceTextId:
     type: string
     description: Id du texte de référence
     minLength: 1
@@ -57,13 +57,15 @@ properties:
     items:
       $ref: ./Link.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
     format: date-time

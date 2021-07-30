@@ -28,15 +28,15 @@ properties:
     default: user
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updateAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   lastConnection:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - id
