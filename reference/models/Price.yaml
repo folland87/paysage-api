@@ -14,16 +14,18 @@ properties:
     type: string
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
 required:
   - id
   - createdAt

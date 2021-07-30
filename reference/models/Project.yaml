@@ -19,33 +19,37 @@ properties:
   description:
     type: string
   startDate:
-    type: string
+    $ref: ./Date.yaml
   endDate:
-    type: string
+    $ref: ./Date.yaml
   officialWebsite:
-    type: string
+    $ref: ./Link.yaml
   localisationId:
     type: array
+    description: Localisation id
     items:
-      $ref: ./Localisation.yaml
+      type: string
   webVisibility:
     type: array
     items:
       $ref: ./Link.yaml
   grantStructureId:
-    $ref: ./Structure.yaml
+    type: string
+    description: Structure id
   contact:
     $ref: ./Contact.yaml
   structureId:
     type: array
+    description: Structure id
     items:
-      $ref: ./Structure.yaml
+      type: string
   grantPart:
     type: string
-  documentId:
+  internalDocumentId:
     type: array
+    description: InternalDocument id
     items:
-      $ref: ./InternalDocument.yaml
+      type: string
   followUp:
     $ref: ./FollowUp.yaml
   newsCast:
@@ -53,11 +57,13 @@ properties:
     items:
       $ref: ./PressRelease.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
 required:

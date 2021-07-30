@@ -13,7 +13,7 @@ properties:
   text:
     type: string
   date:
-    type: string
+    $ref: ./Date.yaml
   sourceType:
     type: array
     items:
@@ -31,16 +31,18 @@ properties:
   comment:
     type: string
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - createdBy
