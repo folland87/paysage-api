@@ -24,21 +24,26 @@ properties:
   ln:
     type: string
   startDate:
-    type: string
+    $ref: ./Date.yaml
   endDate:
-    type: string
+    $ref: ./Date.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
+  - id
   - lat
   - ln
+  - createdBy
+  - createdAt

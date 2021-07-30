@@ -9,12 +9,16 @@ properties:
     type: string
   createdAt:
     type: string
+    format: time
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
+    format: time
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
 required:
   - id
   - url
