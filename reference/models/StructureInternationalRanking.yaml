@@ -6,7 +6,7 @@ properties:
     type: string
   rankingId:
     type: string
-  URL:
+  url:
     type: string
   rank:
     type: string

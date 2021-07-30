@@ -42,3 +42,7 @@ properties:
     type: string
     format: time
     readOnly: true
+required:
+  - id
+  - createdBy
+  - createdAt

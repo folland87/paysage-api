@@ -4,16 +4,6 @@ properties:
   id:
     type: string
   startDate:
-    type: string
-    format: date-time
+    $ref: ./Date.yaml
   endDate:
-    type: string
-    format: date-time
-  startDateApprox:
-    type: boolean
-    format: date-time
-    default: false
-  endDateApprox:
-    type: boolean
-    format: date-time
-    default: false
+    $ref: ./Date.yaml

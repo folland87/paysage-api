@@ -12,24 +12,25 @@ properties:
   structureAssociatedToCreation:
     type: string
   startDate:
-    type: string
-  startDateApprox:
-    type: string
+    $ref: ./Date.yaml
   endDate:
-    type: string
-  endDateApprox:
-    type: string
+    $ref: ./Date.yaml
   structureAssociatedToSuccession:
     type: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
+required:
+  - createdBy
+  - createdAt

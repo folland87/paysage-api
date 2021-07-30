@@ -5,22 +5,13 @@ properties:
     type: string
   structureId:
     type: string
+    description: Structure id
   officialDocumentId:
     type: string
+    description: OfficialDocument id
   startDate:
-    type: string
-    format: date-time
+    $ref: ./Date.yaml
   endDate:
-    type: string
-    format: date-time
+    $ref: ./Date.yaml
   previsionalEndDate:
-    type: string
-    format: date-time
-  startDateApprox:
-    type: boolean
-    format: date-time
-    default: false
-  endDateApprox:
-    type: boolean
-    format: date-time
-    default: false
+    $ref: ./Date.yaml
