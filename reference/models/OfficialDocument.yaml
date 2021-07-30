@@ -4,17 +4,29 @@ properties:
   id:
     type: string
     readOnly: true
-  function:
+  nature:
     type: string
+    enum:
+      - Publication au JO
+      - Publication au BOESR
   type:
     type: string
-  number:
+    enum:
+      - Loi
+      - Décret
+      - Ordonnance
+      - Avis de vacance d'emploi
+      - Arrêté
+      - Circulaire
+  identifier:
     type: string
-  name:
+  title:
     type: string
+  otherOfficialDocumentRelated:
+    type: array
+    items:
+      $ref: ./OfficialDocument.yaml
   linkUrl:
-    type: string
-  fileUrl:
     type: string
   signatureDate:
     type: string
@@ -26,8 +38,14 @@ properties:
     type: string
     format: date
   personId:
-    type: string
+    type: array
+    items:
+      $ref: ./Person.yaml
   structureId:
+    type: array
+    items:
+      $ref: ./Structure.yaml
+  textExtract:
     type: string
   comment:
     type: string
