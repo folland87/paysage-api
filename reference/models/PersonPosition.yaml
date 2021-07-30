@@ -27,27 +27,24 @@ properties:
   genericEmail:
     type: string
   officielDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
+    description: Official document id
   startDate:
-    type: string
+    $ref: ./Date.yaml
   endDate:
-    type: string
+    $ref: ./Date.yaml
   previsionalEndDate:
-    type: string
-  startDateApprox:
-    type: boolean
-  endDateApprox:
-    type: boolean
-  previsionalEndDateApprox:
-    type: boolean
+    $ref: ./Date.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
     format: date-time
