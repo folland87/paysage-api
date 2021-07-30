@@ -11,12 +11,18 @@ properties:
     type: string
   createdAt:
     type: string
+    format: time
   updatedAt:
     type: string
+    format: time
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
 required:
-  - createdBy
+  - id
+  - name
   - createdAt
+  - createdBy

@@ -5,12 +5,8 @@ properties:
     type: string
   day:
     type: string
-    minLength: 1
-    maxLength: 31
   month:
     type: string
-    minLength: 1
-    maxLength: 12
   year:
     type: string
 required:

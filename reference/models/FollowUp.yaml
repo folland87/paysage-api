@@ -1,12 +1,14 @@
 title: FollowUp
 type: object
+description: ''
 properties:
   id:
     type: string
   description:
     type: string
-  date:
+  eventDate:
     type: string
+    format: date
   contacts:
     type: array
     items:
@@ -17,16 +19,20 @@ properties:
       $ref: ./Tag.yaml
   createdAt:
     type: string
+    format: time
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
+    format: time
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
 required:
   - id
   - description
-  - date
+  - eventDate
   - contacts
   - createdAt
   - createdBy

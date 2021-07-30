@@ -6,33 +6,27 @@ properties:
     readOnly: true
   type:
     type: string
+  startDate:
+    $ref: ./Date.yaml
+  endDate:
+    $ref: ./Date.yaml
   value:
     type: string
   active:
     type: boolean
-  startDate:
-    type: string
-    format: date
-  endDate:
-    type: string
-    format: date
-  endDateApprox:
-    type: string
-    format: date
-  startDateApprox:
-    type: string
-    format: date
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - createdBy

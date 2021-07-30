@@ -64,16 +64,21 @@ properties:
     uniqueItems: false
     items: {}
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
-  '':
-    type: string
+required:
+  - id
+  - usualNameFr
+  - createdBy
+  - createdAt
