@@ -20,35 +20,33 @@ properties:
     type: string
     minLength: 2
   creationDate:
-    type: string
-    format: date-time
-  creationDateApprox:
-    type: boolean
-  creationOfficialDocument:
-    type: string
-    description: Id of the official document.
-  historicalCreationYear:
-    type: string
+    $ref: ./Date.yaml
+  officialDocumentCreation:
+    $ref: ./Date.yaml
+  historicalCreationDate:
+    $ref: ./Date.yaml
   originatedFrom:
     type: string
   closureDate:
-    type: string
-  closureDateApprox:
-    type: boolean
-  closureOfficialDocument:
-    type: string
-    description: Id of the official document.
+    $ref: ./Date.yaml
+  officialDocumentClosure:
+    $ref: ./Date.yaml
   comment:
     type: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
     format: date-time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
     format: date-time
     readOnly: true
+required:
+  - createdBy
+  - createdAt
