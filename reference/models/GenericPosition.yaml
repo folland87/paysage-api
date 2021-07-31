@@ -18,11 +18,11 @@ properties:
     type: string
     description: Sigle en français
     minLength: 1
-  namePluralFr:
+  pluralNameFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  nameFemFr:
+  femNameFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
@@ -58,7 +58,7 @@ properties:
     type: array
     description: identifier id
     items:
-      type: string
+      $ref: ./Identifier.yaml
   webVisibility:
     type: array
     items:
@@ -68,11 +68,9 @@ properties:
     description: GenericPosition id
     items:
       type: string
-  otherGenericPositionRelated:
+  relatedGenericPosition:
     type: array
     description: GenericPosition id
-    items:
-      type: string
     createdBy:
       type: string
       description: User id
@@ -87,7 +85,7 @@ properties:
       type: string
       format: time
       readOnly: true
+    items:
+      type: string
 required:
   - longNameFr
-  - createdBy
-  - createdAt

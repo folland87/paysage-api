@@ -6,9 +6,17 @@ properties:
     description: Unique identifier.
     minLength: 1
     readOnly: true
+  longNameEn:
+    type: string
+    description: Nom long en anglais
+    minLength: 1
   longNameFr:
     type: string
     description: Nom usuel en francais
+    minLength: 1
+  shortNameEn:
+    type: string
+    description: Nom court en anglais
     minLength: 1
   shortNameFr:
     type: string
@@ -18,42 +26,34 @@ properties:
     type: string
     description: Sigle en français
     minLength: 1
-  namePluralFr:
+  pluralNamelFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  nameFemFr - copy:
+  femNameFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  otherNamesFr:
+  otherNameFr:
     type: array
     description: Forme du nom usuel français au pluriel
     items:
       type: string
-  descriptionFr - copy:
-    type: string
-    description: Description en français
-    minLength: 1
-  longNameEn:
-    type: string
-    description: Nom long en anglais
-    minLength: 1
-  shortNameEn:
-    type: string
-    description: Nom court en anglais
-    minLength: 1
-  otherNamesEn:
+  otherNameEn:
     type: array
     description: Autres intitulés
     items:
       type: string
+  descriptionFr:
+    type: string
+    description: Description en français
+    minLength: 1
   descriptionEn:
     type: string
     description: Description en français
     minLength: 1
   officialDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
   identifier:
     type: array
     description: Identifiant wikidata
@@ -63,14 +63,16 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentPosition:
+  parentCategoryId:
     type: array
+    description: Catgegory id
     items:
-      $ref: ./Position.yaml
-  otherPositionRelated:
+      type: string
+  relatedCategoryId:
     type: array
+    description: Category id
     items:
-      $ref: ./Position.yaml
+      type: string
   createdBy:
     type: string
     description: User id
@@ -85,6 +87,10 @@ properties:
     type: string
     format: time
     readOnly: true
+  usualNameFr:
+    type: string
+  usualNameEn:
+    type: string
 required:
   - longNameFr
   - createdBy

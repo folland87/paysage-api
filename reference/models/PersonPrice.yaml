@@ -1,4 +1,4 @@
-title: PersonsPrice
+title: Person Price
 type: object
 properties:
   id:
@@ -11,6 +11,12 @@ properties:
       type: string
   structureId:
     type: array
+    description: Structure id
+    items:
+      type: string
+  personId:
+    type: array
+    description: Person id
     items:
       type: string
   date:

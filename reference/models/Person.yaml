@@ -13,7 +13,7 @@ properties:
     type: string
   lastName:
     type: string
-  otherNames:
+  otherName:
     type: array
     items:
       type: string
@@ -29,11 +29,12 @@ properties:
     type: array
     description: PersonPosition id
     items:
-      $ref: ./PersonPosition.yaml
+      type: string
   priceId:
     type: array
+    description: PersonPrice id
     items:
-      $ref: ./PersonsPrice.yaml
+      type: string
   webVisibility:
     type: array
     items:

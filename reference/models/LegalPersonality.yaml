@@ -1,10 +1,12 @@
-title: StructureCategory
+title: Legal Personality
 type: object
 properties:
   id:
     type: string
-  legalCategoryId:
-    $ref: ./Category&LegalCategory.yaml
+  name:
+    type: string
+  structureId:
+    type: string
   officialDocumentId:
     type: string
   startDate:
@@ -13,3 +15,7 @@ properties:
     $ref: ./Date.yaml
   previsionalEndDate:
     $ref: ./Date.yaml
+required:
+  - id
+  - structureId
+  - startDate

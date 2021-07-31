@@ -19,15 +19,21 @@ properties:
     type: string
   descriptionEng:
     type: string
-  creationDate:
+  startDate:
     $ref: ./Date.yaml
-  structureRelatedToCreation:
+  endDate:
+    $ref: ./Date.yaml
+  relatedToSuccession:
     type: string
+    description: Structure id
+  relatedToCreation:
+    type: string
+    description: Structure id
+  historicalCreation:
+    $ref: ./Date.yaml
   officialDocumentId:
     type: string
     description: OfficialDocument id
-  historicalCreation:
-    $ref: ./Date.yaml
   originatedFrom:
     type: string
     enum:
@@ -41,11 +47,28 @@ properties:
       - Autre
   closureDate:
     $ref: ./Date.yaml
-  strucutreRelatedToSuccession:
-    type: string
-    description: Structure id
   comment:
     type: string
+  naming:
+    $ref: ./StructureName.yaml
+  tutorship:
+    $ref: ./StructureTutorship.yaml
+  visualIdentity:
+    $ref: ./StructureVisualIdentity.yaml
+  category:
+    $ref: ./Category.yaml
+  internationalRanking:
+    $ref: ./StructureInternationalRanking.yaml
+  LegalPersonalityAssociated:
+    type: array
+    description: Legal Personality id
+    items:
+      type: string
+  priceId:
+    type: array
+    description: PersonPrice id
+    items:
+      type: string
   createdBy:
     type: string
     description: User id
@@ -62,5 +85,8 @@ properties:
     readOnly: true
 required:
   - id
+  - naming
+  - tutorship
+  - visualIdentity
   - createdBy
   - createdAt

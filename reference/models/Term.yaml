@@ -18,7 +18,7 @@ properties:
     type: string
     description: Sigle en français
     minLength: 1
-  usualNameFrPlural:
+  pluralNameFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
@@ -52,11 +52,12 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentTerm:
+  parentTermId:
     type: array
+    description: Term id
     items:
-      $ref: ./Term.yaml
-  relatedTermId:
+      type: string
+  childrenTermId:
     type: array
     description: Term id
     items:

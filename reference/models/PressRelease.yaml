@@ -15,17 +15,15 @@ properties:
   date:
     $ref: ./Date.yaml
   sourceType:
-    type: array
-    items:
-      type: string
-      enum:
-        - AEF
-        - Newstank
-        - ADGS
-        - Le Figaro Etudiant
-        - Bulletin Officiel de l'ESRI
-        - EducPros Biographie
-        - EducPros Actualités
+    type: string
+    enum:
+      - AEF
+      - Newstank
+      - ADGS
+      - Le Figaro Etudiant
+      - Bulletin Officiel de l'ESRI
+      - EducPros Biographie
+      - EducPros Actualités
   sourceUrl:
     type: string
   comment:

@@ -1,9 +1,0 @@
-title: StructureCategory
-type: object
-properties:
-  id:
-    type: string
-  startDate:
-    $ref: ./Date.yaml
-  endDate:
-    $ref: ./Date.yaml

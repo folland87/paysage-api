@@ -1,9 +1,6 @@
-title: Price
+title: Prices
 type: object
 properties:
-  id:
-    type: string
-    readOnly: true
   nameFr:
     type: string
   nameEn:
@@ -12,21 +9,17 @@ properties:
     type: string
   descriptionEn:
     type: string
-  createdAt:
-    type: string
-    format: time
-    readOnly: true
   createdBy:
     type: string
     description: User id
-  updatedAt:
+  createdAt:
     type: string
     format: time
     readOnly: true
   updatedBy:
     type: string
     description: User id
-required:
-  - id
-  - createdAt
-  - createdBy
+  updatedAt:
+    type: string
+    format: time
+    readOnly: true

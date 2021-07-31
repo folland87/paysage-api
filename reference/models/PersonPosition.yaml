@@ -24,6 +24,8 @@ properties:
     type: string
   genericEmail:
     type: string
+  positionId:
+    type: string
   officielDocumentId:
     type: string
     description: Official document id

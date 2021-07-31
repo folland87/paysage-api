@@ -29,8 +29,6 @@ properties:
   officialDocumentId:
     type: string
     writeOnly: true
-  officialDocument:
-    type: object
   createdBy:
     type: string
     description: User id

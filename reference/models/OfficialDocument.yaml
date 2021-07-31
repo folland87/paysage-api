@@ -22,16 +22,18 @@ properties:
     type: string
   title:
     type: string
-  otherOfficialDocumentRelated:
+  relatedOfficialDocument:
     type: array
     description: OfficialDocument id
     items:
       type: string
-  linkUrl:
-    type: string
+  link:
+    $ref: ./Link.yaml
   signatureDate:
     $ref: ./Date.yaml
   startDate:
+    $ref: ./Date.yaml
+  previsionalEndDate:
     $ref: ./Date.yaml
   endDate:
     $ref: ./Date.yaml

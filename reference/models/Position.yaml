@@ -1,23 +1,36 @@
 title: Position
 type: object
+examples:
+  - id: string
+    generic: true
+    nameFr: string
+    descriptionFr: string
+    descriptionEn: string
+    nameEn: string
+    createdBy: string
+    createdAt: '14:15:22Z'
+    updatedBy: string
+    updatedAt: '14:15:22Z'
 properties:
   id:
     type: string
     readOnly: true
+  generic:
+    type: boolean
   nameFr:
     type: string
   descriptionFr:
     type: string
-  nameEn:
+  descriptionEn:
     type: string
-  decriptionEn:
+  nameEn:
     type: string
   createdBy:
     type: string
     description: User id
   createdAt:
     type: string
-    format: time
+    format: date-time
     readOnly: true
   updatedBy:
     type: string

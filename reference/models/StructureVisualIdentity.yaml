@@ -1,4 +1,4 @@
-title: Logo
+title: Structure Visual Identity
 type: object
 description: ''
 properties:
@@ -7,11 +7,7 @@ properties:
     description: Unique identifier.
     readOnly: true
   main:
-    type: string
-    description: True for the current logo.
-    default: 'False'
-  main - copy:
-    type: string
+    type: boolean
     description: True for the current logo.
     default: 'False'
   startDate:
@@ -61,6 +57,5 @@ properties:
     readOnly: true
 required:
   - main
-  - main - copy
   - createdBy
   - createdAt
