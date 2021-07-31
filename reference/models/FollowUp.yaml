@@ -7,12 +7,12 @@ properties:
     type: string
   eventDate:
     type: string
-  contactId:
+  contactIds:
     type: array
     description: Contact id
     items:
       type: string
-  tagId:
+  tagIds:
     type: array
     description: Tag id
     items:
@@ -35,6 +35,6 @@ required:
   - id
   - description
   - eventDate
-  - contactId
-  - createdAt
+  - contactIds
   - createdBy
+  - createdAt

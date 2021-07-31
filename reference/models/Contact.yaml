@@ -27,8 +27,6 @@ properties:
     type: string
     format: time
     readOnly: true
-  genericPosition:
-    type: string
 required:
   - id
   - firstName

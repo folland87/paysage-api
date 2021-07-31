@@ -22,7 +22,7 @@ properties:
     type: string
   title:
     type: string
-  relatedOfficialDocument:
+  relatedIds:
     type: array
     description: OfficialDocument id
     items:
@@ -37,12 +37,12 @@ properties:
     $ref: ./Date.yaml
   endDate:
     $ref: ./Date.yaml
-  personId:
+  personIds:
     type: array
     description: Person id
     items:
       type: string
-  structureId:
+  structureIds:
     type: array
     description: Structutre id
     items:

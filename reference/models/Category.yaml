@@ -63,12 +63,12 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentCategoryId:
+  parentCategoryIds:
     type: array
     description: Catgegory id
     items:
       type: string
-  childrenCategoryId:
+  childrenCategoryIds:
     type: array
     description: Category id
     items:

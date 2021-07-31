@@ -7,7 +7,7 @@ properties:
   priceId:
     type: string
     description: Price id
-  structureId:
+  structureIds:
     type: array
     description: Structure id
     items:

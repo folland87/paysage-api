@@ -11,7 +11,7 @@ properties:
       - active
       - inactive
       - potential
-  identifier:
+  identifierIds:
     type: array
     description: Identifier id
     items:
@@ -51,7 +51,7 @@ properties:
   comment:
     type: string
   naming:
-    $ref: ./StructureName.yaml
+    $ref: ./StructureNaming.yaml
   tutorship:
     $ref: ./StructureTutorship.yaml
   visualIdentity:
@@ -60,12 +60,12 @@ properties:
     $ref: ./Category.yaml
   internationalRanking:
     $ref: ./StructureInternationalRanking.yaml
-  LegalPersonalityAssociated:
+  relatedLegalPersonalityIds:
     type: array
     description: Legal Personality id
     items:
       type: string
-  priceId:
+  personPriceIds:
     type: array
     description: PersonPrice id
     items:
@@ -73,13 +73,13 @@ properties:
   createdBy:
     type: string
     description: User id
+  updatedBy:
+    type: string
+    description: User id
   createdAt:
     type: string
     format: time
     readOnly: true
-  updatedBy:
-    type: string
-    description: User id
   updatedAt:
     type: string
     format: time

@@ -44,10 +44,10 @@ properties:
     description: Id du texte de référence
     items:
       type: string
-  identifier:
+  identifierIds:
     type: array
     items:
-      $ref: ./Identifier.yaml
+      type: string
   webVisibility:
     type: array
     items:

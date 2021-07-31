@@ -60,7 +60,7 @@ properties:
     type: string
   officialDocumentId:
     type: string
-  identifier:
+  identifierIds:
     type: array
     description: identifier id
     items:
@@ -69,12 +69,12 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentPosition:
+  parentPositionIds:
     type: array
     description: Position id
     items:
       type: string
-  childrenPosition:
+  childrenPositionIds:
     type: array
     description: Position id
     createdBy:

@@ -24,7 +24,7 @@ properties:
     $ref: ./Date.yaml
   officialWebsite:
     $ref: ./Link.yaml
-  localisationId:
+  localisationIds:
     type: array
     description: Localisation id
     items:
@@ -38,14 +38,14 @@ properties:
     description: Structure id
   contact:
     $ref: ./Contact.yaml
-  structureId:
+  structureIds:
     type: array
     description: Structure id
     items:
       type: string
   grantPart:
     type: string
-  internalDocumentId:
+  internalDocumentIds:
     type: array
     description: InternalDocument id
     items:
