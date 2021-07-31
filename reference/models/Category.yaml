@@ -54,7 +54,7 @@ properties:
     minLength: 1
   officialDocumentId:
     type: string
-  identifier:
+  identifierIds:
     type: array
     description: Identifier id
     items:
