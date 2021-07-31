@@ -7,8 +7,9 @@ properties:
   identifier:
     type: array
     example: Q33112360
+    description: Identifier
     items:
-      $ref: ./Identifier.yaml
+      type: string
   firstName:
     type: string
   lastName:
@@ -23,14 +24,14 @@ properties:
     $ref: ./Date.yaml
   deathDate:
     $ref: ./Date.yaml
-  activity:
-    type: string
-  positionId:
+  personPositionId:
     type: array
     description: PersonPosition id
     items:
       type: string
-  priceId:
+  activity:
+    type: string
+  personPrice:
     type: array
     description: PersonPrice id
     items:

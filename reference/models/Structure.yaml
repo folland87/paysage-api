@@ -13,8 +13,9 @@ properties:
       - potential
   identifier:
     type: array
+    description: Identifier id
     items:
-      $ref: ./Identifier.yaml
+      type: string
   descriptionFr:
     type: string
   descriptionEng:

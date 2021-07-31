@@ -5,20 +5,16 @@ properties:
     type: string
     readOnly: true
   priceId:
-    type: array
+    type: string
     description: Price id
-    items:
-      type: string
   structureId:
     type: array
     description: Structure id
     items:
       type: string
   personId:
-    type: array
+    type: string
     description: Person id
-    items:
-      type: string
   date:
     $ref: ./Date.yaml
   createdBy:

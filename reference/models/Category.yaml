@@ -56,9 +56,9 @@ properties:
     type: string
   identifier:
     type: array
-    description: Identifiant wikidata
+    description: Identifier id
     items:
-      $ref: ./Identifier.yaml
+      type: string
   webVisibility:
     type: array
     items:
@@ -68,7 +68,7 @@ properties:
     description: Catgegory id
     items:
       type: string
-  relatedCategoryId:
+  childrenCategoryId:
     type: array
     description: Category id
     items:

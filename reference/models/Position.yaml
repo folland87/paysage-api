@@ -1,45 +1,97 @@
 title: Position
 type: object
-examples:
-  - id: string
-    generic: true
-    nameFr: string
-    descriptionFr: string
-    descriptionEn: string
-    nameEn: string
-    createdBy: string
-    createdAt: '14:15:22Z'
-    updatedBy: string
-    updatedAt: '14:15:22Z'
 properties:
   id:
     type: string
+    description: Unique identifier.
+    minLength: 1
     readOnly: true
   generic:
     type: boolean
-  nameFr:
+  longNameFr:
     type: string
+    description: Nom usuel en francais
+    minLength: 1
+  shortNameFr:
+    type: string
+    description: Nom court en français
+    minLength: 1
+  acronymFr:
+    type: string
+    description: Sigle en français
+    minLength: 1
+  pluralNameFr:
+    type: string
+    description: Forme du nom usuel français au pluriel
+    minLength: 1
+  femNameFr:
+    type: string
+    description: Forme du nom usuel français au pluriel
+    minLength: 1
+  otherNameFr:
+    type: array
+    description: Forme du nom usuel français au pluriel
+    items:
+      type: string
   descriptionFr:
     type: string
+    description: Description en français
+    minLength: 1
+  longNameEn:
+    type: string
+    description: Nom long en anglais
+    minLength: 1
+  shortNameEn:
+    type: string
+    description: Nom court en anglais
+    minLength: 1
+  otherNameEn:
+    type: array
+    description: Autres intitulés
+    items:
+      type: string
   descriptionEn:
+    type: string
+    description: Description en français
+    minLength: 1
+  nameFr:
     type: string
   nameEn:
     type: string
-  createdBy:
+  officialDocumentId:
     type: string
-    description: User id
-  createdAt:
-    type: string
-    format: date-time
-    readOnly: true
-  updatedBy:
-    type: string
-    description: User id
-  updatedAt:
-    type: string
-    format: time
-    readOnly: true
+  identifier:
+    type: array
+    description: identifier id
+    items:
+      type: string
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
+  parentPosition:
+    type: array
+    description: Position id
+    items:
+      type: string
+  childrenPosition:
+    type: array
+    description: Position id
+    createdBy:
+      type: string
+      description: User id
+    createdAt:
+      type: string
+      format: time
+      readOnly: true
+    updatedBy:
+      type: string
+      description: User id
+    updatedAt:
+      type: string
+      format: time
+      readOnly: true
+    items:
+      type: string
 required:
-  - id
-  - createdBy
-  - createdAt
+  - longNameFr
