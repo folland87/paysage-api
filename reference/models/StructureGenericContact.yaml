@@ -7,5 +7,5 @@ properties:
     type: string
   email:
     type: string
-  genericposition:
-    $ref: ./GenericPosition.yaml
+  genericPosition:
+    type: string

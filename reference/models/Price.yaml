@@ -1,91 +1,32 @@
-title: Category
+title: Price
 type: object
 properties:
   id:
     type: string
-    description: Unique identifier.
-    minLength: 1
     readOnly: true
-  longNameFr:
+  nameFr:
     type: string
-    description: Nom usuel en francais
-    minLength: 1
-  shortNameFr:
+  nameEn:
     type: string
-    description: Nom court en français
-    minLength: 1
-  acronymFr:
+  descriptionFr:
     type: string
-    description: Sigle en français
-    minLength: 1
-  namePluralFr:
-    type: string
-    description: Forme du nom usuel français au pluriel
-    minLength: 1
-  nameFemFr - copy:
-    type: string
-    description: Forme du nom usuel français au pluriel
-    minLength: 1
-  otherNamesFr:
-    type: array
-    description: Forme du nom usuel français au pluriel
-    items:
-      type: string
-  descriptionFr - copy:
-    type: string
-    description: Description en français
-    minLength: 1
-  longNameEn:
-    type: string
-    description: Nom long en anglais
-    minLength: 1
-  shortNameEn:
-    type: string
-    description: Nom court en anglais
-    minLength: 1
-  otherNamesEn:
-    type: array
-    description: Autres intitulés
-    items:
-      type: string
   descriptionEn:
     type: string
-    description: Description en français
-    minLength: 1
-  officialDocumentId:
-    $ref: ./OfficialDocument.yaml
-  identifier:
-    type: array
-    description: Identifiant wikidata
-    items:
-      $ref: ./Identifier.yaml
-  webVisibility:
-    type: array
-    items:
-      $ref: ./Link.yaml
-  parentPrice:
-    type: array
-    items:
-      $ref: ./Price.yaml
-  otherPriceRelated:
-    type: array
-    items:
-      $ref: ./Price.yaml
-  createdBy:
-    type: string
-    description: User id
   createdAt:
     type: string
     format: time
     readOnly: true
-  updatedBy:
+  createdBy:
     type: string
     description: User id
   updatedAt:
     type: string
     format: time
     readOnly: true
+  updatedBy:
+    type: string
+    description: User id
 required:
-  - longNameFr
-  - createdBy
+  - id
   - createdAt
+  - createdBy

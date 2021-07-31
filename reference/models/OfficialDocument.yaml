@@ -24,8 +24,9 @@ properties:
     type: string
   otherOfficialDocumentRelated:
     type: array
+    description: OfficialDocument id
     items:
-      $ref: ./OfficialDocument.yaml
+      type: string
   linkUrl:
     type: string
   signatureDate:
@@ -37,11 +38,13 @@ properties:
   personId:
     type: array
     description: Person id
-    items: string
+    items:
+      type: string
   structureId:
     type: array
-    description: Structure id
-    items: string
+    description: Structutre id
+    items:
+      type: string
   textExtract:
     type: string
   comment:
@@ -62,5 +65,7 @@ properties:
     readOnly: true
 required:
   - id
+  - nature
+  - type
   - createdBy
   - createdAt

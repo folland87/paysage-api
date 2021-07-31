@@ -4,7 +4,7 @@ properties:
   id:
     type: string
     readOnly: true
-  identifiers:
+  identifier:
     type: array
     example: Q33112360
     items:
@@ -20,15 +20,14 @@ properties:
   gender:
     $ref: ./Gender.yaml
   birthDate:
-    type: string
-    format: date
+    $ref: ./Date.yaml
   deathDate:
-    type: string
-    format: date
+    $ref: ./Date.yaml
   activity:
     type: string
   positionId:
     type: array
+    description: PersonPosition id
     items:
       $ref: ./PersonPosition.yaml
   priceId:

@@ -1,35 +1,24 @@
-title: PressRelease
+title: StructureDescription
 type: object
 properties:
   id:
     type: string
-    readOnly: true
-  title:
+  descriptionFr:
     type: string
-  articleNumber:
+  descriptionEn:
     type: string
-  summary:
+  main:
+    type: boolean
+  structureAssociatedToCreation:
     type: string
-  text:
-    type: string
-  date:
+    description: Strucure id
+  startDate:
     $ref: ./Date.yaml
-  sourceType:
-    type: array
-    items:
-      type: string
-      enum:
-        - AEF
-        - Newstank
-        - ADGS
-        - Le Figaro Etudiant
-        - Bulletin Officiel de l'ESRI
-        - EducPros Biographie
-        - EducPros Actualités
-  sourceUrl:
+  endDate:
+    $ref: ./Date.yaml
+  structureAssociatedToSuccession:
     type: string
-  comment:
-    type: string
+    description: Strucure id
   createdBy:
     type: string
     description: User id
@@ -45,5 +34,6 @@ properties:
     format: time
     readOnly: true
 required:
+  - id
   - createdBy
   - createdAt

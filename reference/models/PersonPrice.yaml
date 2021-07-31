@@ -6,13 +6,15 @@ properties:
     readOnly: true
   priceId:
     type: array
+    description: Price id
     items:
-      $ref: ./Price.yaml
+      type: string
+  structureId:
+    type: array
+    items:
+      type: string
   date:
-    type: string
-    format: date
-  dateApprox:
-    type: boolean
+    $ref: ./Date.yaml
   createdBy:
     type: string
     description: User id
@@ -28,5 +30,6 @@ properties:
     format: time
     readOnly: true
 required:
+  - id
   - createdBy
   - createdAt

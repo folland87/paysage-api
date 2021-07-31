@@ -12,38 +12,34 @@ properties:
     type: string
   brandName:
     type: string
-  englishName:
+  nameEn:
     type: string
   acronymFr:
     type: string
   acronymEn:
     type: string
-  otherNames:
+  otherName:
     type: array
     items:
       type: string
   main:
     type: boolean
-  startDay:
-    type: number
-  startMonth:
-    type: number
-    minimum: 1
-    maximum: 12
-  startYear:
-    type: number
-  endDay:
-    type: number
-    minimum: 1
-    maximum: 31
-  endMonth:
-    type: number
-    minimum: 1
-    maximum: 12
-  endYear:
-    type: number
+  startDate:
+    $ref: ./Date.yaml
+  endDate:
+    $ref: ./Date.yaml
   comment:
     type: string
+  article:
+    type: string
+    enum:
+      - à l'
+      - à
+      - à la
+      - dans le
+      - dans les
+      - aux
+      - au
   createdBy:
     type: string
     description: User id
@@ -58,13 +54,8 @@ properties:
     type: string
     format: time
     readOnly: true
-  article:
-    type: string
-    enum:
-      - à l'
-      - à
-      - à la
-      - dans le
-      - dans les
-      - aux
-      - au
+required:
+  - id
+  - createdBy
+  - createdAt
+

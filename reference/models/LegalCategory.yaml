@@ -45,10 +45,11 @@ properties:
     type: string
   parentId:
     type: string
-    description: structure id
+    description: Structure id
   otherObjectId:
     type: array
-    items: string
+    items:
+      type: string
   createdBy:
     type: string
     description: User id
@@ -64,5 +65,7 @@ properties:
     format: time
     readOnly: true
 required:
+  - id
+  - usualNameFr
   - createdBy
   - createdAt

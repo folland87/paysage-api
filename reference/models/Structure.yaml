@@ -17,19 +17,17 @@ properties:
       $ref: ./Identifier.yaml
   descriptionFr:
     type: string
-    format: date-time
   descriptionEng:
     type: string
-    format: date-time
   creationDate:
-    type: string
-    format: date-time
-  creationDateApprox:
-    type: boolean
+    $ref: ./Date.yaml
   structureRelatedToCreation:
-    $ref: ./Structure.yaml
-  creationOfficialDocument:
-    $ref: ./OfficialDocument.yaml
+    type: string
+  officialDocumentId:
+    type: string
+    description: OfficialDocument id
+  historicalCreation:
+    $ref: ./Date.yaml
   originatedFrom:
     type: string
     enum:
@@ -42,13 +40,10 @@ properties:
       - Substitution
       - Autre
   closureDate:
-    type: string
-  closureDateApprox:
-    type: boolean
-  closureOfficialDocument:
-    $ref: ./OfficialDocument.yaml
+    $ref: ./Date.yaml
   strucutreRelatedToSuccession:
-    $ref: ./Structure.yaml
+    type: string
+    description: Structure id
   comment:
     type: string
   createdBy:
@@ -65,3 +60,7 @@ properties:
     type: string
     format: time
     readOnly: true
+required:
+  - id
+  - createdBy
+  - createdAt

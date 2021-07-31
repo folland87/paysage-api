@@ -9,3 +9,6 @@ properties:
       - Homme
       - Femme
       - Autre
+required:
+  - id
+  - type

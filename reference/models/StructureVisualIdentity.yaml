@@ -15,15 +15,9 @@ properties:
     description: True for the current logo.
     default: 'False'
   startDate:
-    type: string
+    $ref: ./Date.yaml
   endDate:
-    type: string
-  startDateApprox:
-    type: boolean
-    default: false
-  endDateApprox:
-    type: boolean
-    default: false
+    $ref: ./Date.yaml
   motto:
     type: string
     description: ''
@@ -68,3 +62,5 @@ properties:
 required:
   - main
   - main - copy
+  - createdBy
+  - createdAt

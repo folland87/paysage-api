@@ -34,7 +34,7 @@ properties:
     type: string
     description: Nom court en anglais
     minLength: 1
-  otherNames:
+  otherName:
     type: array
     description: Autres intitulés
     items:
@@ -43,10 +43,9 @@ properties:
     type: array
     description: Id du texte de référence
     items:
-      $ref: ./OfficialDocument.yaml
+      type: string
   identifier:
     type: array
-    description: Identifiant wikidata
     items:
       $ref: ./Identifier.yaml
   webVisibility:
@@ -57,10 +56,11 @@ properties:
     type: array
     items:
       $ref: ./Term.yaml
-  otherTermRelated:
+  relatedTermId:
     type: array
+    description: Term id
     items:
-      $ref: ./Term.yaml
+      type: string
   createdBy:
     type: string
     description: User id

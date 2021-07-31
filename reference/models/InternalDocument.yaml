@@ -9,9 +9,6 @@ properties:
     type: string
   description:
     type: string
-  createdBy:
-    type: string
-    description: User id
   createdAt:
     type: string
     format: time
@@ -24,5 +21,7 @@ properties:
     format: time
     readOnly: true
 required:
-  - createdBy
+  - id
+  - name
   - createdAt
+  - createdBy
