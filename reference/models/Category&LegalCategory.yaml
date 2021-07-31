@@ -22,16 +22,16 @@ properties:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  nameFemFr - copy:
+  nameFemFr:
     type: string
     description: Forme du nom usuel français au pluriel
     minLength: 1
-  otherNamesFr:
+  otherNameFr:
     type: array
     description: Forme du nom usuel français au pluriel
     items:
       type: string
-  descriptionFr - copy:
+  descriptionFr:
     type: string
     description: Description en français
     minLength: 1
@@ -43,7 +43,7 @@ properties:
     type: string
     description: Nom court en anglais
     minLength: 1
-  otherNamesEn:
+  otherNameEn:
     type: array
     description: Autres intitulés
     items:
@@ -53,7 +53,7 @@ properties:
     description: Description en français
     minLength: 1
   officialDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
   identifier:
     type: array
     description: Identifiant wikidata
@@ -72,16 +72,18 @@ properties:
     items:
       $ref: ./Category.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - longNameFr

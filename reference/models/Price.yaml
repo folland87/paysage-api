@@ -72,16 +72,18 @@ properties:
     items:
       $ref: ./Price.yaml
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - longNameFr

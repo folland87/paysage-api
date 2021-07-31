@@ -1,17 +1,5 @@
 title: StructureLegalCategory
 type: object
-examples:
-  - id: string
-    createdBy:
-      id: string
-      username: string
-      email: string
-    createdAt: '2019-08-24T14:15:22Z'
-    updatedBy:
-      id: string
-      username: string
-      email: string
-    updatedAt: '2019-08-24T14:15:22Z'
 properties:
   id:
     type: string
@@ -49,31 +37,32 @@ properties:
     items: {}
   inseeId:
     type: string
-  websiteFr:
-    $ref: ./Link.yaml
-  websiteEn:
-    $ref: ./Link.yaml
+  website:
+    type: array
+    items:
+      $ref: ./Link.yaml
   officialDocumentId:
-    $ref: ./OfficialDocument.yaml
+    type: string
   parentId:
-    $ref: ./Structure.yaml
+    type: string
+    description: structure id
   otherObjectId:
-    type:
-      - array
-      - string
-    uniqueItems: false
-    items: {}
+    type: array
+    items: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
-  '':
-    type: string
+required:
+  - createdBy
+  - createdAt

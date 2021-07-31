@@ -45,16 +45,18 @@ properties:
   comment:
     type: string
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   article:
     type: string

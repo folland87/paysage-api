@@ -7,8 +7,12 @@ properties:
     type: string
   createdAt:
     type: string
+    format: time
+    readOnly: true
   updatedAt:
     type: string
+    format: time
+    readOnly: true
 required:
   - id
   - title

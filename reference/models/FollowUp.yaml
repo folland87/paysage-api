@@ -5,24 +5,30 @@ properties:
     type: string
   description:
     type: string
-  date:
+  eventDate:
     type: string
-  contacts:
+  contactId:
     type: array
     items:
-      $ref: ./Person.yaml
-  tags:
+      type: string
+  tagId:
     type: array
     items:
-      $ref: ./Tag.yaml
+      type: string
+  createdBy:
+    type: string
+    description: User id
   createdAt:
     type: string
-  createdBy:
-    $ref: ./User.yaml
+    format: time
+    readOnly: true
+  updatedBy:
+    type: string
+    description: User id
   updatedAt:
     type: string
-  updatedBy:
-    $ref: ./User.yaml
+    format: time
+    readOnly: true
 required:
   - id
   - description

@@ -52,16 +52,18 @@ properties:
       CC BY-NC-SA = Attribution Pas d'utilisation commerciale Partage dans les mêmes conditions
       CC BY-NC-ND = Attribution Pas d'utilisation commerciale Pas de modification
   createdBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./UserInfo.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - main

@@ -1,0 +1,14 @@
+title: Date
+type: object
+properties:
+  id:
+    type: string
+  day:
+    type: string
+  month:
+    type: string
+  year:
+    type: string
+required:
+  - id
+  - year

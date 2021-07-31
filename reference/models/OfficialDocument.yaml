@@ -29,37 +29,36 @@ properties:
   linkUrl:
     type: string
   signatureDate:
-    type: string
-    format: date
+    $ref: ./Date.yaml
   startDate:
-    type: string
-    format: date
+    $ref: ./Date.yaml
   endDate:
-    type: string
-    format: date
+    $ref: ./Date.yaml
   personId:
     type: array
-    items:
-      $ref: ./Person.yaml
+    description: Person id
+    items: string
   structureId:
     type: array
-    items:
-      $ref: ./Structure.yaml
+    description: Structure id
+    items: string
   textExtract:
     type: string
   comment:
     type: string
   createdBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   createdAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
   updatedBy:
-    $ref: ./User.yaml
+    type: string
+    description: User id
   updatedAt:
     type: string
-    format: date-time
+    format: time
     readOnly: true
 required:
   - id
