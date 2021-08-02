@@ -21,11 +21,9 @@ properties:
     type: string
     description: Id of the relative structure
   startDate:
-    type: string
-    format: date-time
+    $ref: ./Date.yaml
   endDate:
-    type: string
-    format: date-time
+    $ref: ./Date.yaml
   officialDocumentId:
     type: string
     writeOnly: true
