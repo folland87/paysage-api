@@ -53,7 +53,9 @@ properties:
   naming:
     $ref: ./StructureNaming.yaml
   tutorship:
-    $ref: ./StructureTutorship.yaml
+    type: array
+    items:
+      $ref: ./StructureTutorship.yaml
   visualIdentity:
     $ref: ./StructureVisualIdentity.yaml
   category:
