@@ -3,9 +3,35 @@ type: object
 properties:
   id:
     type: string
-  title:
+  rssFeedUrl:
+    type: string
+  organisationPageUrl:
+    type: string
+  governancePageUrl:
+    type: string
+  communicationServicePageUrl:
+    type: string
+  linkToOrganisationChartPageUrl:
+    type: string
+  activityReportPageUrl:
+    type: string
+  newsPageUrl:
+    type: string
+  onlineDirectoryPageURL:
+    type: string
+  educationOfferPageUrl:
+    type: string
+  departmentListPageUrl:
+    type: string
+  historyPageUrl:
+    type: string
+  photoLibraryPageUrl:
     type: string
   createdAt:
+    type: string
+    format: time
+    readOnly: true
+  createdBy:
     type: string
     format: time
     readOnly: true
@@ -13,7 +39,13 @@ properties:
     type: string
     format: time
     readOnly: true
+  updatedBy:
+    type: string
+    format: time
+    readOnly: true
 required:
   - id
-  - title
   - createdAt
+  - createdBy
+  - updatedAt
+  - updatedBy
