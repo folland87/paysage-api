@@ -1,0 +1,33 @@
+title: Tag
+type: object
+properties:
+  id:
+    type: string
+  rssFeedUrl:
+    type: string
+  organisationPageUrl:
+    type: string
+  governancePageUrl:
+    type: string
+  generalServicesPageUrl:
+    type: string
+  communicationServicePageUrl:
+    type: string
+  linkToOrganisationChartPageUrl:
+    type: string
+  activityReportPageUrl:
+    type: string
+  newsPageUrl:
+    type: string
+  onlineDirectoryPageUrl:
+    type: string
+  educationOfferPageUrl:
+    type: string
+  departmentListPageUrl:
+    type: string
+  historyPageURL:
+    type: string
+  photoLibraryPageURL:
+    type: string
+required:
+  - id
