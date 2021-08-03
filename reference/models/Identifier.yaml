@@ -59,4 +59,4 @@ properties:
 required:
   - createdBy
   - createdAt
-description: 'Identifiant comme WikiData, IdRef, ...'
+description: 'Identifiant WikiData, IdRef...'

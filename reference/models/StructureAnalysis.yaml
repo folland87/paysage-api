@@ -1,4 +1,4 @@
-title: Tag
+title: Structure Analysis
 type: object
 properties:
   id:
@@ -32,3 +32,4 @@ required:
   - date
   - createdAt
   - createdBy
+description: Analyse faite par les agents ministériels sur une structure donnée

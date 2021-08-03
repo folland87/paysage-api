@@ -1,6 +1,6 @@
 title: Structure Internation Ranking
 type: object
-description: ''
+description: Classement international d'une structure
 properties:
   id:
     type: string

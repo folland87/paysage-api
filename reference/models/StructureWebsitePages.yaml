@@ -1,4 +1,4 @@
-title: Tag
+title: Structure Websites Pages
 type: object
 properties:
   id:
@@ -49,3 +49,4 @@ required:
   - createdBy
   - updatedAt
   - updatedBy
+description: Pages internes du site web d'une structure

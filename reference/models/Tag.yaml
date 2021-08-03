@@ -17,3 +17,4 @@ required:
   - id
   - title
   - createdAt
+description: Tag

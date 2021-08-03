@@ -59,3 +59,4 @@ properties:
   comment:
     type: string
     description: Structure id
+description: Tutelle d'une structure

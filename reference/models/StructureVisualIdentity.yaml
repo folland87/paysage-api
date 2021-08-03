@@ -1,6 +1,6 @@
 title: Structure Visual Identity
 type: object
-description: ''
+description: Identité visuelle d'un structure
 properties:
   id:
     type: string

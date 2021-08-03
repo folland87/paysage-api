@@ -1,4 +1,4 @@
-title: SocialMedia
+title: Social Media
 type: object
 properties:
   id:
@@ -46,3 +46,4 @@ required:
   - id
   - createdBy
   - createdAt
+description: 'Compte social comme twitter, facebook...'

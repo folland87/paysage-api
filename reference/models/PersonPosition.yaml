@@ -1,4 +1,4 @@
-title: PersonPosition
+title: Person Position
 type: object
 description: Fonction occupée par une personne en lien avec un objet de type position
 properties:

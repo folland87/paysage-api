@@ -12,3 +12,4 @@ properties:
 required:
   - id
   - type
+description: Genre d'un personne physique

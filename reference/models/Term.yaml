@@ -1,4 +1,4 @@
-title: Category
+title: Term
 type: object
 properties:
   id:
@@ -75,3 +75,4 @@ required:
   - usualNameFr
   - createdBy
   - createdAt
+description: Term

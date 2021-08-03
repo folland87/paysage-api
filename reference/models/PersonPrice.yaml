@@ -1,4 +1,4 @@
-title: PersonPrice
+title: Person Price
 type: object
 description: 'Prix reçu par une personne, toujours en relation avec une ou plusieurs structures'
 properties:
