@@ -24,25 +24,27 @@ properties:
     $ref: ./Date.yaml
   officialWebsite:
     $ref: ./Link.yaml
-  localisationIds:
+  localisations:
     type: array
     description: Localisation id
     items:
-      type: string
+      $ref: ./Localisation.yaml
   webVisibility:
     type: array
     items:
       $ref: ./Link.yaml
-  grantStructureId:
-    type: string
+  grantStructures:
     description: Structure id
+    type: array
+    items:
+      $ref: ./Structure.yaml
   contact:
     $ref: ./Contact.yaml
-  structureIds:
+  structures:
     type: array
     description: Structure id
     items:
-      type: string
+      $ref: ./Structure.yaml
   grantPart:
     type: string
   internalDocumentIds:
@@ -51,7 +53,9 @@ properties:
     items:
       type: string
   followUp:
-    $ref: ./FollowUp.yaml
+    type: array
+    items:
+      $ref: ./FollowUp.yaml
   newsCast:
     type: array
     items:

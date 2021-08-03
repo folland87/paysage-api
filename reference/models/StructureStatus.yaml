@@ -5,28 +5,40 @@ properties:
     type: string
     description: Unique identifier.
     readOnly: true
-  relationType:
+  nature:
     type: string
     minLength: 1
-    enum:
-      - child
-      - predecessor
-      - participates
     description: Relation type.
-  relativeOf:
+    enum:
+      - Ouverture
+      - Fermeture
+  type:
     type: string
+    minLength: 1
+    description: Relation type.
+    enum:
+      - Création
+      - Succession
+      - Essaimage
+      - Scission
+      - Fusion
+      - Scission Fusion
+      - Substitution
+      - Autre
+      - Dissolution
+      - Liquidation
+  structuresRelatedToType:
     description: Id of the structure.
+    type: array
+    items:
+      $ref: ./Structure.yaml
     readOnly: true
-  relativeId:
-    type: string
-    description: Id of the relative structure
   startDate:
     $ref: ./Date.yaml
   endDate:
     $ref: ./Date.yaml
   officialDocumentId:
-    type: string
-    writeOnly: true
+    $ref: ./OfficialDocument.yaml
   createdBy:
     type: string
     description: User id
@@ -43,8 +55,8 @@ properties:
     readOnly: true
 required:
   - id
-  - relationType
-  - relativeOf
-  - relativeId
+  - nature
+  - type
+  - structuresRelatedToType
   - createdBy
   - createdAt

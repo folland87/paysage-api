@@ -15,7 +15,7 @@ properties:
     type: array
     description: Identifier id
     items:
-      type: string
+      $ref: ./Identifier.yaml
   descriptionFr:
     type: string
   descriptionEng:
@@ -24,12 +24,10 @@ properties:
     $ref: ./Date.yaml
   endDate:
     $ref: ./Date.yaml
-  relatedToSuccession:
-    type: string
-    description: Structure id
-  relatedToCreation:
-    type: string
-    description: Structure id
+  relativesStructures:
+    type: array
+    items:
+      $ref: ./StructureRelatives.yaml
   historicalCreation:
     $ref: ./Date.yaml
   officialDocumentId:

@@ -59,12 +59,12 @@ properties:
   nameEn:
     type: string
   officialDocumentId:
-    type: string
+    $ref: ./OfficialDocument.yaml
   identifierIds:
     type: array
     description: identifier id
     items:
-      type: string
+      $ref: ./Identifier.yaml
   webVisibility:
     type: array
     items:

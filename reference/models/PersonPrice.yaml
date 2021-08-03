@@ -1,20 +1,17 @@
 title: Person Price
 type: object
+description: ''
 properties:
   id:
     type: string
     readOnly: true
   priceId:
-    type: string
-    description: Price id
+    $ref: ./Price.yaml
   structureIds:
     type: array
     description: Structure id
     items:
-      type: string
-  personId:
-    type: string
-    description: Person id
+      $ref: ./Structure.yaml
   date:
     $ref: ./Date.yaml
   createdBy:

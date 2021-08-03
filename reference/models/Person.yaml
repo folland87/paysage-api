@@ -29,6 +29,11 @@ properties:
     description: PersonPosition id
     items:
       $ref: ./PersonPosition.yaml
+  personPrices:
+    type: array
+    description: PersonPosition id
+    items:
+      $ref: ./PersonPrice.yaml
   activity:
     type: string
   personPriceIds:
