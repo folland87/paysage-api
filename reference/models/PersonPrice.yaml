@@ -1,6 +1,6 @@
-title: Person Price
+title: PersonPrice
 type: object
-description: ''
+description: 'Prix reçu par une personne, toujours en relation avec une ou plusieurs structures'
 properties:
   id:
     type: string

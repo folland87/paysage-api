@@ -1,6 +1,6 @@
-title: Projet
+title: Project
 type: object
-description: ''
+description: 'Projet, en relation avec une ou plusieurs structures'
 properties:
   id:
     type: string

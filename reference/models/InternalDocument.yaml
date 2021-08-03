@@ -26,3 +26,4 @@ required:
   - id
   - name
   - createdAt
+description: 'Document interne pdf, .doc...'

@@ -1,4 +1,4 @@
-title: Tag
+title: RelatedElement
 type: object
 properties:
   id:
@@ -52,3 +52,4 @@ required:
   - endOfficialDocument
   - endDate
   - createdAt
+description: Éléments liés

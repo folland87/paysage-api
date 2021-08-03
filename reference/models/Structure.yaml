@@ -41,7 +41,7 @@ properties:
   relatedElements:
     type: array
     items:
-      $ref: ./RelatedElements.yaml
+      $ref: ./RelatedElement.yaml
   visualIdentityElements:
     type: array
     items:

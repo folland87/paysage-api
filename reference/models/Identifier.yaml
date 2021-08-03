@@ -1,4 +1,4 @@
-title: Identifiers
+title: Identifier
 type: object
 properties:
   id:
@@ -59,3 +59,4 @@ properties:
 required:
   - createdBy
   - createdAt
+description: 'Identifiant comme WikiData, IdRef, ...'

@@ -1,6 +1,6 @@
-title: PersonsPosition
+title: PersonPosition
 type: object
-description: ''
+description: Fonction occupée par une personne en lien avec un objet de type position
 properties:
   id:
     type: string

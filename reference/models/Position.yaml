@@ -95,3 +95,4 @@ properties:
       type: string
 required:
   - longNameFr
+description: 'Fonction comme vice-présidente, agent comptable...'

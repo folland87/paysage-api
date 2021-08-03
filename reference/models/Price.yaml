@@ -1,5 +1,6 @@
 title: Price
 type: object
+description: Prix ou distinction comme le prix Joliot-Curie
 properties:
   nameFr:
     type: string
@@ -12,7 +13,7 @@ properties:
   relatedElements:
     type: array
     items:
-      $ref: ./RelatedElements.yaml
+      $ref: ./RelatedElement.yaml
   createdBy:
     type: string
     description: User id

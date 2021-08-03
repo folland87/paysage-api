@@ -1,4 +1,4 @@
-title: Websites
+title: Link
 type: object
 properties:
   id:
@@ -80,3 +80,4 @@ required:
   - id
   - createdBy
   - createdAt
+description: Lien internet
