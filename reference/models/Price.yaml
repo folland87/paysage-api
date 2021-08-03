@@ -9,6 +9,10 @@ properties:
     type: string
   descriptionEn:
     type: string
+  relatedElements:
+    type: array
+    items:
+      $ref: ./RelatedElements.yaml
   createdBy:
     type: string
     description: User id

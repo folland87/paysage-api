@@ -25,7 +25,7 @@ properties:
   structureStatus:
     type: array
     items:
-      $ref: ./StructureStatus.yaml
+      $ref: ./RelatedElements.yaml
   legalPersonalities:
     type: array
     items:
@@ -38,10 +38,22 @@ properties:
     type: array
     items:
       $ref: ./Category.yaml
+  relatedElements:
+    type: array
+    items:
+      $ref: ./RelatedElements.yaml
   visualIdentityElements:
     type: array
     items:
       $ref: ./StructureVisualIdentity.yaml
+  analysis:
+    type: array
+    items:
+      $ref: ./StructureAnalysis.yaml
+  documents:
+    type: array
+    items:
+      $ref: ./InternalDocument.yaml
   followUps:
     type: array
     items:

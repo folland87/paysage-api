@@ -62,6 +62,11 @@ properties:
     description: Identifier id
     items:
       type: string
+  relatedElements:
+    type: array
+    description: Identifier id
+    items:
+      $ref: ./RelatedElements.yaml
   webVisibility:
     type: array
     items:

@@ -48,20 +48,14 @@ properties:
     type: array
     items:
       type: string
+  relatedElements:
+    type: array
+    items:
+      $ref: ./RelatedElements.yaml
   webVisibility:
     type: array
     items:
       $ref: ./Link.yaml
-  parentTermId:
-    type: array
-    description: Term id
-    items:
-      type: string
-  childrenTermId:
-    type: array
-    description: Term id
-    items:
-      type: string
   createdBy:
     type: string
     description: User id

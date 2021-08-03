@@ -1,28 +1,34 @@
-title: InternalDocument
+title: Tag
 type: object
 properties:
   id:
     type: string
-  name:
-    type: string
-  title:
+  text:
     type: string
   fileURL:
     type: string
-  description:
-    type: string
+  date:
+    $ref: ./Date.yaml
   createdAt:
+    type: string
+    format: time
+    readOnly: true
+  createdBy:
+    type: string
+    format: time
+    readOnly: true
+  updatedAt:
     type: string
     format: time
     readOnly: true
   updatedBy:
     type: string
-    description: User id
-  updatedAt:
-    type: string
     format: time
     readOnly: true
 required:
   - id
-  - name
+  - text
+  - fileURL
+  - date
   - createdAt
+  - createdBy

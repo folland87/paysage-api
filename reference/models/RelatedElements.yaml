@@ -1,0 +1,54 @@
+title: Tag
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  type:
+    type: string
+    enum:
+      - Personnes
+      - Structures
+      - Catégories
+      - Prix
+      - Termes
+  relationtype:
+    $ref: ./Position.yaml
+  ids:
+    enum:
+      - Personnes
+      - Structures
+      - Catégories
+      - Prix
+      - Termes
+    type: array
+    items:
+      type: string
+  startDate:
+    $ref: ./Date.yaml
+  startOfficialDocument:
+    $ref: ./OfficialDocument.yaml
+  endOfficialDocument:
+    $ref: ./OfficialDocument.yaml
+  endDate:
+    $ref: ./Date.yaml
+  createdAt:
+    type: string
+    format: time
+    readOnly: true
+  updatedAt:
+    type: string
+    format: time
+    readOnly: true
+required:
+  - id
+  - title
+  - type
+  - relationtype
+  - ids
+  - startDate
+  - startOfficialDocument
+  - endOfficialDocument
+  - endDate
+  - createdAt
