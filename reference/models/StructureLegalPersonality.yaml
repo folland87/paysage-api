@@ -5,6 +5,12 @@ properties:
     type: string
   name:
     type: string
+  parentStructure:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Structure.yaml
   officialDocumentId:
     type: string
   startDate:

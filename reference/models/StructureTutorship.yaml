@@ -3,15 +3,59 @@ type: object
 properties:
   id:
     type: string
-  structureId:
+  tutorship:
+    type: array
+    description: Structure id
+    items:
+      $ref: ./Category.yaml
+  administrativeAndFinancialTutorshipType:
     type: string
     description: Structure id
-  officialDocumentId:
+    enum:
+      - Tutelle administrative et budgétaire du recteur de région académique
+      - Tutelle administrative et financière du recteur de région académique
+      - Tutelle administrative et budgétaire du ministre chargé de l'enseignement supérieur
+      - Tutelle administrative du ministre chargé de l'enseignement supérieur et budgétaire du recteur de région académique
+      - Gestion administrative et financière par le Commissariat à l'énergie atomique
+      - Tutelle du représentant de l'État
+      - Autre
+      - Sans réponse
+  startNature:
     type: string
-    description: OfficialDocument id
+    description: Structure id
+    enum:
+      - Publication JO/BO
+      - Règlement intérieur
+      - Adhésion
+      - Succession
+      - Convention
+      - Création
+      - Modification
+      - Inconnu
+      - Sans réponse
+  startOfficialDocumentId:
+    $ref: ./OfficialDocument.yaml
   startDate:
     $ref: ./Date.yaml
+  endNature:
+    type: string
+    description: Structure id
+    enum:
+      - Publication JO/BO
+      - Règlement intérieur
+      - Adhésion
+      - Succession
+      - Convention
+      - Modification
+      - Inconnu
+      - Sans réponse
+      - Liquidation
+  endOfficialDocumentId:
+    $ref: ./OfficialDocument.yaml
   endDate:
     $ref: ./Date.yaml
   previsionalEndDate:
     $ref: ./Date.yaml
+  comment:
+    type: string
+    description: Structure id

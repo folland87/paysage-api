@@ -16,48 +16,26 @@ properties:
     description: Identifier id
     items:
       $ref: ./Identifier.yaml
+  naming:
+    $ref: ./StructureNaming.yaml
   descriptionFr:
     type: string
   descriptionEng:
     type: string
-  startDate:
-    $ref: ./Date.yaml
-  endDate:
-    $ref: ./Date.yaml
-  relativesStructures:
+  structureStatus:
     type: array
     items:
-      $ref: ./StructureRelatives.yaml
-  historicalCreation:
-    $ref: ./Date.yaml
-  officialDocumentId:
-    type: string
-    description: OfficialDocument id
-  originatedFrom:
-    type: string
-    enum:
-      - Création
-      - Succession
-      - Essaimage
-      - Scission
-      - Fusion
-      - Scission fusion
-      - Substitution
-      - Autre
-  closureDate:
-    $ref: ./Date.yaml
-  comment:
-    type: string
-  naming:
-    $ref: ./StructureNaming.yaml
-  tutorship:
-    type: array
-    items:
-      $ref: ./StructureTutorship.yaml
+      $ref: ./StructureStatus.yaml
   legalPersonality:
     type: array
     items:
       $ref: ./StructureLegalPersonality.yaml
+  tutorship:
+    type: array
+    items:
+      $ref: ./StructureTutorship.yaml
+  comment:
+    type: string
   visualIdentity:
     $ref: ./StructureVisualIdentity.yaml
   categoryIds:
@@ -70,11 +48,6 @@ properties:
     type: array
     items:
       $ref: ./StructureInternationalRanking.yaml
-  relatedLegalPersonalityIds:
-    type: array
-    description: Legal Personality id
-    items:
-      type: string
   personPriceIds:
     type: array
     description: PersonPrice id
@@ -97,8 +70,8 @@ properties:
 required:
   - id
   - naming
-  - tutorship
   - legalPersonality
+  - tutorship
   - visualIdentity
   - createdBy
   - createdAt
