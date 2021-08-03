@@ -77,6 +77,10 @@ properties:
     type: array
     items:
       $ref: ./StructureInternationalRanking.yaml
+  newsCast:
+    type: array
+    items:
+      $ref: ./PressRelease.yaml
   createdBy:
     type: string
     description: User id
