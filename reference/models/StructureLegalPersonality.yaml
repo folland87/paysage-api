@@ -5,8 +5,6 @@ properties:
     type: string
   name:
     type: string
-  structureId:
-    type: string
   officialDocumentId:
     type: string
   startDate:
@@ -17,5 +15,4 @@ properties:
     $ref: ./Date.yaml
 required:
   - id
-  - structureId
   - startDate

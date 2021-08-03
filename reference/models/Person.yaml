@@ -24,11 +24,11 @@ properties:
     $ref: ./Date.yaml
   deathDate:
     $ref: ./Date.yaml
-  personPositionIds:
+  personPositions:
     type: array
     description: PersonPosition id
     items:
-      type: string
+      $ref: ./PersonPosition.yaml
   activity:
     type: string
   personPriceIds:

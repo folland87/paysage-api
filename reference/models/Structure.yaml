@@ -56,12 +56,22 @@ properties:
     type: array
     items:
       $ref: ./StructureTutorship.yaml
+  legalPersonality:
+    type: array
+    items:
+      $ref: ./StructureLegalPersonality.yaml
   visualIdentity:
     $ref: ./StructureVisualIdentity.yaml
-  category:
-    $ref: ./Category.yaml
+  categoryIds:
+    type: array
+    items:
+      $ref: ./Category.yaml
+  legalCategoryId:
+    type: string
   internationalRanking:
-    $ref: ./StructureInternationalRanking.yaml
+    type: array
+    items:
+      $ref: ./StructureInternationalRanking.yaml
   relatedLegalPersonalityIds:
     type: array
     description: Legal Personality id
@@ -90,6 +100,7 @@ required:
   - id
   - naming
   - tutorship
+  - legalPersonality
   - visualIdentity
   - createdBy
   - createdAt

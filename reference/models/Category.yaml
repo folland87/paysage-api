@@ -52,6 +52,9 @@ properties:
     type: string
     description: Description en français
     minLength: 1
+  legalCategory:
+    type: boolean
+    description: Description en français
   officialDocumentId:
     type: string
   identifierIds:

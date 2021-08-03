@@ -18,7 +18,7 @@ properties:
       - Avis de vacance d'emploi
       - Arrêté
       - Circulaire
-  identifier:
+  documentNumber:
     type: string
   title:
     type: string
@@ -41,12 +41,12 @@ properties:
     type: array
     description: Person id
     items:
-      type: string
+      $ref: ./Person.yaml
   structureIds:
     type: array
     description: Structutre id
     items:
-      type: string
+      $ref: ./Structure.yaml
   textExtract:
     type: string
   comment:

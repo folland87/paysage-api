@@ -6,7 +6,9 @@ properties:
     type: string
     readOnly: true
   structureId:
-    type: string
+    $ref: ./Structure.yaml
+  positionId:
+    $ref: ./Position.yaml
   interim:
     type: boolean
   access:
@@ -24,11 +26,8 @@ properties:
     type: string
   genericEmail:
     type: string
-  positionId:
-    type: string
   officielDocumentId:
-    type: string
-    description: Official document id
+    $ref: ./OfficialDocument.yaml
   startDate:
     $ref: ./Date.yaml
   endDate:
