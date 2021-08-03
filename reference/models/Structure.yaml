@@ -26,36 +26,50 @@ properties:
     type: array
     items:
       $ref: ./StructureStatus.yaml
-  legalPersonality:
+  legalPersonalities:
     type: array
     items:
       $ref: ./StructureLegalPersonality.yaml
-  tutorship:
+  tutorships:
     type: array
     items:
       $ref: ./StructureTutorship.yaml
-  comment:
-    type: string
-  visualIdentity:
-    $ref: ./StructureVisualIdentity.yaml
-  categoryIds:
+  categories:
     type: array
     items:
       $ref: ./Category.yaml
-  legalCategoryId:
-    type: string
-  internationalRanking:
+  visualIdentityElements:
     type: array
     items:
-      $ref: ./StructureInternationalRanking.yaml
+      $ref: ./StructureVisualIdentity.yaml
+  followUps:
+    type: array
+    items:
+      $ref: ./FollowUp.yaml
   personPriceIds:
     type: array
     description: PersonPrice id
     items:
       type: string
+  webVisibility:
+    type: array
+    items:
+      $ref: ./Link.yaml
+  websitePages:
+    $ref: ./StructureWebsitePages.yaml
+  socialMedia:
+    type: array
+    items:
+      $ref: ./SocialMedia.yaml
+  internationalRanking:
+    type: array
+    items:
+      $ref: ./StructureInternationalRanking.yaml
   createdBy:
     type: string
     description: User id
+  comment:
+    type: string
   updatedBy:
     type: string
     description: User id
@@ -70,8 +84,9 @@ properties:
 required:
   - id
   - naming
-  - legalPersonality
-  - tutorship
-  - visualIdentity
+  - legalPersonalities
+  - tutorships
+  - visualIdentityElements
+  - followUps
   - createdBy
   - createdAt

@@ -1,12 +1,67 @@
-title: Link
+title: Websites
 type: object
 properties:
   id:
     type: string
-  url:
-    type: string
+    readOnly: true
   name:
     type: string
+    enum:
+      - Portail HAL
+      - Plateforme Open data
+      - Compte FUN
+      - Canal-U
+      - Annuaire service public
+      - Le Monde
+      - Onisep.fr
+      - data.gouv.fr
+      - ScanR
+      - doctorat.campusfrance.org
+      - Editeur chez openedition
+      - Revues chez openedition
+      - Carnets Hypothèses openedition
+      - Biographie educpros
+      - The Conversation
+      - Talents CNRS
+      - Page membre IUF
+      - jorfsearch
+  type:
+    type:
+      - string
+      - 'null'
+    enum:
+      - Portail HAL
+      - Plateforme Open data
+      - Compte FUN
+      - Canal-U
+      - Annuaire service public
+      - Le Monde
+      - Onisep.fr
+      - data.gouv.fr
+      - ScanR
+      - doctorat.campusfrance.org
+      - Editeur chez openedition
+      - Revues chez openedition
+      - Carnets Hypothèses openedition
+      - Biographie educpros
+      - The Conversation
+      - Talents CNRS
+      - Page membre IUF
+      - jorfsearch
+  url:
+    type: string
+  language:
+    type:
+      - string
+      - 'null'
+    enum:
+      - français
+      - anglais
+      - chinois
+      - espagnol
+      - allemand
+      - italien
+      - portugais
   createdBy:
     type: string
     description: User id
@@ -23,6 +78,5 @@ properties:
     readOnly: true
 required:
   - id
-  - url
-  - createdAt
   - createdBy
+  - createdAt

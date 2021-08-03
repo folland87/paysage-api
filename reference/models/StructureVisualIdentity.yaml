@@ -10,22 +10,27 @@ properties:
     type: boolean
     description: True for the current logo.
     default: 'False'
+  type:
+    type: string
+    description: True for the current logo.
+    default: 'False'
+    enum:
+      - Motto
+      - Logo
+      - Photo
   startDate:
     $ref: ./Date.yaml
   endDate:
     $ref: ./Date.yaml
-  motto:
+  imageURL:
     type: string
-    description: ''
-  comment:
+  svgURL:
     type: string
-  photoURL:
+  legend:
     type: string
-  photoLegend:
+  credits:
     type: string
-  photoCredits:
-    type: string
-  photoLicense:
+  license:
     type: string
     enum:
       - CC BY
@@ -41,6 +46,8 @@ properties:
       CC BY-NC = Attribution Pas d'utilisation commerciale
       CC BY-NC-SA = Attribution Pas d'utilisation commerciale Partage dans les mêmes conditions
       CC BY-NC-ND = Attribution Pas d'utilisation commerciale Pas de modification
+  comment:
+    type: string
   createdBy:
     type: string
     description: User id
@@ -57,5 +64,6 @@ properties:
     readOnly: true
 required:
   - main
+  - type
   - createdBy
   - createdAt

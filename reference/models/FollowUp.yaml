@@ -3,7 +3,11 @@ type: object
 properties:
   id:
     type: string
+  title:
+    type: string
   description:
+    type: string
+  fileURL:
     type: string
   eventDate:
     type: string
@@ -11,12 +15,12 @@ properties:
     type: array
     description: Contact id
     items:
-      type: string
+      $ref: ./Contact.yaml
   tagIds:
     type: array
     description: Tag id
     items:
-      type: string
+      $ref: ./Tag.yaml
   createdBy:
     type: string
     description: User id
@@ -33,7 +37,9 @@ properties:
     readOnly: true
 required:
   - id
+  - title
   - description
+  - fileURL
   - eventDate
   - contactIds
   - createdBy
