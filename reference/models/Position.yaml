@@ -1,5 +1,6 @@
 title: Position
 type: object
+description: 'Fonction comme vice-présidente, agent comptable...'
 properties:
   id:
     type: string
@@ -69,12 +70,7 @@ properties:
     type: array
     items:
       $ref: ./Link.yaml
-  parentPositionIds:
-    type: array
-    description: Position id
-    items:
-      type: string
-  childrenPositionIds:
+  relatedElements:
     type: array
     description: Position id
     createdBy:
@@ -92,7 +88,6 @@ properties:
       format: time
       readOnly: true
     items:
-      type: string
+      $ref: ./RelatedElement.yaml
 required:
   - longNameFr
-description: 'Fonction comme vice-présidente, agent comptable...'
