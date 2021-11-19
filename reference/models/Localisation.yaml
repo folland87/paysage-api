@@ -1,5 +1,31 @@
 title: Localisation
 type: object
+examples:
+  - id: string
+    cityFrId: string
+    inseeId: string
+    cityForeignId: string
+    distributionStatement: string
+    address: string
+    postbox: string
+    zipcode: string
+    city: string
+    lat: string
+    ln: string
+    startDate:
+      id: string
+      day: string
+      month: string
+      year: string
+    endDate:
+      id: string
+      day: string
+      month: string
+      year: string
+    createdBy: string
+    createdAt: '14:15:22Z'
+    updatedBy: string
+    updatedAt: '14:15:22Z'
 properties:
   id:
     type: string
@@ -41,9 +67,11 @@ properties:
     type: string
     format: time
     readOnly: true
+  country:
+    type: string
 required:
   - id
   - lat
   - ln
-  - createdAt
   - createdBy
+  - createdAt
