@@ -1,15 +1,16 @@
 title: Person
 type: object
+description: Personne physique
 properties:
   id:
     type: string
     readOnly: true
-  identifierIds:
+  identifiers:
     type: array
     example: Q33112360
     description: Identifier
     items:
-      type: string
+      $ref: ./Identifier.yaml
   firstName:
     type: string
   lastName:
@@ -73,4 +74,3 @@ required:
   - id
   - createdBy
   - createdAt
-description: Personne physique
