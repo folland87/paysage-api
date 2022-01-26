@@ -188,12 +188,14 @@ components:
       required:
         - password
         - account
+      x-internal: true
     signResponse:
       type: object
       properties:
         token:
           type: string
           description: User token to use for subsequent requests
+      x-internal: true
     signupPayload:
       title: signupPayload
       type: object
@@ -212,6 +214,7 @@ components:
         - username
         - email
         - password
+      x-internal: true
   responses:
     Error:
       description: Example response
